@@ -1,0 +1,198 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, type FormEvent } from "react";
+import { Check, Send, Mail } from "lucide-react";
+
+export function Contact() {
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const submit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
+    setLoading(true);
+    // Open user's email client with prefilled content
+    const subject = encodeURIComponent(`New message from ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+    window.location.href = `mailto:hello@jacopo.dev?subject=${subject}&body=${body}`;
+    setTimeout(() => {
+      setLoading(false);
+      setSent(true);
+    }, 600);
+  };
+
+  return (
+    <section id="contact" className="relative px-6 py-32">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, oklch(0.5 0.25 280 / 30%), transparent 60%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center"
+        >
+          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
+            Contact
+          </div>
+          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+            <span className="text-gradient">Get in </span>
+            <span className="text-gradient-brand italic">touch.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-muted-foreground">
+            Have a project, an idea, or simply want to connect? Feel free to reach out.
+          </p>
+        </motion.div>
+
+        <motion.form
+          onSubmit={submit}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="glass-strong relative mt-12 overflow-hidden rounded-[32px] p-6 sm:p-10"
+        >
+          <div
+            className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-40 blur-3xl"
+            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 280 / 60%), transparent 70%)" }}
+          />
+
+          <AnimatePresence mode="wait">
+            {!sent ? (
+              <motion.div
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative space-y-5"
+              >
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <Field
+                    label="Name"
+                    value={form.name}
+                    onChange={(v) => setForm((f) => ({ ...f, name: v }))}
+                    placeholder="Your name"
+                    maxLength={100}
+                  />
+                  <Field
+                    label="Email"
+                    type="email"
+                    value={form.email}
+                    onChange={(v) => setForm((f) => ({ ...f, email: v }))}
+                    placeholder="you@example.com"
+                    maxLength={255}
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                    Message
+                  </label>
+                  <textarea
+                    required
+                    rows={5}
+                    maxLength={2000}
+                    value={form.message}
+                    onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                    placeholder="Tell me about your project..."
+                    className="glass w-full resize-none rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.01] disabled:opacity-60 sm:w-auto"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                  <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative flex flex-col items-center py-8 text-center"
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  className="glass-strong flex h-16 w-16 items-center justify-center rounded-full"
+                  style={{ boxShadow: "0 0 60px oklch(0.7 0.22 280 / 50%)" }}
+                >
+                  <Check size={28} className="text-glow-2" />
+                </motion.div>
+                <h3 className="mt-6 font-display text-2xl">Message ready to send</h3>
+                <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+                  Your email client should have opened. If not, reach me directly at{" "}
+                  <a href="mailto:hello@jacopo.dev" className="text-foreground underline-offset-4 hover:underline">
+                    hello@jacopo.dev
+                  </a>
+                </p>
+                <button
+                  onClick={() => {
+                    setSent(false);
+                    setForm({ name: "", email: "", message: "" });
+                  }}
+                  className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
+                >
+                  Send another
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.form>
+
+        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <Mail size={12} />
+          <a href="mailto:hello@jacopo.dev" className="hover:text-foreground">
+            hello@jacopo.dev
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Field({
+  label,
+  value,
+  onChange,
+  placeholder,
+  type = "text",
+  maxLength,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  type?: string;
+  maxLength?: number;
+}) {
+  return (
+    <div>
+      <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
+        {label}
+      </label>
+      <input
+        required
+        type={type}
+        value={value}
+        maxLength={maxLength}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="glass w-full rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
+      />
+    </div>
+  );
+}
