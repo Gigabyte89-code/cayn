@@ -1,0 +1,99 @@
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+const NAV_ITEMS = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "ICDL", href: "#icdl" },
+  { label: "Finance App", href: "#finance" },
+  { label: "Contact", href: "#contact" },
+];
+
+export function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <motion.header
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed left-0 right-0 top-0 z-50 flex justify-center px-4 pt-4"
+    >
+      <nav
+        className={`glass-strong flex w-full max-w-5xl items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
+          scrolled ? "shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]" : ""
+        }`}
+      >
+        <a
+          href="#home"
+          className="font-display text-xl tracking-tight text-foreground"
+        >
+          JACOPO<span className="text-gradient-brand">.</span>
+        </a>
+
+        <ul className="hidden items-center gap-1 md:flex">
+          {NAV_ITEMS.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="#contact"
+          className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-block"
+        >
+          Let's talk
+        </a>
+
+        <button
+          aria-label="Toggle menu"
+          onClick={() => setOpen((v) => !v)}
+          className="rounded-full p-2 text-foreground md:hidden"
+        >
+          {open ? <X size={18} /> : <Menu size={18} />}
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="glass-strong absolute left-4 right-4 top-20 rounded-3xl p-4 md:hidden"
+          >
+            <ul className="flex flex-col gap-1">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-2xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
+}
