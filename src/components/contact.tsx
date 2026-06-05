@@ -7,19 +7,34 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const submit = (e: FormEvent) => {
+  const [error, setError] = useState<string | null>(null);
+
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
     setLoading(true);
-    // Open user's email client with prefilled content
-    const subject = encodeURIComponent(`New message from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:jacopo.dev0@gmail.com?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setLoading(false);
+    setError(null);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/jacopo.dev0@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `New message from ${form.name}`,
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       setSent(true);
-    }, 600);
+    } catch {
+      setError("Something went wrong. Please email me directly at jacopo.dev0@gmail.com.");
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return (
     <section id="contact" className="relative px-6 py-32">
@@ -114,7 +129,11 @@ export function Contact() {
                   {loading ? "Sending..." : "Send Message"}
                   <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
                 </button>
+                {error && (
+                  <p className="text-xs text-destructive">{error}</p>
+                )}
               </motion.div>
+
             ) : (
               <motion.div
                 key="success"
@@ -132,9 +151,9 @@ export function Contact() {
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
-                <h3 className="mt-6 font-display text-2xl">Message ready to send</h3>
+                <h3 className="mt-6 font-display text-2xl">Message sent</h3>
                 <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  Your email client should have opened. If not, reach me directly at{" "}
+                  Thanks for reaching out — I'll get back to you soon at{" "}
                   <a href="mailto:jacopo.dev0@gmail.com" className="text-foreground underline-offset-4 hover:underline">
                     jacopo.dev0@gmail.com
                   </a>

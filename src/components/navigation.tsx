@@ -22,6 +22,20 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    setOpen(false);
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = 90;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+    history.replaceState(null, "", href);
+  };
+
+
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
@@ -36,6 +50,7 @@ export function Navigation() {
       >
         <a
           href="#home"
+          onClick={(e) => handleNavClick(e, "#home")}
           className="font-display text-xl tracking-tight text-foreground"
         >
           CAYN<span className="text-gradient-brand">.</span>
@@ -46,6 +61,7 @@ export function Navigation() {
             <li key={item.href}>
               <a
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
@@ -56,6 +72,7 @@ export function Navigation() {
 
         <a
           href="#contact"
+          onClick={(e) => handleNavClick(e, "#contact")}
           className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-block"
         >
           Let's talk
@@ -83,7 +100,7 @@ export function Navigation() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className="block rounded-2xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
                   >
                     {item.label}
