@@ -22,6 +22,20 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    setOpen(false);
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = 90;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+    history.replaceState(null, "", href);
+  };
+
+
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
