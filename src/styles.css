@@ -6,13 +6,17 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body, * {
-  cursor: url("/cursor.svg") 4 2, auto;
+/* Custom cursor — only on devices that have a real pointer (skip touch) */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: url("/cursor.svg") 4 2, auto;
+  }
+  a, button, [role="button"], input[type="submit"], label, summary, select {
+    cursor: url("/cursor.svg") 4 2, pointer;
+  }
 }
 
-a, button, [role="button"], input[type="submit"], label, summary, select {
-  cursor: url("/cursor.svg") 4 2, pointer;
-}
+
 
 
 @custom-variant dark (&:is(.dark *));
