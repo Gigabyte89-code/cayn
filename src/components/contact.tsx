@@ -14,7 +14,7 @@ export function Contact() {
     // Open user's email client with prefilled content
     const subject = encodeURIComponent(`New message from ${form.name}`);
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:hello@jacopo.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jacopo.dev0@gmail.com?subject=${subject}&body=${body}`;
     setTimeout(() => {
       setLoading(false);
       setSent(true);
@@ -135,8 +135,8 @@ export function Contact() {
                 <h3 className="mt-6 font-display text-2xl">Message ready to send</h3>
                 <p className="mt-2 max-w-sm text-sm text-muted-foreground">
                   Your email client should have opened. If not, reach me directly at{" "}
-                  <a href="mailto:hello@jacopo.dev" className="text-foreground underline-offset-4 hover:underline">
-                    hello@jacopo.dev
+                  <a href="mailto:jacopo.dev0@gmail.com" className="text-foreground underline-offset-4 hover:underline">
+                    jacopo.dev0@gmail.com
                   </a>
                 </p>
                 <button
@@ -155,8 +155,8 @@ export function Contact() {
 
         <div className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
           <Mail size={12} />
-          <a href="mailto:hello@jacopo.dev" className="hover:text-foreground">
-            hello@jacopo.dev
+          <a href="mailto:jacopo.dev0@gmail.com" className="hover:text-foreground">
+            jacopo.dev0@gmail.com
           </a>
         </div>
       </div>
