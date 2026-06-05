@@ -33,7 +33,7 @@ export function About() {
           </p>
         </motion.div>
 
-        <div className="mt-20 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr]">
+        <div className="mt-20 grid grid-cols-1 gap-8">
           {/* Profile card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
