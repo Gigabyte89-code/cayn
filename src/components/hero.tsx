@@ -1,82 +1,9 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { GlassOrbs, GridOverlay } from "./ambient";
-import robotHead from "@/assets/robot-head-cutout.png";
+import { RobotHead3D } from "./robot-head-3d";
 
-function RobotHead() {
-  const ref = useRef<HTMLDivElement>(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const [reacting, setReacting] = useState(false);
-  const reactTimer = useRef<number | null>(null);
 
-  const rx = useSpring(useTransform(my, [-1, 1], [18, -18]), { stiffness: 90, damping: 18 });
-  const ry = useSpring(useTransform(mx, [-1, 1], [-22, 22]), { stiffness: 90, damping: 18 });
-  const tx = useSpring(useTransform(mx, [-1, 1], [-14, 14]), { stiffness: 80, damping: 20 });
-  const ty = useSpring(useTransform(my, [-1, 1], [-10, 10]), { stiffness: 80, damping: 20 });
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      if (!ref.current) return;
-      const r = ref.current.getBoundingClientRect();
-      const x = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-      const y = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-      mx.set(Math.max(-1.4, Math.min(1.4, x)));
-      my.set(Math.max(-1.4, Math.min(1.4, y)));
-
-      // React (subtle scale pulse) on quick movements near the head
-      const dist = Math.hypot(x, y);
-      if (dist < 1.6) {
-        setReacting(true);
-        if (reactTimer.current) window.clearTimeout(reactTimer.current);
-        reactTimer.current = window.setTimeout(() => setReacting(false), 320);
-      }
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      if (reactTimer.current) window.clearTimeout(reactTimer.current);
-    };
-  }, [mx, my]);
-
-  return (
-    <div className="relative mx-auto flex h-[300px] w-[300px] items-center justify-center sm:h-[380px] sm:w-[380px] lg:h-[480px] lg:w-[480px]">
-      {/* Ambient glow */}
-      <div
-        className="absolute inset-0 rounded-full opacity-70 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, oklch(0.6 0.22 260 / 55%), oklch(0.4 0.2 280 / 25%) 50%, transparent 75%)",
-        }}
-      />
-
-      <motion.div
-        ref={ref}
-        style={{
-          rotateX: rx,
-          rotateY: ry,
-          x: tx,
-          y: ty,
-          transformStyle: "preserve-3d",
-        }}
-        animate={{ scale: reacting ? 1.04 : 1 }}
-        transition={{ type: "spring", stiffness: 200, damping: 14 }}
-        className="relative h-full w-full"
-      >
-        <motion.img
-          src={robotHead}
-          alt="Animated chrome robot head"
-          draggable={false}
-          animate={{ y: [0, -14, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="pointer-events-none h-full w-full select-none object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
-          style={{ filter: "drop-shadow(0 30px 60px oklch(0.5 0.3 280 / 35%))" }}
-        />
-      </motion.div>
-    </div>
-  );
-}
 
 export function Hero() {
   return (
@@ -165,7 +92,7 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{ perspective: 1200 }}
         >
-          <RobotHead />
+          <RobotHead3D />
         </motion.div>
       </div>
     </section>
