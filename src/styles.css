@@ -6,6 +6,14 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body, * {
+  cursor: url("/cursor.svg") 4 2, auto;
+}
+
+a, button, [role="button"], input[type="submit"], label, summary, select {
+  cursor: url("/cursor.svg") 4 2, pointer;
+}
+
 
 @custom-variant dark (&:is(.dark *));
 
