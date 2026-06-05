@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "ICDL", href: "#icdl" },
-  { label: "Finance App", href: "#finance" },
+  { label: "Cashow", href: "#finance" },
   { label: "Contact", href: "#contact" },
 ];
 

@@ -19,7 +19,7 @@ export function Footer() {
           <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
             <div>
               <div className="font-display text-3xl">
-                JACOPO<span className="text-gradient-brand">.</span>
+                CAYN<span className="text-gradient-brand">.</span>
               </div>
               <p className="mt-3 max-w-sm text-sm text-muted-foreground">
                 Developer & Digital Creator — designing and building modern digital
@@ -36,7 +36,7 @@ export function Footer() {
                   ["Home", "#home"],
                   ["About", "#about"],
                   ["Services", "#services"],
-                  ["Finance App", "#finance"],
+                  ["Cashow", "#finance"],
                 ].map(([l, h]) => (
                   <li key={h}>
                     <a href={h} className="text-muted-foreground transition-colors hover:text-foreground">
@@ -73,7 +73,7 @@ export function Footer() {
           </div>
 
           <div className="relative mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-            <div>© {new Date().getFullYear()} Jacopo. All rights reserved.</div>
+            <div>© {new Date().getFullYear()} Cayn. All rights reserved.</div>
             <div>Crafted with care · Built in 2026</div>
           </div>
         </motion.div>
