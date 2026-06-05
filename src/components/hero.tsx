@@ -92,7 +92,7 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{ perspective: 1200 }}
         >
-          <RobotHead />
+          <RobotHead3D />
         </motion.div>
       </div>
     </section>
