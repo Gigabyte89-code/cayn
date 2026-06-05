@@ -8,6 +8,7 @@ import { FinanceApp } from "@/components/finance-app";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
+import { CursorFX } from "@/components/cursor-fx";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,6 +34,7 @@ function Index() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <NoiseOverlay />
+      <CursorFX />
       <Navigation />
       <main>
         <Hero />
