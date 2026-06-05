@@ -151,9 +151,9 @@ export function Contact() {
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
-                <h3 className="mt-6 font-display text-2xl">Message ready to send</h3>
+                <h3 className="mt-6 font-display text-2xl">Message sent</h3>
                 <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  Your email client should have opened. If not, reach me directly at{" "}
+                  Thanks for reaching out — I'll get back to you soon at{" "}
                   <a href="mailto:jacopo.dev0@gmail.com" className="text-foreground underline-offset-4 hover:underline">
                     jacopo.dev0@gmail.com
                   </a>
