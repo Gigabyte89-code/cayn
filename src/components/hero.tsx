@@ -150,11 +150,6 @@ export function Hero() {
             className="mt-14 flex items-center gap-8 text-xs text-muted-foreground"
           >
             <div>
-              <div className="font-display text-2xl text-foreground">15+</div>
-              <div className="mt-1">Projects shipped</div>
-            </div>
-            <div className="h-8 w-px bg-border" />
-            <div>
               <div className="font-display text-2xl text-foreground">ICDL</div>
               <div className="mt-1">Certified</div>
             </div>

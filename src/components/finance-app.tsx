@@ -44,7 +44,7 @@ function PhoneMockup() {
           <div className="flex items-center justify-between">
             <div>
               <div className="text-[10px] text-muted-foreground">Good morning</div>
-              <div className="font-display text-base text-foreground">Jacopo</div>
+              <div className="font-display text-base text-foreground">Cayn</div>
             </div>
             <div className="glass h-8 w-8 rounded-full" />
           </div>
@@ -168,13 +168,24 @@ export function FinanceApp() {
             Featured Project
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-7xl">
-            <span className="text-gradient">Finance </span>
-            <span className="text-gradient-brand italic">Management App.</span>
+            <span className="text-gradient">Meet </span>
+            <span className="text-gradient-brand italic">Cashow.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
             A personal finance app designed to help users track expenses, monitor
             spending habits, manage budgets, and build real financial awareness.
           </p>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="https://cashowjf.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+            >
+              Try now
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
         </motion.div>
 
         <div className="mt-20 grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.1fr_1fr]">

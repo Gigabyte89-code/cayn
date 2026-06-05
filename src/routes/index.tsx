@@ -12,17 +12,17 @@ import { NoiseOverlay } from "@/components/ambient";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jacopo — Developer & Digital Creator" },
+      { title: "Cayn — Developer & Digital Creator" },
       {
         name: "description",
         content:
-          "Jacopo is a young developer and digital creator building modern websites, applications and digital products focused on usability, performance and clean design.",
+          "Cayn is a young developer and digital creator building modern websites, applications and digital products focused on usability, performance and clean design.",
       },
       { property: "og:title", content: "Jacopo — Developer & Digital Creator" },
       {
         property: "og:description",
         content:
-          "Modern digital experiences — websites, apps and products designed and developed by Jacopo.",
+          "Modern digital experiences — websites, apps and products designed and developed by Cayn.",
       },
     ],
   }),

@@ -5,7 +5,6 @@ import {
   Briefcase,
   Rocket,
   Wand2,
-  ArrowUpRight,
 } from "lucide-react";
 import { useRef, type ReactNode } from "react";
 
@@ -133,13 +132,6 @@ export function Services() {
                     {s.desc}
                   </p>
 
-                  <div
-                    className="relative mt-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground"
-                    style={{ transform: "translateZ(20px)" }}
-                  >
-                    Learn more
-                    <ArrowUpRight size={12} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
                 </div>
               </TiltCard>
             </motion.div>

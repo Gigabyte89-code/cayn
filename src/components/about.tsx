@@ -8,12 +8,6 @@ const HIGHLIGHTS = [
   { icon: Target, label: "Attention to Detail", desc: "Pixel-perfect, end to end." },
 ];
 
-const TIMELINE = [
-  { year: "2022", title: "First lines of code", desc: "Began exploring web development & design fundamentals." },
-  { year: "2023", title: "ICDL Essentials", desc: "Earned certification covering core digital competencies." },
-  { year: "2024", title: "Building products", desc: "Shipped personal portfolios, landing pages, and tools." },
-  { year: "2025", title: "Finance App", desc: "Launched a personal finance management application." },
-];
 
 export function About() {
   return (
@@ -39,7 +33,7 @@ export function About() {
           </p>
         </motion.div>
 
-        <div className="mt-20 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr]">
+        <div className="mt-20 grid grid-cols-1 gap-8">
           {/* Profile card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -56,7 +50,7 @@ export function About() {
               <div className="glass mx-auto flex h-32 w-32 items-center justify-center rounded-full">
                 <span className="font-display text-5xl text-gradient-brand">J</span>
               </div>
-              <h3 className="mt-6 text-center font-display text-2xl">Jacopo</h3>
+              <h3 className="mt-6 text-center font-display text-2xl">Cayn</h3>
               <p className="mt-1 text-center text-sm text-muted-foreground">
                 Developer & Digital Creator
               </p>
@@ -81,36 +75,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Timeline */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="absolute left-[27px] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-border to-transparent" />
-            <ul className="space-y-5">
-              {TIMELINE.map((t, i) => (
-                <motion.li
-                  key={t.year}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="glass relative flex items-start gap-5 rounded-3xl p-5 transition-all hover:bg-white/[0.06]"
-                >
-                  <div className="glass-strong relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl">
-                    <span className="font-display text-sm text-gradient-brand">{t.year}</span>
-                  </div>
-                  <div className="pt-1">
-                    <h4 className="font-medium">{t.title}</h4>
-                    <p className="mt-1 text-sm text-muted-foreground">{t.desc}</p>
-                  </div>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+          {/* Timeline removed */}
         </div>
       </div>
     </section>

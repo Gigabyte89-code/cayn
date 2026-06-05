@@ -103,8 +103,7 @@ export function ICDL() {
               <div className="relative my-8 h-px w-full bg-border" />
 
               <div className="relative">
-                <div className="text-sm text-muted-foreground">Awarded to</div>
-                <div className="font-display text-4xl text-gradient">Jacopo</div>
+                <div className="text-sm text-muted-foreground">Awarded</div>
                 <div className="mt-1 text-xs text-muted-foreground">
                   Verified digital competencies · Issued by ICDL
                 </div>
@@ -116,7 +115,7 @@ export function ICDL() {
                   Verified
                 </div>
                 <div className="glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Essentials · 2023
+                  Essentials · 2025
                 </div>
               </div>
 
