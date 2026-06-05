@@ -38,7 +38,7 @@ export function Navigation() {
           href="#home"
           className="font-display text-xl tracking-tight text-foreground"
         >
-          JACOPO<span className="text-gradient-brand">.</span>
+          CAYN<span className="text-gradient-brand">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
