@@ -117,10 +117,6 @@ export function ICDL() {
                 <div className="glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-muted-foreground">
                   Essentials · 2025
                 </div>
-                </div>
-                <div className="glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Essentials · 2023
-                </div>
               </div>
 
               {/* Holographic corner */}
