@@ -48,7 +48,7 @@ export function About() {
             />
             <div className="relative">
               <div className="glass mx-auto flex h-32 w-32 items-center justify-center rounded-full">
-                <span className="font-display text-5xl text-gradient-brand">J</span>
+                <span className="font-display text-5xl text-gradient-brand">C</span>
               </div>
               <h3 className="mt-6 text-center font-display text-2xl">Cayn</h3>
               <p className="mt-1 text-center text-sm text-muted-foreground">

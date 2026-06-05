@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
         content:
           "Cayn is a young developer and digital creator building modern websites, applications and digital products focused on usability, performance and clean design.",
       },
-      { property: "og:title", content: "Jacopo — Developer & Digital Creator" },
+      { property: "og:title", content: "Cayn — Developer & Digital Creator" },
       {
         property: "og:description",
         content:
