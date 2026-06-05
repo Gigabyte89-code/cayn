@@ -1,14 +1,20 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GlassOrbs, GridOverlay } from "./ambient";
+import robotHead from "@/assets/robot-head-cutout.png";
 
-function GlassSphere() {
+function RobotHead() {
   const ref = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-1, 1], [12, -12]), { stiffness: 100, damping: 20 });
-  const ry = useSpring(useTransform(mx, [-1, 1], [-12, 12]), { stiffness: 100, damping: 20 });
+  const [reacting, setReacting] = useState(false);
+  const reactTimer = useRef<number | null>(null);
+
+  const rx = useSpring(useTransform(my, [-1, 1], [18, -18]), { stiffness: 90, damping: 18 });
+  const ry = useSpring(useTransform(mx, [-1, 1], [-22, 22]), { stiffness: 90, damping: 18 });
+  const tx = useSpring(useTransform(mx, [-1, 1], [-14, 14]), { stiffness: 80, damping: 20 });
+  const ty = useSpring(useTransform(my, [-1, 1], [-10, 10]), { stiffness: 80, damping: 20 });
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -16,67 +22,59 @@ function GlassSphere() {
       const r = ref.current.getBoundingClientRect();
       const x = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
       const y = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-      mx.set(Math.max(-1, Math.min(1, x)));
-      my.set(Math.max(-1, Math.min(1, y)));
+      mx.set(Math.max(-1.4, Math.min(1.4, x)));
+      my.set(Math.max(-1.4, Math.min(1.4, y)));
+
+      // React (subtle scale pulse) on quick movements near the head
+      const dist = Math.hypot(x, y);
+      if (dist < 1.6) {
+        setReacting(true);
+        if (reactTimer.current) window.clearTimeout(reactTimer.current);
+        reactTimer.current = window.setTimeout(() => setReacting(false), 320);
+      }
     };
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (reactTimer.current) window.clearTimeout(reactTimer.current);
+    };
   }, [mx, my]);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
-      className="relative mx-auto h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] lg:h-[460px] lg:w-[460px]"
-    >
-      {/* Main sphere */}
-      <motion.div
-        animate={{ y: [0, -18, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 rounded-full"
+    <div className="relative mx-auto flex h-[300px] w-[300px] items-center justify-center sm:h-[380px] sm:w-[380px] lg:h-[480px] lg:w-[480px]">
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 rounded-full opacity-70 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle at 30% 25%, oklch(0.95 0.05 280 / 90%), oklch(0.5 0.25 280 / 50%) 40%, oklch(0.2 0.15 240 / 40%) 70%, transparent 100%)",
-          boxShadow:
-            "inset -40px -60px 100px oklch(0.2 0.2 260 / 60%), inset 30px 40px 80px oklch(1 0 0 / 30%), 0 60px 120px -20px oklch(0.5 0.3 280 / 50%)",
-          backdropFilter: "blur(20px)",
+            "radial-gradient(circle at 50% 50%, oklch(0.6 0.22 260 / 55%), oklch(0.4 0.2 280 / 25%) 50%, transparent 75%)",
         }}
-      >
-        {/* Highlight */}
-        <div
-          className="absolute left-[20%] top-[15%] h-[30%] w-[30%] rounded-full blur-xl"
-          style={{ background: "oklch(1 0 0 / 70%)" }}
-        />
-        {/* Inner glow */}
-        <div
-          className="absolute inset-[15%] rounded-full opacity-60 blur-2xl"
-          style={{
-            background:
-              "radial-gradient(circle, oklch(0.7 0.25 220 / 50%), transparent 70%)",
-          }}
-        />
-      </motion.div>
+      />
 
-      {/* Orbiting glass shards */}
       <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0"
+        ref={ref}
+        style={{
+          rotateX: rx,
+          rotateY: ry,
+          x: tx,
+          y: ty,
+          transformStyle: "preserve-3d",
+        }}
+        animate={{ scale: reacting ? 1.04 : 1 }}
+        transition={{ type: "spring", stiffness: 200, damping: 14 }}
+        className="relative h-full w-full"
       >
-        <div
-          className="glass absolute -right-4 top-10 h-20 w-20 rounded-2xl"
-          style={{ transform: "translateZ(60px)" }}
-        />
-        <div
-          className="glass absolute -left-6 bottom-16 h-16 w-16 rounded-full"
-          style={{ transform: "translateZ(80px)" }}
-        />
-        <div
-          className="glass absolute -bottom-4 right-1/3 h-14 w-24 rounded-2xl"
-          style={{ transform: "translateZ(40px)" }}
+        <motion.img
+          src={robotHead}
+          alt="Animated chrome robot head"
+          draggable={false}
+          animate={{ y: [0, -14, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="pointer-events-none h-full w-full select-none object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.6)]"
+          style={{ filter: "drop-shadow(0 30px 60px oklch(0.5 0.3 280 / 35%))" }}
         />
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -167,7 +165,7 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{ perspective: 1200 }}
         >
-          <GlassSphere />
+          <RobotHead />
         </motion.div>
       </div>
     </section>
