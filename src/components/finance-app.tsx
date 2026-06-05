@@ -44,7 +44,7 @@ function PhoneMockup() {
           <div className="flex items-center justify-between">
             <div>
               <div className="text-[10px] text-muted-foreground">Good morning</div>
-              <div className="font-display text-base text-foreground">Jacopo</div>
+              <div className="font-display text-base text-foreground">Cayn</div>
             </div>
             <div className="glass h-8 w-8 rounded-full" />
           </div>
