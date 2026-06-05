@@ -5,7 +5,6 @@ import {
   Briefcase,
   Rocket,
   Wand2,
-  ArrowUpRight,
 } from "lucide-react";
 import { useRef, type ReactNode } from "react";
 
