@@ -8,12 +8,6 @@ const HIGHLIGHTS = [
   { icon: Target, label: "Attention to Detail", desc: "Pixel-perfect, end to end." },
 ];
 
-const TIMELINE = [
-  { year: "2022", title: "First lines of code", desc: "Began exploring web development & design fundamentals." },
-  { year: "2023", title: "ICDL Essentials", desc: "Earned certification covering core digital competencies." },
-  { year: "2024", title: "Building products", desc: "Shipped personal portfolios, landing pages, and tools." },
-  { year: "2025", title: "Finance App", desc: "Launched a personal finance management application." },
-];
 
 export function About() {
   return (
