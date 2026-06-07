@@ -24,7 +24,15 @@ export function LiquidCayn() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative h-full w-full">
+      <div
+        className="relative h-full w-full"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+        }}
+      >
         <Suspense
           fallback={
             <div className="flex h-full w-full items-center justify-center">
