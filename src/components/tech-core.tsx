@@ -28,9 +28,9 @@ export function LiquidCayn() {
         className="relative h-full w-full"
         style={{
           WebkitMaskImage:
-            "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+            "radial-gradient(ellipse 65% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 60%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+            "radial-gradient(ellipse 65% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 60%, transparent 92%)",
         }}
       >
         <Suspense
