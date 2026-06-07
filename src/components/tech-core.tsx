@@ -28,9 +28,9 @@ export function LiquidCayn() {
         className="relative h-full w-full"
         style={{
           WebkitMaskImage:
-            "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+            "radial-gradient(ellipse 65% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 60%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+            "radial-gradient(ellipse 65% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 60%, transparent 92%)",
         }}
       >
         <Suspense
@@ -60,6 +60,40 @@ export function LiquidCayn() {
           }}
         />
       </div>
+
+      {/* Side fade gradients — blend Spline edges into the background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 w-[22%]"
+        style={{
+          background:
+            "linear-gradient(to right, var(--background) 0%, color-mix(in oklab, var(--background) 70%, transparent) 45%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 w-[22%]"
+        style={{
+          background:
+            "linear-gradient(to left, var(--background) 0%, color-mix(in oklab, var(--background) 70%, transparent) 45%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[18%]"
+        style={{
+          background:
+            "linear-gradient(to bottom, var(--background) 0%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[18%]"
+        style={{
+          background:
+            "linear-gradient(to top, var(--background) 0%, transparent 100%)",
+        }}
+      />
 
       {/* Floating HUD chips */}
       <motion.div
