@@ -8,6 +8,14 @@ const HIGHLIGHTS = [
   { icon: Target, label: "Attention to Detail", desc: "Pixel-perfect, end to end." },
 ];
 
+const TOOLS = [
+  { name: "Lovable", glyph: "♥" },
+  { name: "Figma", glyph: "✦" },
+  { name: "Framer", glyph: "▲" },
+  { name: "Spline", glyph: "◉" },
+  { name: "Claude Code", glyph: "✺" },
+];
+
 
 export function About() {
   return (
@@ -75,7 +83,40 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Timeline removed */}
+          {/* Tools I use */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="glass-strong rounded-3xl p-8"
+          >
+            <div className="mb-6 text-center">
+              <div className="text-xs uppercase tracking-widest text-muted-foreground">
+                Toolkit
+              </div>
+              <h3 className="mt-2 font-display text-2xl sm:text-3xl">
+                <span className="text-gradient">Programs </span>
+                <span className="text-gradient-brand italic">I use</span>
+              </h3>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {TOOLS.map((t, i) => (
+                <motion.div
+                  key={t.name}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07, duration: 0.5 }}
+                  whileHover={{ y: -4, scale: 1.04 }}
+                  className="glass flex items-center gap-2 rounded-full px-4 py-2 text-sm"
+                >
+                  <span className="text-gradient-brand text-base leading-none">{t.glyph}</span>
+                  <span className="font-medium">{t.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
