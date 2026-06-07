@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Check, ShieldCheck } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 
 const SKILLS = [
   "Computer fundamentals",
@@ -96,7 +96,9 @@ export function ICDL() {
                     boxShadow: "0 0 40px oklch(0.7 0.22 280 / 40%)",
                   }}
                 >
-                  <Award size={28} className="text-gradient-brand" />
+                  <span className="font-display text-[13px] font-semibold tracking-wider text-gradient-brand">
+                    ICDL
+                  </span>
                 </motion.div>
               </div>
 
