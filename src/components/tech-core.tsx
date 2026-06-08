@@ -1,13 +1,26 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useCallback } from "react";
 import { motion } from "framer-motion";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 /**
  * Spline 3D liquid-glass sphere as the hero centerpiece.
- * Tinted with the site's brand colors via overlays.
+ * - Disables mouse interaction (no rotation/zoom from user)
+ * - Hides default Spline watermark
+ * - Soft radial mask + blurred edges for a seamless blend with background
  */
 export function LiquidCayn() {
+  const onLoad = useCallback((app: any) => {
+    try {
+      // Stop Spline from listening to mouse / scroll
+      app?.setZoom?.(1);
+      // Remove watermark logo if present
+      const root = (app?._scene?.parent ?? app)?.canvas?.parentElement;
+      const logo = root?.querySelector?.('a[href*="spline.design"]');
+      if (logo) (logo as HTMLElement).style.display = "none";
+    } catch {}
+  }, []);
+
   return (
     <div
       className="relative mx-auto flex h-[360px] w-full items-center justify-center sm:h-[460px] lg:h-[560px]"
@@ -24,13 +37,15 @@ export function LiquidCayn() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      {/* Spline canvas wrapper — non-interactive, masked & softly feathered */}
       <div
-        className="relative h-full w-full"
+        className="pointer-events-none relative h-full w-full select-none [&_a[href*='spline.design']]:!hidden [&_canvas]:!outline-none"
         style={{
           WebkitMaskImage:
-            "radial-gradient(ellipse 65% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 60%, transparent 92%)",
+            "radial-gradient(circle at 50% 50%, black 38%, rgba(0,0,0,0.85) 52%, rgba(0,0,0,0.35) 72%, transparent 92%)",
           maskImage:
-            "radial-gradient(ellipse 65% 70% at 50% 50%, black 35%, rgba(0,0,0,0.6) 60%, transparent 92%)",
+            "radial-gradient(circle at 50% 50%, black 38%, rgba(0,0,0,0.85) 52%, rgba(0,0,0,0.35) 72%, transparent 92%)",
+          filter: "drop-shadow(0 20px 60px oklch(0.7 0.22 280 / 30%))",
         }}
       >
         <Suspense
@@ -40,7 +55,11 @@ export function LiquidCayn() {
             </div>
           }
         >
-          <Spline scene="https://prod.spline.design/xATIWY-EIHtG9Obg/scene.splinecode" />
+          <Spline
+            scene="https://prod.spline.design/xATIWY-EIHtG9Obg/scene.splinecode"
+            onLoad={onLoad}
+            style={{ pointerEvents: "none" }}
+          />
         </Suspense>
 
         {/* Brand color overlay — subtle tint to match site palette */}
@@ -48,39 +67,49 @@ export function LiquidCayn() {
           className="pointer-events-none absolute inset-0 mix-blend-color"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, oklch(0.7 0.22 280 / 35%), oklch(0.6 0.22 240 / 25%) 60%, transparent 80%)",
+              "radial-gradient(circle at 50% 50%, oklch(0.7 0.22 280 / 30%), oklch(0.6 0.22 240 / 20%) 60%, transparent 80%)",
           }}
         />
-        {/* Liquid-glass sheen overlay */}
+        {/* Liquid-glass top sheen */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 40% 30% at 38% 32%, oklch(1 0 0 / 18%), transparent 60%)",
+              "radial-gradient(ellipse 42% 28% at 38% 30%, oklch(1 0 0 / 22%), transparent 65%)",
+          }}
+        />
+        {/* Bottom reflection */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 38% 18% at 55% 78%, oklch(0.8 0.18 280 / 25%), transparent 70%)",
           }}
         />
       </div>
 
-      {/* Side fade gradients — blend Spline edges into the background */}
+      {/* Soft edge feather — blurred copies of background to dissolve hard edges */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 w-[22%]"
+        className="pointer-events-none absolute inset-y-0 left-0 w-[28%]"
         style={{
           background:
-            "linear-gradient(to right, var(--background) 0%, color-mix(in oklab, var(--background) 70%, transparent) 45%, transparent 100%)",
+            "linear-gradient(to right, var(--background) 0%, color-mix(in oklab, var(--background) 80%, transparent) 35%, transparent 100%)",
+          backdropFilter: "blur(2px)",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 w-[22%]"
+        className="pointer-events-none absolute inset-y-0 right-0 w-[28%]"
         style={{
           background:
-            "linear-gradient(to left, var(--background) 0%, color-mix(in oklab, var(--background) 70%, transparent) 45%, transparent 100%)",
+            "linear-gradient(to left, var(--background) 0%, color-mix(in oklab, var(--background) 80%, transparent) 35%, transparent 100%)",
+          backdropFilter: "blur(2px)",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[18%]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[22%]"
         style={{
           background:
             "linear-gradient(to bottom, var(--background) 0%, transparent 100%)",
@@ -88,7 +117,7 @@ export function LiquidCayn() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[18%]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[22%]"
         style={{
           background:
             "linear-gradient(to top, var(--background) 0%, transparent 100%)",
