@@ -9,11 +9,11 @@ const HIGHLIGHTS = [
 ];
 
 const TOOLS = [
-  { name: "Lovable", glyph: "♥" },
-  { name: "Figma", glyph: "✦" },
-  { name: "Framer", glyph: "▲" },
-  { name: "Spline", glyph: "◉" },
-  { name: "Claude Code", glyph: "✺" },
+  { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
+  { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
+  { name: "Spline", logo: "https://cdn.simpleicons.org/spline" },
+  { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
 ];
 
 
@@ -109,9 +109,14 @@ export function About() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07, duration: 0.5 }}
                   whileHover={{ y: -4, scale: 1.04 }}
-                  className="glass flex items-center gap-2 rounded-full px-4 py-2 text-sm"
+                  className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
                 >
-                  <span className="text-gradient-brand text-base leading-none">{t.glyph}</span>
+                  <img
+                    src={t.logo}
+                    alt={`${t.name} logo`}
+                    loading="lazy"
+                    className="h-4 w-4 object-contain"
+                  />
                   <span className="font-medium">{t.name}</span>
                 </motion.div>
               ))}
