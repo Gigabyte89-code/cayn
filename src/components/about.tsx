@@ -12,7 +12,7 @@ const TOOLS = [
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
   { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
   { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
-  { name: "Spline", logo: "https://spline.design/favicon.ico" },
+  { name: "Spline", logo: "https://cdn.simpleicons.org/spline/ffffff" },
   { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
 ];
 

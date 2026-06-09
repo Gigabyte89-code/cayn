@@ -40,7 +40,7 @@ function Index() {
       <SmoothScroll />
       <CursorFX />
       <Navigation />
-      <main>
+      <main className="relative overflow-x-clip">
         <Hero />
         <SectionFade />
         <About />
