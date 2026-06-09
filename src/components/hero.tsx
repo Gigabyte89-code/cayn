@@ -58,7 +58,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className={`mt-9 flex flex-wrap items-center gap-3 ${lite ? "justify-center" : ""}`}
           >
             <a
               href="#finance"
@@ -79,7 +79,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="mt-14 flex items-center gap-8 text-xs text-muted-foreground"
+            className={`mt-14 flex items-center gap-8 text-xs text-muted-foreground ${lite ? "justify-center" : ""}`}
           >
             <div>
               <div className="font-display text-2xl text-foreground">ICDL</div>
@@ -93,14 +93,16 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          style={{ perspective: 1200 }}
-        >
-          <TechCore />
-        </motion.div>
+        {!lite && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ perspective: 1200 }}
+          >
+            <TechCore />
+          </motion.div>
+        )}
       </div>
     </section>
   );
