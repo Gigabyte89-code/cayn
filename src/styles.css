@@ -116,6 +116,11 @@ html.lenis, html.lenis body { height: auto; }
 
   body {
     background-color: var(--color-background);
+    background-image:
+      linear-gradient(180deg, oklch(0.04 0.012 280) 0%, oklch(0.025 0.008 270) 26%, oklch(0.03 0.01 250) 58%, oklch(0.018 0.006 260) 100%),
+      radial-gradient(48rem 24rem at 14% 12%, oklch(0.44 0.16 285 / 0.16), transparent 72%),
+      radial-gradient(52rem 28rem at 82% 20%, oklch(0.42 0.12 220 / 0.14), transparent 74%);
+    background-repeat: no-repeat;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
@@ -140,13 +145,16 @@ html.lenis, html.lenis body { height: auto; }
     pointer-events: none;
     z-index: -1;
     background:
-      radial-gradient(34rem 28rem at 12% 8%, oklch(0.52 0.22 280 / 0.22), transparent 72%),
-      radial-gradient(42rem 30rem at 82% 14%, oklch(0.48 0.15 220 / 0.18), transparent 74%),
-      radial-gradient(28rem 22rem at 50% 38%, oklch(0.46 0.17 310 / 0.12), transparent 72%),
-      radial-gradient(38rem 26rem at 78% 62%, oklch(0.44 0.13 220 / 0.14), transparent 76%),
-      radial-gradient(30rem 22rem at 22% 78%, oklch(0.5 0.18 270 / 0.12), transparent 76%);
-    filter: blur(18px);
-    opacity: 0.95;
+      radial-gradient(44rem 22rem at 20% 10%, oklch(0.52 0.22 280 / 0.18), transparent 72%),
+      radial-gradient(54rem 26rem at 82% 16%, oklch(0.48 0.15 220 / 0.16), transparent 74%),
+      radial-gradient(68rem 20rem at 50% 30%, oklch(0.4 0.11 280 / 0.1), transparent 78%),
+      radial-gradient(32rem 22rem at 40% 46%, oklch(0.46 0.17 310 / 0.12), transparent 72%),
+      radial-gradient(72rem 22rem at 50% 58%, oklch(0.36 0.09 250 / 0.08), transparent 80%),
+      radial-gradient(42rem 28rem at 78% 68%, oklch(0.44 0.13 220 / 0.14), transparent 76%),
+      radial-gradient(34rem 24rem at 24% 82%, oklch(0.5 0.18 270 / 0.12), transparent 76%),
+      linear-gradient(180deg, transparent 0%, oklch(0.08 0.02 270 / 0.2) 24%, transparent 42%, oklch(0.08 0.018 250 / 0.16) 64%, transparent 100%);
+    filter: blur(28px);
+    opacity: 1;
   }
 
   .page-flow > section {
