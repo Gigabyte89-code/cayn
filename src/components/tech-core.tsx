@@ -25,7 +25,13 @@ export function LiquidCayn() {
   return (
     <div
       className="pointer-events-none relative mx-auto h-[360px] w-full select-none sm:h-[460px] lg:h-[560px] [&_a[href*='spline.design']]:!hidden [&_canvas]:!bg-transparent [&_canvas]:!outline-none [&_canvas]:!border-0 [&>div]:!bg-transparent"
-      style={{ background: "transparent" }}
+      style={{
+        background: "transparent",
+        WebkitMaskImage:
+          "radial-gradient(circle at 50% 50%, black 45%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,0.35) 82%, transparent 100%)",
+        maskImage:
+          "radial-gradient(circle at 50% 50%, black 45%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,0.35) 82%, transparent 100%)",
+      }}
     >
       <Suspense fallback={null}>
         <Spline
