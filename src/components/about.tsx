@@ -1,6 +1,27 @@
 import { motion } from "framer-motion";
 import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
 
+function SplineLogo() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none">
+      <path
+        d="M16.9 3.5c-2.7 0-4.9 2-4.9 4.5 0 1 .4 1.8 1 2.5l-5.8 3.3a4.4 4.4 0 0 1-1-2.7c0-2.5 2.2-4.5 4.9-4.5h5.8Z"
+        fill="currentColor"
+      />
+      <path
+        d="M7.1 20.5c2.7 0 4.9-2 4.9-4.5 0-1-.4-1.8-1-2.5l5.8-3.3c.7.8 1 1.7 1 2.8 0 2.5-2.2 4.5-4.9 4.5H7.1Z"
+        fill="currentColor"
+        opacity="0.82"
+      />
+      <path
+        d="M7.6 8.5c0-2.8 2.1-5 4.7-5 1.6 0 3.1.8 4 2.1l-1.8 1.1c-.5-.8-1.3-1.3-2.2-1.3-1.4 0-2.6 1.4-2.6 3.1 0 .8.3 1.6.8 2.2l5.9 6.7-1.6 1.3-5.8-6.7a5 5 0 0 1-1.4-3.5Z"
+        fill="currentColor"
+        opacity="0.92"
+      />
+    </svg>
+  );
+}
+
 const HIGHLIGHTS = [
   { icon: Lightbulb, label: "Creativity", desc: "Turning ideas into refined experiences." },
   { icon: Brain, label: "Problem Solving", desc: "Engineering thoughtful, scalable solutions." },
@@ -12,7 +33,7 @@ const TOOLS = [
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
   { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
   { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
-  { name: "Spline", logo: "https://spline.design/favicon.ico" },
+  { name: "Spline", logo: null },
   { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
 ];
 
@@ -111,12 +132,18 @@ export function About() {
                   whileHover={{ y: -4, scale: 1.04 }}
                   className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
                 >
-                  <img
-                    src={t.logo}
-                    alt={`${t.name} logo`}
-                    loading="lazy"
-                    className="h-4 w-4 object-contain"
-                  />
+                  {t.name === "Spline" ? (
+                    <span className="flex h-4 w-4 items-center justify-center text-foreground">
+                      <SplineLogo />
+                    </span>
+                  ) : (
+                    <img
+                      src={t.logo ?? undefined}
+                      alt={`${t.name} logo`}
+                      loading="lazy"
+                      className="h-4 w-4 object-contain"
+                    />
+                  )}
                   <span className="font-medium">{t.name}</span>
                 </motion.div>
               ))}

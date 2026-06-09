@@ -11,7 +11,6 @@ import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { MobilePrompt } from "@/components/mobile-prompt";
-import { SectionFade } from "@/components/section-fade";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,17 +39,12 @@ function Index() {
       <SmoothScroll />
       <CursorFX />
       <Navigation />
-      <main>
+      <main className="page-flow relative overflow-x-clip">
         <Hero />
-        <SectionFade />
         <About />
-        <SectionFade />
         <Services />
-        <SectionFade />
         <ICDL />
-        <SectionFade />
         <FinanceApp />
-        <SectionFade />
         <Contact />
       </main>
       <Footer />
