@@ -10,6 +10,8 @@ import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { MobilePrompt } from "@/components/mobile-prompt";
+import { SectionFade } from "@/components/section-fade";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,13 +42,19 @@ function Index() {
       <Navigation />
       <main>
         <Hero />
+        <SectionFade />
         <About />
+        <SectionFade />
         <Services />
+        <SectionFade />
         <ICDL />
+        <SectionFade />
         <FinanceApp />
+        <SectionFade />
         <Contact />
       </main>
       <Footer />
+      <MobilePrompt />
     </div>
   );
 }
