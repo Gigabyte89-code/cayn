@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { GlassOrbs, GridOverlay } from "./ambient";
 import { TechCore } from "./tech-core";
+import { useLiteMode } from "@/hooks/use-lite-mode";
 
 
 
 
 export function Hero() {
+  const { lite } = useLiteMode();
   return (
     <section
       id="home"
@@ -15,8 +17,12 @@ export function Hero() {
       <GlassOrbs />
       <GridOverlay />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-        <div>
+      <div
+        className={`relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 ${
+          lite ? "" : "lg:grid-cols-[1.1fr_1fr] lg:items-center"
+        }`}
+      >
+        <div className={lite ? "mx-auto max-w-3xl text-center" : ""}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
