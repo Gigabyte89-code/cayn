@@ -2,22 +2,12 @@ import { motion } from "framer-motion";
 import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
 
 function SplineLogo() {
+  // Official Spline mark — three overlapping circles
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none">
-      <path
-        d="M16.9 3.5c-2.7 0-4.9 2-4.9 4.5 0 1 .4 1.8 1 2.5l-5.8 3.3a4.4 4.4 0 0 1-1-2.7c0-2.5 2.2-4.5 4.9-4.5h5.8Z"
-        fill="currentColor"
-      />
-      <path
-        d="M7.1 20.5c2.7 0 4.9-2 4.9-4.5 0-1-.4-1.8-1-2.5l5.8-3.3c.7.8 1 1.7 1 2.8 0 2.5-2.2 4.5-4.9 4.5H7.1Z"
-        fill="currentColor"
-        opacity="0.82"
-      />
-      <path
-        d="M7.6 8.5c0-2.8 2.1-5 4.7-5 1.6 0 3.1.8 4 2.1l-1.8 1.1c-.5-.8-1.3-1.3-2.2-1.3-1.4 0-2.6 1.4-2.6 3.1 0 .8.3 1.6.8 2.2l5.9 6.7-1.6 1.3-5.8-6.7a5 5 0 0 1-1.4-3.5Z"
-        fill="currentColor"
-        opacity="0.92"
-      />
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
+      <circle cx="8" cy="12" r="5" fill="#ff5b8a" />
+      <circle cx="16" cy="12" r="5" fill="#7c5cff" opacity="0.95" />
+      <circle cx="12" cy="8" r="5" fill="#3b82f6" opacity="0.9" style={{ mixBlendMode: "screen" }} />
     </svg>
   );
 }
