@@ -12,13 +12,13 @@ export function SmoothScroll() {
     if (reduce) return;
 
     const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      duration: 1.1,
+      easing: (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.2,
-      lerp: 0.08,
-      syncTouch: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      lerp: 0.1,
+      syncTouch: false,
     });
 
     let rafId = 0;
