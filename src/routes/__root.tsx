@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Cayn-Software & Web Developer" },
       { name: "twitter:description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2bbb4f3c-654b-4dbf-8869-f3e909ea92ed/id-preview-2a38d695--73e08a41-606a-4cbb-8cfe-e5ba611bc9dc.lovable.app-1780906753303.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2bbb4f3c-654b-4dbf-8869-f3e909ea92ed/id-preview-2a38d695--73e08a41-606a-4cbb-8cfe-e5ba611bc9dc.lovable.app-1780906753303.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
