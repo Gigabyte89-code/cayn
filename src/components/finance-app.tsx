@@ -177,7 +177,7 @@ export function FinanceApp() {
           </p>
           <div className="mt-8 flex justify-center">
             <a
-              href="https://cashowjf.lovable.app/"
+              href="https://cashow.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
