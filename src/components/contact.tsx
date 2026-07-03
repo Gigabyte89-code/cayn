@@ -37,7 +37,7 @@ export function Contact() {
 
 
   return (
-    <section id="contact" className="relative px-6 py-32">
+    <section id="contact" className="relative px-6 py-24 sm:py-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
