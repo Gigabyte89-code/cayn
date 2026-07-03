@@ -30,7 +30,7 @@ const TOOLS = [
 
 export function About() {
   return (
-    <section id="about" className="relative px-6 pt-16 pb-24 sm:pt-24 sm:pb-32 lg:py-32">
+    <section id="about" className="relative px-6 py-32">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

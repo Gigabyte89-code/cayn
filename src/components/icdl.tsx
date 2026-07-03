@@ -11,7 +11,7 @@ const SKILLS = [
 
 export function ICDL() {
   return (
-    <section id="icdl" className="relative px-6 py-24 sm:py-32">
+    <section id="icdl" className="relative px-6 py-32">
       <div
         className="pointer-events-none absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
         style={{ background: "radial-gradient(circle, oklch(0.55 0.25 220 / 60%), transparent 70%)" }}

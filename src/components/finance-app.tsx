@@ -147,7 +147,7 @@ export function FinanceApp() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-3, 3]);
 
   return (
-    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-24 sm:py-32">
+    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-50"
         style={{

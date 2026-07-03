@@ -1,14 +1,8 @@
-import { Suspense, lazy, useCallback, useEffect, useState } from "react";
+import { Suspense, lazy, useCallback } from "react";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 export function LiquidCayn() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const onLoad = useCallback((app: any) => {
     try {
       app?.setZoom?.(1);
@@ -39,15 +33,13 @@ export function LiquidCayn() {
           "radial-gradient(circle at 50% 50%, black 45%, rgba(0,0,0,0.85) 62%, rgba(0,0,0,0.35) 82%, transparent 100%)",
       }}
     >
-      {mounted && (
-        <Suspense fallback={null}>
-          <Spline
-            scene="https://prod.spline.design/xATIWY-EIHtG9Obg/scene.splinecode"
-            onLoad={onLoad}
-            style={{ pointerEvents: "none", background: "transparent", border: "none" }}
-          />
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <Spline
+          scene="https://prod.spline.design/xATIWY-EIHtG9Obg/scene.splinecode"
+          onLoad={onLoad}
+          style={{ pointerEvents: "none", background: "transparent", border: "none" }}
+        />
+      </Suspense>
     </div>
   );
 }
