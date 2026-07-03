@@ -75,22 +75,6 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className={`mt-10 flex items-center gap-8 text-xs text-muted-foreground sm:mt-14 ${lite ? "justify-center" : ""}`}
-          >
-            <div>
-              <div className="font-display text-2xl text-foreground">ICDL</div>
-              <div className="mt-1">Certified</div>
-            </div>
-            <div className="h-8 w-px bg-border" />
-            <div>
-              <div className="font-display text-2xl text-foreground">100%</div>
-              <div className="mt-1">Custom design</div>
-            </div>
-          </motion.div>
         </div>
 
         {!lite && (
