@@ -12,13 +12,13 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-[78svh] items-center overflow-visible pt-28 pb-8 sm:min-h-[88svh] sm:pb-12 lg:min-h-screen lg:overflow-hidden lg:pb-16"
     >
       <GlassOrbs />
       <GridOverlay />
 
       <div
-        className={`relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 ${
+        className={`relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-6 sm:gap-12 ${
           lite ? "" : "lg:grid-cols-[1.1fr_1fr] lg:items-center"
         }`}
       >
@@ -79,7 +79,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className={`mt-14 flex items-center gap-8 text-xs text-muted-foreground ${lite ? "justify-center" : ""}`}
+            className={`mt-10 flex items-center gap-8 text-xs text-muted-foreground sm:mt-14 ${lite ? "justify-center" : ""}`}
           >
             <div>
               <div className="font-display text-2xl text-foreground">ICDL</div>
@@ -104,6 +104,14 @@ export function Hero() {
           </motion.div>
         )}
       </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -bottom-24 h-56 lg:h-72"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--background) 18%, transparent) 34%, color-mix(in oklab, var(--background) 4%, transparent) 100%)",
+        }}
+      />
     </section>
   );
 }

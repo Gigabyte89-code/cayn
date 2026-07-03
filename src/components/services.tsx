@@ -66,7 +66,7 @@ function TiltCard({ children, className = "" }: { children: ReactNode; className
 
 export function Services() {
   return (
-    <section id="services" className="relative px-6 py-32">
+    <section id="services" className="relative px-6 py-24 sm:py-32">
       <div
         className="pointer-events-none absolute left-1/2 top-1/4 h-[400px] w-[600px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
         style={{ background: "radial-gradient(circle, oklch(0.55 0.25 280 / 50%), transparent 70%)" }}
