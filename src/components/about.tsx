@@ -111,18 +111,13 @@ export function About() {
                   whileHover={{ y: -4, scale: 1.04 }}
                   className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
                 >
-                  {t.name === "Spline" ? (
-                    <span className="flex h-4 w-4 items-center justify-center text-foreground">
-                      <SplineLogo />
-                    </span>
-                  ) : (
-                    <img
-                      src={t.logo ?? undefined}
-                      alt={`${t.name} logo`}
-                      loading="lazy"
-                      className="h-4 w-4 object-contain"
-                    />
-                  )}
+                  <img
+                    src={t.logo ?? undefined}
+                    alt={`${t.name} logo`}
+                    loading="lazy"
+                    className="h-4 w-4 object-contain"
+                  />
+
                   <span className="font-medium">{t.name}</span>
                 </motion.div>
               ))}
