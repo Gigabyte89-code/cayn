@@ -1,17 +1,6 @@
 import { motion } from "framer-motion";
 import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
 
-function SplineLogo() {
-  // Official Spline mark — three overlapping circles
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
-      <circle cx="8" cy="12" r="5" fill="#ff5b8a" />
-      <circle cx="16" cy="12" r="5" fill="#7c5cff" opacity="0.95" />
-      <circle cx="12" cy="8" r="5" fill="#3b82f6" opacity="0.9" style={{ mixBlendMode: "screen" }} />
-    </svg>
-  );
-}
-
 const HIGHLIGHTS = [
   { icon: Lightbulb, label: "Creativity", desc: "Turning ideas into refined experiences." },
   { icon: Brain, label: "Problem Solving", desc: "Engineering thoughtful, scalable solutions." },
@@ -23,7 +12,7 @@ const TOOLS = [
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
   { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
   { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
-  { name: "Spline", logo: null },
+  { name: "Spline", logo: "https://app.spline.design/favicon.ico" },
   { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
 ];
 
