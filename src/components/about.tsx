@@ -1,5 +1,26 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
+
+function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed || !src) {
+    return (
+      <span className="flex h-4 w-4 items-center justify-center text-[8px] font-bold text-muted-foreground uppercase">
+        {name.slice(0, 2)}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className="h-4 w-4 object-contain"
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
 const HIGHLIGHTS = [
   { icon: Lightbulb, label: "Creativity", desc: "Turning ideas into refined experiences." },
@@ -111,11 +132,10 @@ export function About() {
                   whileHover={{ y: -4, scale: 1.04 }}
                   className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
                 >
-                  <img
+                  <ToolLogo
                     src={t.logo ?? undefined}
                     alt={`${t.name} logo`}
-                    loading="lazy"
-                    className="h-4 w-4 object-contain"
+                    name={t.name}
                   />
 
                   <span className="font-medium">{t.name}</span>
