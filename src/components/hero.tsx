@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { GlassOrbs, GridOverlay } from "./ambient";
+import { GridOverlay } from "./ambient";
 import { TechCore } from "./tech-core";
 import { useLiteMode } from "@/hooks/use-lite-mode";
 
