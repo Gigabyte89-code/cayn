@@ -14,7 +14,6 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
     >
-      <GlassOrbs />
       <GridOverlay />
 
       <div
