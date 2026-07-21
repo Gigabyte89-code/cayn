@@ -80,17 +80,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Cayn-Software & Web Developer" },
-      { name: "description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
+      {
+        name: "description",
+        content:
+          "A digital space for building and showcasing software, web apps, and creative tech projects",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Cayn-Software & Web Developer" },
-      { property: "og:description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
+      {
+        property: "og:description",
+        content:
+          "A digital space for building and showcasing software, web apps, and creative tech projects",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Cayn-Software & Web Developer" },
-      { name: "twitter:description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627" },
+      {
+        name: "twitter:description",
+        content:
+          "A digital space for building and showcasing software, web apps, and creative tech projects",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
