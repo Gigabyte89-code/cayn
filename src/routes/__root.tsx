@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 function NotFoundComponent() {
   return (
