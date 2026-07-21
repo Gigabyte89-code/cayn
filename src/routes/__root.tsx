@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 function NotFoundComponent() {
   return (
@@ -78,17 +80,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Cayn-Software & Web Developer" },
-      { name: "description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
+      {
+        name: "description",
+        content:
+          "A digital space for building and showcasing software, web apps, and creative tech projects",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Cayn-Software & Web Developer" },
-      { property: "og:description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
+      {
+        property: "og:description",
+        content:
+          "A digital space for building and showcasing software, web apps, and creative tech projects",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Cayn-Software & Web Developer" },
-      { name: "twitter:description", content: "A digital space for building and showcasing software, web apps, and creative tech projects" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627" },
+      {
+        name: "twitter:description",
+        content:
+          "A digital space for building and showcasing software, web apps, and creative tech projects",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/94460679-bfa2-487b-8af7-b0fdffbc7627",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -100,6 +122,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+        async: true,
+      },
+      {
+        type: "text/javascript",
+        children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{send_page_view:false});`,
       },
     ],
   }),
@@ -128,6 +160,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalytics />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
