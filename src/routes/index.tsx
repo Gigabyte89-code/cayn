@@ -5,6 +5,7 @@ import { About } from "@/components/about";
 import { Services } from "@/components/services";
 import { ICDL } from "@/components/icdl";
 import { FinanceApp } from "@/components/finance-app";
+import { Agritourism } from "@/components/agritourism";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
