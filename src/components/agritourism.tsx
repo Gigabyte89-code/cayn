@@ -38,7 +38,7 @@ export function Agritourism() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
+          <div className="glass-liquid mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
             Client Project
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
@@ -55,7 +55,7 @@ export function Agritourism() {
               href="https://agriturismocchiomininno.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
             >
               Visit website
               <ArrowUpRight
@@ -66,21 +66,24 @@ export function Agritourism() {
           </div>
         </motion.div>
 
-        {/* Screens */}
-        <div className="mt-20 grid grid-cols-1 gap-6 lg:grid-cols-[1.6fr_1fr]">
+        {/* Screens — equal height, media fills the frame (no dead space) */}
+        <div className="mt-20 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1.6fr_1fr]">
           <motion.figure
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
-            className="glass-strong overflow-hidden rounded-[32px] p-2"
+            className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <img
-              src={heroShot.url}
-              alt="Homepage of the Occhio Mininno agritourism website with hero image of the Puglian masseria"
-              loading="lazy"
-              className="w-full rounded-3xl object-cover"
-            />
+            <div className="relative flex-1 overflow-hidden rounded-3xl">
+              <img
+                src={heroShot.url}
+                alt="Homepage of the Occhio Mininno agritourism website with hero image of the Puglian masseria"
+                loading="lazy"
+                className="h-full min-h-[280px] w-full object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+            </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
               Landing experience — Ruvo di Puglia, since 1985
             </figcaption>
@@ -91,14 +94,17 @@ export function Agritourism() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="glass-strong overflow-hidden rounded-[32px] p-2"
+            className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <img
-              src={productShot.url}
-              alt="Product section of the Occhio Mininno website showing organic extra virgin olive oil"
-              loading="lazy"
-              className="w-full rounded-3xl object-cover"
-            />
+            <div className="relative flex-1 overflow-hidden rounded-3xl">
+              <img
+                src={productShot.url}
+                alt="Product section of the Occhio Mininno website showing organic extra virgin olive oil"
+                loading="lazy"
+                className="h-full min-h-[280px] w-full object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+            </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
               Product catalog — organic Coratina olive oil
             </figcaption>
@@ -115,7 +121,7 @@ export function Agritourism() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="glass-strong rounded-3xl p-6"
+              className="glass-liquid liquid-sheen rounded-3xl p-6"
             >
               <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                 <f.icon size={18} />
@@ -132,7 +138,7 @@ export function Agritourism() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="glass-strong mt-8 rounded-[32px] p-8"
+          className="glass-liquid mt-8 rounded-[32px] p-8"
         >
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
             <div>
@@ -153,9 +159,9 @@ export function Agritourism() {
                 <motion.div
                   key={h.label}
                   whileHover={{ x: 4 }}
-                  className="glass flex items-center gap-3 rounded-2xl p-3"
+                  className="glass-liquid liquid-sheen flex items-center gap-3 rounded-2xl p-3"
                 >
-                  <div className="glass-strong flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
+                  <div className="glass flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
                     <h.icon size={15} />
                   </div>
                   <span className="text-sm">{h.label}</span>
