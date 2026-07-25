@@ -75,12 +75,12 @@ export function Agritourism() {
             transition={{ duration: 0.8 }}
             className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <div className="relative flex-1 overflow-hidden rounded-3xl">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl lg:aspect-auto lg:flex-1">
               <img
                 src={heroShot.url}
                 alt="Homepage of the Occhio Mininno agritourism website with hero image of the Puglian masseria"
                 loading="lazy"
-                className="h-full min-h-[280px] w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-cover object-top"
               />
               <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
             </div>
@@ -96,12 +96,12 @@ export function Agritourism() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <div className="relative flex-1 overflow-hidden rounded-3xl">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl lg:aspect-auto lg:flex-1">
               <img
                 src={productShot.url}
                 alt="Product section of the Occhio Mininno website showing organic extra virgin olive oil"
                 loading="lazy"
-                className="h-full min-h-[280px] w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-cover object-top"
               />
               <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
             </div>
