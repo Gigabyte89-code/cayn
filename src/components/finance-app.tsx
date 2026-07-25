@@ -51,7 +51,7 @@ function PhoneMockup() {
 
           {/* Balance card */}
           <div
-            className="glass-strong mt-4 rounded-2xl p-4"
+            className="glass-liquid mt-4 rounded-2xl p-4"
             style={{
               background: "linear-gradient(135deg, oklch(0.5 0.25 280 / 30%), oklch(0.5 0.25 220 / 20%))",
             }}
@@ -105,7 +105,7 @@ function PhoneMockup() {
             ].map((t) => (
               <div key={t.name} className="glass flex items-center justify-between rounded-xl p-2.5">
                 <div className="flex items-center gap-2">
-                  <div className="glass-strong flex h-7 w-7 items-center justify-center rounded-lg">
+                  <div className="glass-liquid flex h-7 w-7 items-center justify-center rounded-lg">
                     {t.up ? (
                       <ArrowUpRight size={12} className="text-glow-2" />
                     ) : (
@@ -198,7 +198,7 @@ export function FinanceApp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glass-strong rounded-3xl p-6"
+                className="glass-liquid rounded-3xl p-6"
               >
                 <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                   <f.icon size={18} />
@@ -226,7 +226,7 @@ export function FinanceApp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glass-strong rounded-3xl p-6"
+                className="glass-liquid rounded-3xl p-6"
               >
                 <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                   <f.icon size={18} />
@@ -244,7 +244,7 @@ export function FinanceApp() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9 }}
-          className="glass-strong mt-20 overflow-hidden rounded-[32px] p-2"
+          className="glass-liquid mt-20 overflow-hidden rounded-[32px] p-2"
         >
           <div
             className="rounded-3xl p-8 sm:p-10"

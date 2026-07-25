@@ -66,7 +66,7 @@ export function ICDL() {
             <motion.div
               whileHover={{ rotateY: 5, rotateX: -3, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="glass-strong relative overflow-hidden rounded-3xl p-8"
+              className="glass-liquid relative overflow-hidden rounded-3xl p-8"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* Animated sheen */}
@@ -91,7 +91,7 @@ export function ICDL() {
                 <motion.div
                   animate={{ rotate: [0, 8, -8, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="glass-strong flex h-16 w-16 items-center justify-center rounded-full"
+                  className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
                   style={{
                     boxShadow: "0 0 40px oklch(0.7 0.22 280 / 40%)",
                   }}

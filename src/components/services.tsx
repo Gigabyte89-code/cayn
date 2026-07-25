@@ -106,14 +106,14 @@ export function Services() {
               transition={{ duration: 0.6, delay: i * 0.08 }}
             >
               <TiltCard className="group relative h-full">
-                <div className="glass-strong relative h-full overflow-hidden rounded-3xl p-7 transition-all duration-500 hover:bg-white/[0.08]">
+                <div className="glass-liquid relative h-full overflow-hidden rounded-3xl p-7 transition-all duration-500 hover:bg-white/[0.08]">
                   <div
                     className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
                     style={{ background: "radial-gradient(circle, oklch(0.65 0.25 280 / 60%), transparent 70%)" }}
                   />
 
                   <div
-                    className="glass-strong relative flex h-12 w-12 items-center justify-center rounded-2xl"
+                    className="glass-liquid relative flex h-12 w-12 items-center justify-center rounded-2xl"
                     style={{ transform: "translateZ(40px)" }}
                   >
                     <s.icon size={20} className="text-foreground" />

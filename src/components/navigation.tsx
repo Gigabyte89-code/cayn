@@ -44,7 +44,7 @@ export function Navigation() {
       className="fixed left-0 right-0 top-0 z-50 flex justify-center px-4 pt-4"
     >
       <nav
-        className={`glass-strong flex w-full max-w-5xl items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
+        className={`glass-liquid flex w-full max-w-5xl items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
           scrolled ? "shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]" : ""
         }`}
       >
@@ -93,7 +93,7 @@ export function Navigation() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="glass-strong absolute left-4 right-4 top-20 rounded-3xl p-4 md:hidden"
+            className="glass-liquid absolute left-4 right-4 top-20 rounded-3xl p-4 md:hidden"
           >
             <ul className="flex flex-col gap-1">
               {NAV_ITEMS.map((item) => (
