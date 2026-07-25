@@ -67,7 +67,7 @@ export function Agritourism() {
         </motion.div>
 
         {/* Screens — equal height, media fills the frame (no dead space) */}
-        <div className="mt-20 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1.6fr_1fr]">
+        <div className="mt-20 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
           <motion.figure
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function Agritourism() {
             transition={{ duration: 0.8 }}
             className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl lg:aspect-auto lg:flex-1">
+            <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
               <img
                 src={heroShot.url}
                 alt="Homepage of the Occhio Mininno agritourism website with hero image of the Puglian masseria"
@@ -96,7 +96,7 @@ export function Agritourism() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl lg:aspect-auto lg:flex-1">
+            <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
               <img
                 src={productShot.url}
                 alt="Product section of the Occhio Mininno website showing organic extra virgin olive oil"
