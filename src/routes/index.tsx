@@ -46,6 +46,7 @@ function Index() {
         <Services />
         <ICDL />
         <FinanceApp />
+        <Agritourism />
         <Contact />
       </main>
       <Footer />
