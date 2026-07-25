@@ -36,7 +36,7 @@ export function Footer() {
                   ["Home", "#home"],
                   ["About", "#about"],
                   ["Services", "#services"],
-                  ["Cashow", "#finance"],
+                  ["Projects", "#finance"],
                 ].map(([l, h]) => (
                   <li key={h}>
                     <a href={h} className="text-muted-foreground transition-colors hover:text-foreground">
