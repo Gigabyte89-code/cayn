@@ -72,7 +72,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="glass-strong relative mt-12 overflow-hidden rounded-[32px] p-6 sm:p-10"
+          className="glass-liquid relative mt-12 overflow-hidden rounded-[32px] p-6 sm:p-10"
         >
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-40 blur-3xl"
@@ -146,7 +146,7 @@ export function Contact() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="glass-strong flex h-16 w-16 items-center justify-center rounded-full"
+                  className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
                   style={{ boxShadow: "0 0 60px oklch(0.7 0.22 280 / 50%)" }}
                 >
                   <Check size={28} className="text-glow-2" />

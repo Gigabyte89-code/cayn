@@ -69,7 +69,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="glass-strong relative overflow-hidden rounded-3xl p-8"
+            className="glass-liquid relative overflow-hidden rounded-3xl p-8"
           >
             <div
               className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-50 blur-3xl"
@@ -91,7 +91,7 @@ export function About() {
                     whileHover={{ x: 4 }}
                     className="glass flex items-start gap-3 rounded-2xl p-3"
                   >
-                    <div className="glass-strong flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
+                    <div className="glass-liquid flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
                       <h.icon size={16} className="text-foreground" />
                     </div>
                     <div>
@@ -110,7 +110,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="glass-strong rounded-3xl p-8"
+            className="glass-liquid rounded-3xl p-8"
           >
             <div className="mb-6 text-center">
               <div className="text-xs uppercase tracking-widest text-muted-foreground">
