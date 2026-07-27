@@ -169,7 +169,7 @@ export function FinanceApp() {
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-7xl">
             <span className="text-gradient">Meet </span>
-            <span className="text-gradient-brand italic">Projects.</span>
+            <span className="text-gradient-brand italic">Cashow.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
             A personal finance app designed to help users track expenses, monitor
