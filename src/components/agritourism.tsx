@@ -38,24 +38,28 @@ export function Agritourism() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="glass-liquid mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Client Project
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="eyebrow mx-auto mb-5">Client project</div>
+          <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="text-gradient">Occhiomininno </span>
             <span className="text-gradient-brand italic">Agritourism.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
             Development of a professional website for a Puglian agritourism business,
             featuring a modern design, SEO optimization, a product catalog, an
             email-based order request system, and performance optimized for all devices.
           </p>
-          <div className="mt-8 flex justify-center">
+
+          <CaseNotes
+            problem="A family-run masseria with no real web presence: bookings and olive oil orders arrived only by phone or word of mouth, and nobody searching locally could find them."
+            result="A fast, SEO-ready site with a product catalog and email order requests — guests can now book a table or ask for oil in a couple of taps, from any device."
+          />
+
+          <div className="mt-10 flex justify-center">
             <a
               href="https://agriturismocchiomininno.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
             >
               Visit website
               <ArrowUpRight
@@ -64,6 +68,7 @@ export function Agritourism() {
               />
             </a>
           </div>
+
         </motion.div>
 
         {/* Screens — equal height, media fills the frame (no dead space) */}
