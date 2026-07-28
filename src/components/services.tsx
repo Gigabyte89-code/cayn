@@ -86,17 +86,16 @@ export function Services() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            My Services
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="eyebrow mx-auto mb-5">Services</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="text-gradient">What I </span>
             <span className="text-gradient-brand italic">create.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            From idea to product — tailored services built around your goals,
-            users, and brand.
+          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
+            Every service below comes with the same promise: something concrete
+            online, built around your goals — not a template with your logo on it.
           </p>
+
         </motion.div>
 
         <div
