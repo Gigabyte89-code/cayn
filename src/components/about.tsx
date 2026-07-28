@@ -23,11 +23,28 @@ function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string 
 }
 
 const HIGHLIGHTS = [
-  { icon: Lightbulb, label: "Creativity", desc: "Turning ideas into refined experiences." },
-  { icon: Brain, label: "Problem Solving", desc: "Engineering thoughtful, scalable solutions." },
-  { icon: Sparkles, label: "Continuous Learning", desc: "Always exploring new tools & ideas." },
-  { icon: Target, label: "Attention to Detail", desc: "Pixel-perfect, end to end." },
+  {
+    icon: Target,
+    label: "You need a site that converts",
+    desc: "I build pages with a clear path from first scroll to contact or purchase.",
+  },
+  {
+    icon: Brain,
+    label: "You have an idea, not a spec",
+    desc: "I turn a rough concept into a working product — structure, design and code.",
+  },
+  {
+    icon: Lightbulb,
+    label: "Your current site feels dated",
+    desc: "Redesign with modern motion, real hierarchy and a brand that looks intentional.",
+  },
+  {
+    icon: Sparkles,
+    label: "You want it fast and fast-loading",
+    desc: "Shipped in days, optimized media, smooth on mobile and on slow connections.",
+  },
 ];
+
 
 const TOOLS = [
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
@@ -49,17 +66,18 @@ export function About() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            About Me
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">A young developer with a </span>
-            <span className="text-gradient-brand italic">craft mindset.</span>
+          <div className="eyebrow mx-auto mb-5">About me</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="text-gradient">I build the site your idea </span>
+            <span className="text-gradient-brand italic">deserves.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            Passionate about technology, web development, and UI/UX design — focused on
-            creating useful, beautiful digital products that people love to use.
+          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
+            I'm Cayn — developer and digital creator. I work with founders, small
+            businesses and professionals who need a product online quickly, without
+            it looking like a template. Design, development and launch handled end
+            to end, by one person you can talk to directly.
           </p>
+
         </motion.div>
 
         <div className="mt-20 grid grid-cols-1 gap-8">
@@ -73,7 +91,7 @@ export function About() {
           >
             <div
               className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-50 blur-3xl"
-              style={{ background: "radial-gradient(circle, oklch(0.6 0.25 280 / 60%), transparent 70%)" }}
+              style={{ background: "radial-gradient(circle, oklch(0.6 0.25 168 / 60%), transparent 70%)" }}
             />
             <div className="relative">
               <div className="glass mx-auto flex h-32 w-32 items-center justify-center rounded-full">
@@ -84,23 +102,29 @@ export function About() {
                 Developer & Digital Creator
               </p>
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-10 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                What I can solve for you
+              </div>
+
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {HIGHLIGHTS.map((h) => (
-                  <motion.div
+                  <div
                     key={h.label}
-                    whileHover={{ x: 4 }}
-                    className="glass flex items-start gap-3 rounded-2xl p-3"
+                    className="glass hover-lift flex items-start gap-3 rounded-2xl p-4"
                   >
                     <div className="glass-liquid flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
-                      <h.icon size={16} className="text-foreground" />
+                      <h.icon size={16} style={{ color: "var(--accent)" }} />
                     </div>
                     <div>
-                      <div className="text-sm font-medium">{h.label}</div>
-                      <div className="text-xs text-muted-foreground">{h.desc}</div>
+                      <div className="text-sm font-semibold">{h.label}</div>
+                      <div className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                        {h.desc}
+                      </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
+
             </div>
           </motion.div>
 

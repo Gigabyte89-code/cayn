@@ -42,7 +42,7 @@ export function Contact() {
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.25 280 / 30%), transparent 60%)",
+            "radial-gradient(ellipse at center, oklch(0.5 0.25 168 / 30%), transparent 60%)",
         }}
       />
 
@@ -54,10 +54,8 @@ export function Contact() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Contact
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="eyebrow mx-auto mb-5">Contact</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="text-gradient">Get in </span>
             <span className="text-gradient-brand italic">touch.</span>
           </h2>
@@ -76,7 +74,7 @@ export function Contact() {
         >
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 280 / 60%), transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 168 / 60%), transparent 70%)" }}
           />
 
           <AnimatePresence mode="wait">
@@ -147,7 +145,7 @@ export function Contact() {
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{ boxShadow: "0 0 60px oklch(0.7 0.22 280 / 50%)" }}
+                  style={{ boxShadow: "0 0 60px oklch(0.7 0.22 168 / 50%)" }}
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
