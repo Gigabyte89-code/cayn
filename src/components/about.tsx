@@ -73,7 +73,7 @@ export function About() {
           >
             <div
               className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-50 blur-3xl"
-              style={{ background: "radial-gradient(circle, oklch(0.6 0.25 280 / 60%), transparent 70%)" }}
+              style={{ background: "radial-gradient(circle, oklch(0.6 0.25 168 / 60%), transparent 70%)" }}
             />
             <div className="relative">
               <div className="glass mx-auto flex h-32 w-32 items-center justify-center rounded-full">

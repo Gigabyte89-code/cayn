@@ -14,7 +14,7 @@ export function ICDL() {
     <section id="icdl" className="relative px-6 py-32">
       <div
         className="pointer-events-none absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 220 / 60%), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 205 / 60%), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-7xl">
@@ -76,7 +76,7 @@ export function ICDL() {
                 className="pointer-events-none absolute inset-0 opacity-30"
                 style={{
                   background:
-                    "linear-gradient(110deg, transparent 30%, oklch(0.95 0.05 280 / 30%) 50%, transparent 70%)",
+                    "linear-gradient(110deg, transparent 30%, oklch(0.95 0.05 168 / 30%) 50%, transparent 70%)",
                   backgroundSize: "200% 100%",
                 }}
               />
@@ -93,7 +93,7 @@ export function ICDL() {
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                   className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
                   style={{
-                    boxShadow: "0 0 40px oklch(0.7 0.22 280 / 40%)",
+                    boxShadow: "0 0 40px oklch(0.7 0.22 168 / 40%)",
                   }}
                 >
                   <span className="font-display text-[13px] font-semibold tracking-wider text-gradient-brand">
@@ -124,7 +124,7 @@ export function ICDL() {
               {/* Holographic corner */}
               <div
                 className="pointer-events-none absolute -bottom-10 -right-10 h-40 w-40 rounded-full opacity-50 blur-2xl"
-                style={{ background: "radial-gradient(circle, oklch(0.7 0.22 280 / 60%), transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, oklch(0.7 0.22 168 / 60%), transparent 70%)" }}
               />
             </motion.div>
           </motion.div>

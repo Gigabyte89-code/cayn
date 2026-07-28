@@ -69,7 +69,7 @@ export function Services() {
     <section id="services" className="relative px-6 py-32">
       <div
         className="pointer-events-none absolute left-1/2 top-1/4 h-[400px] w-[600px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 280 / 50%), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 168 / 50%), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-7xl">
@@ -109,7 +109,7 @@ export function Services() {
                 <div className="glass-liquid relative h-full overflow-hidden rounded-3xl p-7 transition-all duration-500 hover:bg-white/[0.08]">
                   <div
                     className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ background: "radial-gradient(circle, oklch(0.65 0.25 280 / 60%), transparent 70%)" }}
+                    style={{ background: "radial-gradient(circle, oklch(0.65 0.25 168 / 60%), transparent 70%)" }}
                   />
 
                   <div

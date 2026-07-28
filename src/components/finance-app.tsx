@@ -25,7 +25,7 @@ function PhoneMockup() {
       <div
         className="relative aspect-[9/19] overflow-hidden rounded-[44px] p-[3px]"
         style={{
-          background: "linear-gradient(160deg, oklch(0.4 0.05 280), oklch(0.15 0.02 280))",
+          background: "linear-gradient(160deg, oklch(0.4 0.05 168), oklch(0.15 0.02 168))",
           boxShadow:
             "0 60px 120px -20px oklch(0 0 0 / 80%), 0 0 0 1px oklch(1 0 0 / 8%), inset 0 1px 0 oklch(1 0 0 / 20%)",
         }}
@@ -34,7 +34,7 @@ function PhoneMockup() {
           className="relative h-full w-full overflow-hidden rounded-[42px] p-5"
           style={{
             background:
-              "linear-gradient(180deg, oklch(0.1 0.02 280) 0%, oklch(0.08 0.03 260) 100%)",
+              "linear-gradient(180deg, oklch(0.1 0.02 168) 0%, oklch(0.08 0.03 178) 100%)",
           }}
         >
           {/* Notch */}
@@ -53,7 +53,7 @@ function PhoneMockup() {
           <div
             className="glass-liquid mt-4 rounded-2xl p-4"
             style={{
-              background: "linear-gradient(135deg, oklch(0.5 0.25 280 / 30%), oklch(0.5 0.25 220 / 20%))",
+              background: "linear-gradient(135deg, oklch(0.5 0.25 168 / 30%), oklch(0.5 0.25 205 / 20%))",
             }}
           >
             <div className="text-[10px] text-muted-foreground">Total Balance</div>
@@ -75,8 +75,8 @@ function PhoneMockup() {
             <svg viewBox="0 0 200 60" className="w-full">
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.7 0.22 280)" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="oklch(0.7 0.22 280)" stopOpacity="0" />
+                  <stop offset="0%" stopColor="oklch(0.7 0.22 168)" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="oklch(0.7 0.22 168)" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <motion.path
@@ -86,7 +86,7 @@ function PhoneMockup() {
                 transition={{ duration: 1.8, ease: "easeInOut" }}
                 d="M0,40 C20,30 40,45 60,35 C80,25 100,30 120,20 C140,12 160,18 200,8"
                 fill="none"
-                stroke="oklch(0.75 0.2 280)"
+                stroke="oklch(0.75 0.2 168)"
                 strokeWidth="2"
               />
               <path
@@ -130,7 +130,7 @@ function PhoneMockup() {
       <div
         className="pointer-events-none absolute -inset-x-10 -bottom-32 h-32 opacity-40 blur-2xl"
         style={{
-          background: "radial-gradient(ellipse at center top, oklch(0.6 0.25 280 / 60%), transparent 70%)",
+          background: "radial-gradient(ellipse at center top, oklch(0.6 0.25 168 / 60%), transparent 70%)",
         }}
       />
     </div>
@@ -152,7 +152,7 @@ export function FinanceApp() {
         className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 30%, oklch(0.4 0.25 280 / 30%), transparent 60%)",
+            "radial-gradient(ellipse at 50% 30%, oklch(0.4 0.25 168 / 30%), transparent 60%)",
         }}
       />
 
@@ -250,7 +250,7 @@ export function FinanceApp() {
             className="rounded-3xl p-8 sm:p-10"
             style={{
               background:
-                "linear-gradient(135deg, oklch(0.12 0.02 280) 0%, oklch(0.08 0.03 260) 100%)",
+                "linear-gradient(135deg, oklch(0.12 0.02 168) 0%, oklch(0.08 0.03 178) 100%)",
             }}
           >
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -281,8 +281,8 @@ export function FinanceApp() {
                 <svg viewBox="0 0 400 100" className="w-full">
                   <defs>
                     <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="oklch(0.75 0.2 220)" stopOpacity="0.5" />
-                      <stop offset="100%" stopColor="oklch(0.75 0.2 220)" stopOpacity="0" />
+                      <stop offset="0%" stopColor="oklch(0.75 0.2 205)" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="oklch(0.75 0.2 205)" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <motion.path
@@ -292,7 +292,7 @@ export function FinanceApp() {
                     transition={{ duration: 2 }}
                     d="M0,70 C40,60 80,80 120,55 C160,30 200,45 240,30 C280,15 320,25 400,10"
                     fill="none"
-                    stroke="oklch(0.8 0.18 220)"
+                    stroke="oklch(0.8 0.18 205)"
                     strokeWidth="2"
                   />
                   <path
@@ -323,7 +323,7 @@ export function FinanceApp() {
                           className="h-full rounded-full"
                           style={{
                             background:
-                              "linear-gradient(90deg, oklch(0.7 0.22 280), oklch(0.75 0.18 220))",
+                              "linear-gradient(90deg, oklch(0.7 0.22 168), oklch(0.75 0.18 205))",
                           }}
                         />
                       </div>
