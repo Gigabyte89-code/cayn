@@ -8,6 +8,7 @@ import {
   ArrowDownRight,
   ArrowUpRight,
 } from "lucide-react";
+import { CaseNotes } from "@/components/case-notes";
 
 const FEATURES = [
   { icon: Wallet, title: "Expense tracking", desc: "Effortless logging of every transaction." },
