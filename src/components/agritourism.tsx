@@ -10,6 +10,7 @@ import {
   Images,
   Leaf,
 } from "lucide-react";
+import { CaseNotes } from "@/components/case-notes";
 import heroShot from "@/assets/occhio-hero.png.asset.json";
 import productShot from "@/assets/occhio-products.png.asset.json";
 
