@@ -23,11 +23,28 @@ function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string 
 }
 
 const HIGHLIGHTS = [
-  { icon: Lightbulb, label: "Creativity", desc: "Turning ideas into refined experiences." },
-  { icon: Brain, label: "Problem Solving", desc: "Engineering thoughtful, scalable solutions." },
-  { icon: Sparkles, label: "Continuous Learning", desc: "Always exploring new tools & ideas." },
-  { icon: Target, label: "Attention to Detail", desc: "Pixel-perfect, end to end." },
+  {
+    icon: Target,
+    label: "You need a site that converts",
+    desc: "I build pages with a clear path from first scroll to contact or purchase.",
+  },
+  {
+    icon: Brain,
+    label: "You have an idea, not a spec",
+    desc: "I turn a rough concept into a working product — structure, design and code.",
+  },
+  {
+    icon: Lightbulb,
+    label: "Your current site feels dated",
+    desc: "Redesign with modern motion, real hierarchy and a brand that looks intentional.",
+  },
+  {
+    icon: Sparkles,
+    label: "You want it fast and fast-loading",
+    desc: "Shipped in days, optimized media, smooth on mobile and on slow connections.",
+  },
 ];
+
 
 const TOOLS = [
   { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
