@@ -13,34 +13,28 @@ const SERVICES = [
     icon: Code2,
     title: "Web Development",
     desc: "Modern websites with responsive design and optimized performance.",
-    benefit: "Your site loads fast and looks right on every phone — fewer visitors lost before the first scroll.",
   },
   {
     icon: LayoutDashboard,
     title: "UI / UX Design",
     desc: "Clean interfaces focused on usability and user experience.",
-    benefit: "People find what they came for in seconds, so more of them actually reach the contact form.",
   },
   {
     icon: Briefcase,
     title: "Portfolio Websites",
     desc: "Custom personal portfolios for students, developers, and professionals.",
-    benefit: "One link that presents your work seriously — ready to send to recruiters or clients.",
   },
   {
     icon: Rocket,
     title: "Landing Pages",
     desc: "Modern landing pages for startups and personal projects.",
-    benefit: "A single focused page built around one action: sign up, book, or buy.",
   },
   {
     icon: Wand2,
     title: "Digital Solutions",
     desc: "Helping transform ideas into working digital products.",
-    benefit: "You go from idea to something real you can show and test, in days rather than months.",
   },
 ];
-
 
 function TiltCard({ children, className = "" }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -75,7 +69,7 @@ export function Services() {
     <section id="services" className="relative px-6 py-32">
       <div
         className="pointer-events-none absolute left-1/2 top-1/4 h-[400px] w-[600px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 168 / 50%), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 280 / 50%), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-7xl">
@@ -86,16 +80,17 @@ export function Services() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="eyebrow mx-auto mb-5">Services</div>
-          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
+            My Services
+          </div>
+          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">What I </span>
             <span className="text-gradient-brand italic">create.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            Every service below comes with the same promise: something concrete
-            online, built around your goals — not a template with your logo on it.
+          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
+            From idea to product — tailored services built around your goals,
+            users, and brand.
           </p>
-
         </motion.div>
 
         <div
@@ -114,14 +109,14 @@ export function Services() {
                 <div className="glass-liquid relative h-full overflow-hidden rounded-3xl p-7 transition-all duration-500 hover:bg-white/[0.08]">
                   <div
                     className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ background: "radial-gradient(circle, oklch(0.65 0.25 168 / 60%), transparent 70%)" }}
+                    style={{ background: "radial-gradient(circle, oklch(0.65 0.25 280 / 60%), transparent 70%)" }}
                   />
 
                   <div
                     className="glass-liquid relative flex h-12 w-12 items-center justify-center rounded-2xl"
                     style={{ transform: "translateZ(40px)" }}
                   >
-                    <s.icon size={20} style={{ color: "var(--accent)" }} />
+                    <s.icon size={20} className="text-foreground" />
                   </div>
 
                   <h3
@@ -136,23 +131,6 @@ export function Services() {
                   >
                     {s.desc}
                   </p>
-
-                  <div
-                    className="relative mt-5 border-t pt-4"
-                    style={{
-                      borderColor: "color-mix(in oklab, var(--accent) 22%, transparent)",
-                      transform: "translateZ(15px)",
-                    }}
-                  >
-                    <div className="flex items-start gap-2.5">
-                      <span className="accent-dot mt-1.5 shrink-0" />
-                      <p className="text-sm leading-relaxed text-foreground/85">
-                        {s.benefit}
-                      </p>
-                    </div>
-                  </div>
-
-
 
                 </div>
               </TiltCard>
