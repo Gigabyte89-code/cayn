@@ -121,7 +121,7 @@ export function Services() {
                     className="glass-liquid relative flex h-12 w-12 items-center justify-center rounded-2xl"
                     style={{ transform: "translateZ(40px)" }}
                   >
-                    <s.icon size={20} className="text-foreground" />
+                    <s.icon size={20} style={{ color: "var(--accent)" }} />
                   </div>
 
                   <h3
@@ -136,6 +136,23 @@ export function Services() {
                   >
                     {s.desc}
                   </p>
+
+                  <div
+                    className="relative mt-5 border-t pt-4"
+                    style={{
+                      borderColor: "color-mix(in oklab, var(--accent) 22%, transparent)",
+                      transform: "translateZ(15px)",
+                    }}
+                  >
+                    <div className="flex items-start gap-2.5">
+                      <span className="accent-dot mt-1.5 shrink-0" />
+                      <p className="text-sm leading-relaxed text-foreground/85">
+                        {s.benefit}
+                      </p>
+                    </div>
+                  </div>
+
+
 
                 </div>
               </TiltCard>
