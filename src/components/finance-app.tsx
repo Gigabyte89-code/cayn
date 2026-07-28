@@ -164,28 +164,33 @@ export function FinanceApp() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Featured Project
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-7xl">
+          <div className="eyebrow mx-auto mb-5">Featured project</div>
+          <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="text-gradient">Meet </span>
             <span className="text-gradient-brand italic">Cashow.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
             A personal finance app designed to help users track expenses, monitor
             spending habits, manage budgets, and build real financial awareness.
           </p>
-          <div className="mt-8 flex justify-center">
+
+          <CaseNotes
+            problem="People stop tracking their money because spreadsheets and bank apps show transactions, not habits — so overspending is only visible when it's too late."
+            result="A single dashboard where balance, budgets and trends are readable in one glance; the full app was designed and shipped as a working product, usable on mobile from day one."
+          />
+
+          <div className="mt-10 flex justify-center">
             <a
               href="https://cashow.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="liquid-sheen group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
             >
               Try now
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
+
         </motion.div>
 
         <div className="mt-20 grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.1fr_1fr]">
