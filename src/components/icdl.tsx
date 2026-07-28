@@ -25,10 +25,8 @@ export function ICDL() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className="glass mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-              Certification
-            </div>
-            <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+            <div className="eyebrow mb-5">Certification</div>
+            <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               <span className="text-gradient">ICDL </span>
               <span className="text-gradient-brand italic">Essentials.</span>
             </h2>
