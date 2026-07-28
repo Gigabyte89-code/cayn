@@ -13,28 +13,34 @@ const SERVICES = [
     icon: Code2,
     title: "Web Development",
     desc: "Modern websites with responsive design and optimized performance.",
+    benefit: "Your site loads fast and looks right on every phone — fewer visitors lost before the first scroll.",
   },
   {
     icon: LayoutDashboard,
     title: "UI / UX Design",
     desc: "Clean interfaces focused on usability and user experience.",
+    benefit: "People find what they came for in seconds, so more of them actually reach the contact form.",
   },
   {
     icon: Briefcase,
     title: "Portfolio Websites",
     desc: "Custom personal portfolios for students, developers, and professionals.",
+    benefit: "One link that presents your work seriously — ready to send to recruiters or clients.",
   },
   {
     icon: Rocket,
     title: "Landing Pages",
     desc: "Modern landing pages for startups and personal projects.",
+    benefit: "A single focused page built around one action: sign up, book, or buy.",
   },
   {
     icon: Wand2,
     title: "Digital Solutions",
     desc: "Helping transform ideas into working digital products.",
+    benefit: "You go from idea to something real you can show and test, in days rather than months.",
   },
 ];
+
 
 function TiltCard({ children, className = "" }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
