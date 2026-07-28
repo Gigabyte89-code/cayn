@@ -58,8 +58,10 @@ html.lenis, html.lenis body { height: auto; }
   --color-glow: var(--glow);
   --color-glow-2: var(--glow-2);
 
+  --color-accent-warm: var(--accent-warm);
+
   --font-display: "Instrument Serif", "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Manrope", "Inter", system-ui, -apple-system, sans-serif;
 }
 
 :root {
