@@ -54,10 +54,8 @@ export function Contact() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Contact
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="eyebrow mx-auto mb-5">Contact</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="text-gradient">Get in </span>
             <span className="text-gradient-brand italic">touch.</span>
           </h2>
