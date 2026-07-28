@@ -126,11 +126,10 @@ export function Agritourism() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              whileHover={{ y: -4 }}
-              className="glass-liquid liquid-sheen rounded-3xl p-6"
+              className="glass-liquid liquid-sheen hover-lift rounded-3xl p-6"
             >
               <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
-                <f.icon size={18} />
+                <f.icon size={18} style={{ color: "var(--accent)" }} />
               </div>
               <h4 className="mt-4 font-display text-lg">{f.title}</h4>
               <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
