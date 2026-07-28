@@ -102,23 +102,29 @@ export function About() {
                 Developer & Digital Creator
               </p>
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-10 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                What I can solve for you
+              </div>
+
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {HIGHLIGHTS.map((h) => (
-                  <motion.div
+                  <div
                     key={h.label}
-                    whileHover={{ x: 4 }}
-                    className="glass flex items-start gap-3 rounded-2xl p-3"
+                    className="glass hover-lift flex items-start gap-3 rounded-2xl p-4"
                   >
                     <div className="glass-liquid flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
-                      <h.icon size={16} className="text-foreground" />
+                      <h.icon size={16} style={{ color: "var(--accent)" }} />
                     </div>
                     <div>
-                      <div className="text-sm font-medium">{h.label}</div>
-                      <div className="text-xs text-muted-foreground">{h.desc}</div>
+                      <div className="text-sm font-semibold">{h.label}</div>
+                      <div className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                        {h.desc}
+                      </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
+
             </div>
           </motion.div>
 
