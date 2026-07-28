@@ -66,17 +66,18 @@ export function About() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            About Me
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">A young developer with a </span>
-            <span className="text-gradient-brand italic">craft mindset.</span>
+          <div className="eyebrow mx-auto mb-5">About me</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="text-gradient">I build the site your idea </span>
+            <span className="text-gradient-brand italic">deserves.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            Passionate about technology, web development, and UI/UX design — focused on
-            creating useful, beautiful digital products that people love to use.
+          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
+            I'm Cayn — developer and digital creator. I work with founders, small
+            businesses and professionals who need a product online quickly, without
+            it looking like a template. Design, development and launch handled end
+            to end, by one person you can talk to directly.
           </p>
+
         </motion.div>
 
         <div className="mt-20 grid grid-cols-1 gap-8">
