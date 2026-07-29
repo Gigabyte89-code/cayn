@@ -147,46 +147,54 @@ export function FinanceApp() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-3, 3]);
 
   return (
-    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-32">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 30%, oklch(0.4 0.25 280 / 30%), transparent 60%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
+    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-28 sm:py-36">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          transition={{ duration: 0.6 }}
+          className="border-b border-border pb-10"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Featured Project
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-7xl">
-            <span className="text-gradient">Meet </span>
-            <span className="text-gradient-brand">Cashow.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            A personal finance app designed to help users track expenses, monitor
-            spending habits, manage budgets, and build real financial awareness.
-          </p>
-          <div className="mt-8 flex justify-center">
+          <div className="eyebrow">Selected work · 01</div>
+          <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display text-4xl leading-[1.02] sm:text-5xl lg:text-6xl">
+              Cashow <span className="text-gradient-brand">— personal finance.</span>
+            </h2>
             <a
               href="https://cashow.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/50"
             >
               Try now
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            A personal finance app to track expenses, monitor spending habits, manage
+            budgets and build real financial awareness.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="border-l-2 border-border pl-4">
+              <div className="eyebrow">Problem solved</div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                People know they overspend but never see where — bank apps show
+                transactions, not habits.
+              </p>
+            </div>
+            <div className="border-l-2 border-accent pl-4">
+              <div className="eyebrow text-accent">Result</div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                A single screen that answers "can I spend this?" in seconds — budgets,
+                categories and trends in one calm view, live and usable today.
+              </p>
+            </div>
+          </div>
         </motion.div>
+
+
 
         <div className="mt-20 grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.1fr_1fr]">
           {/* Left features */}
