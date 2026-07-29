@@ -6,7 +6,7 @@ export function GlassOrbs() {
       <motion.div
         className="absolute right-[-10%] top-[10%] h-[520px] w-[520px] rounded-full opacity-40 blur-[120px]"
         style={{
-          background: "radial-gradient(circle, oklch(0.72 0.15 48 / 18%), transparent 70%)",
+          background: "radial-gradient(circle, oklch(0.72 0.13 48 / 18%), transparent 70%)",
         }}
         animate={{ y: [0, 24, 0] }}
         transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}

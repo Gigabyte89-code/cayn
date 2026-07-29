@@ -42,7 +42,7 @@ export function Contact() {
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.25 280 / 30%), transparent 60%)",
+            "radial-gradient(ellipse at center, oklch(0.5 0.13 48 / 18%), transparent 60%)",
         }}
       />
 
@@ -72,11 +72,11 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="glass-liquid relative mt-12 overflow-hidden rounded-[32px] p-6 sm:p-10"
+          className="glass-liquid relative mt-12 overflow-hidden rounded-2xl p-6 sm:p-10"
         >
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 280 / 60%), transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, oklch(0.6 0.13 48 / 18%), transparent 70%)" }}
           />
 
           <AnimatePresence mode="wait">
@@ -147,7 +147,7 @@ export function Contact() {
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{ boxShadow: "0 0 60px oklch(0.7 0.22 280 / 50%)" }}
+                  style={{ boxShadow: "0 0 60px oklch(0.7 0.13 48 / 18%)" }}
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
