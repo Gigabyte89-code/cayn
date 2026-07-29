@@ -59,7 +59,7 @@ export function Contact() {
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">Get in </span>
-            <span className="text-gradient-brand italic">touch.</span>
+            <span className="text-gradient-brand">touch.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-muted-foreground">
             Have a project, an idea, or simply want to connect? Feel free to reach out.

@@ -43,7 +43,7 @@ export function Agritourism() {
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">Occhiomininno </span>
-            <span className="text-gradient-brand italic">Agritourism.</span>
+            <span className="text-gradient-brand">Agritourism.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
             Development of a professional website for a Puglian agritourism business,
@@ -147,7 +147,7 @@ export function Agritourism() {
               </div>
               <h3 className="mt-2 font-display text-2xl sm:text-3xl">
                 <span className="text-gradient">Built for real </span>
-                <span className="text-gradient-brand italic">guests.</span>
+                <span className="text-gradient-brand">guests.</span>
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
                 Bookings, gallery, services and directions — everything a family-run

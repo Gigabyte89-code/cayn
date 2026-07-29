@@ -85,7 +85,7 @@ export function Services() {
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">What I </span>
-            <span className="text-gradient-brand italic">create.</span>
+            <span className="text-gradient-brand">create.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
             From idea to product — tailored services built around your goals,

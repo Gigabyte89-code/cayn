@@ -30,7 +30,7 @@ export function ICDL() {
             </div>
             <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
               <span className="text-gradient">ICDL </span>
-              <span className="text-gradient-brand italic">Essentials.</span>
+              <span className="text-gradient-brand">Essentials.</span>
             </h2>
             <p className="mt-5 max-w-lg text-muted-foreground">
               Internationally recognized certification proving verified digital

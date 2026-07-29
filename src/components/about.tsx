@@ -54,7 +54,7 @@ export function About() {
           </div>
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">A young developer with a </span>
-            <span className="text-gradient-brand italic">craft mindset.</span>
+            <span className="text-gradient-brand">craft mindset.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
             Passionate about technology, web development, and UI/UX design — focused on
@@ -118,7 +118,7 @@ export function About() {
               </div>
               <h3 className="mt-2 font-display text-2xl sm:text-3xl">
                 <span className="text-gradient">Programs </span>
-                <span className="text-gradient-brand italic">I use</span>
+                <span className="text-gradient-brand">I use</span>
               </h3>
             </div>
             <div className="flex flex-wrap justify-center gap-3">

@@ -41,7 +41,7 @@ export function Hero() {
           >
             <span className="text-gradient">Building modern</span>
             <br />
-            <span className="text-gradient-brand italic">digital experiences.</span>
+            <span className="text-gradient-brand">digital experiences.</span>
           </motion.h1>
 
           <motion.p
