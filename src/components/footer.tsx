@@ -9,11 +9,11 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="glass-liquid relative overflow-hidden rounded-[32px] p-10 sm:p-14"
+          className="glass-liquid relative overflow-hidden rounded-2xl p-10 sm:p-14"
         >
           <div
             className="pointer-events-none absolute -bottom-32 left-1/2 h-80 w-[140%] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(ellipse, oklch(0.5 0.25 280 / 50%), transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse, oklch(0.5 0.13 48 / 18%), transparent 70%)" }}
           />
 
           <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">

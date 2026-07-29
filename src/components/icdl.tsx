@@ -14,7 +14,7 @@ export function ICDL() {
     <section id="icdl" className="relative px-6 py-32">
       <div
         className="pointer-events-none absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 220 / 60%), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, oklch(0.55 0.13 48 / 18%), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-7xl">
@@ -30,7 +30,7 @@ export function ICDL() {
             </div>
             <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
               <span className="text-gradient">ICDL </span>
-              <span className="text-gradient-brand italic">Essentials.</span>
+              <span className="text-gradient-brand">Essentials.</span>
             </h2>
             <p className="mt-5 max-w-lg text-muted-foreground">
               Internationally recognized certification proving verified digital
@@ -66,7 +66,7 @@ export function ICDL() {
             <motion.div
               whileHover={{ rotateY: 5, rotateX: -3, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="glass-liquid relative overflow-hidden rounded-3xl p-8"
+              className="glass-liquid relative overflow-hidden rounded-2xl p-8"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* Animated sheen */}
@@ -93,7 +93,7 @@ export function ICDL() {
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                   className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
                   style={{
-                    boxShadow: "0 0 40px oklch(0.7 0.22 280 / 40%)",
+                    boxShadow: "0 0 40px oklch(0.7 0.13 48 / 18%)",
                   }}
                 >
                   <span className="font-display text-[13px] font-semibold tracking-wider text-gradient-brand">
@@ -124,7 +124,7 @@ export function ICDL() {
               {/* Holographic corner */}
               <div
                 className="pointer-events-none absolute -bottom-10 -right-10 h-40 w-40 rounded-full opacity-50 blur-2xl"
-                style={{ background: "radial-gradient(circle, oklch(0.7 0.22 280 / 60%), transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, oklch(0.7 0.13 48 / 18%), transparent 70%)" }}
               />
             </motion.div>
           </motion.div>

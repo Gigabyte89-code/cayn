@@ -1,141 +1,88 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import {
-  Code2,
-  LayoutDashboard,
-  Briefcase,
-  Rocket,
-  Wand2,
-} from "lucide-react";
-import { useRef, type ReactNode } from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Code2, LayoutDashboard, Briefcase, Rocket, Wand2 } from "lucide-react";
 
 const SERVICES = [
   {
     icon: Code2,
     title: "Web Development",
-    desc: "Modern websites with responsive design and optimized performance.",
+    desc: "Modern, responsive websites built for speed and clean code.",
+    benefit: "Loads in under 2s on mobile — visitors stop leaving before your page appears.",
   },
   {
     icon: LayoutDashboard,
     title: "UI / UX Design",
-    desc: "Clean interfaces focused on usability and user experience.",
+    desc: "Interfaces designed around how people actually behave.",
+    benefit: "Fewer clicks to the action that matters, so more people finish it.",
   },
   {
     icon: Briefcase,
     title: "Portfolio Websites",
-    desc: "Custom personal portfolios for students, developers, and professionals.",
+    desc: "Personal sites for students, developers and professionals.",
+    benefit: "A link you can send to a recruiter or client instead of explaining yourself.",
   },
   {
     icon: Rocket,
     title: "Landing Pages",
-    desc: "Modern landing pages for startups and personal projects.",
+    desc: "Focused single pages for a product, service or launch.",
+    benefit: "One clear offer, one clear action — built to collect leads from day one.",
   },
   {
     icon: Wand2,
     title: "Digital Solutions",
-    desc: "Helping transform ideas into working digital products.",
+    desc: "From rough idea to a working, usable digital product.",
+    benefit: "You get something real to test with users instead of another slide deck.",
   },
 ];
 
-function TiltCard({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-1, 1], [8, -8]), { stiffness: 150, damping: 15 });
-  const ry = useSpring(useTransform(mx, [-1, 1], [-8, 8]), { stiffness: 150, damping: 15 });
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={(e) => {
-        if (!ref.current) return;
-        const r = ref.current.getBoundingClientRect();
-        mx.set((e.clientX - (r.left + r.width / 2)) / (r.width / 2));
-        my.set((e.clientY - (r.top + r.height / 2)) / (r.height / 2));
-      }}
-      onMouseLeave={() => {
-        mx.set(0);
-        my.set(0);
-      }}
-      style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 export function Services() {
   return (
-    <section id="services" className="relative px-6 py-32">
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/4 h-[400px] w-[600px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(circle, oklch(0.55 0.25 280 / 50%), transparent 70%)" }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
+    <section id="services" className="relative px-6 py-28 sm:py-36">
+      <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-6 border-b border-border pb-10 sm:flex-row sm:items-end sm:justify-between"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            My Services
+          <div>
+            <div className="eyebrow">Services</div>
+            <h2 className="mt-4 max-w-xl font-display text-4xl leading-[1.05] sm:text-5xl">
+              What I build, and{" "}
+              <span className="text-gradient-brand">what it does for you.</span>
+            </h2>
           </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">What I </span>
-            <span className="text-gradient-brand italic">create.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            From idea to product — tailored services built around your goals,
-            users, and brand.
-          </p>
+          <a
+            href="#contact"
+            className="group inline-flex shrink-0 items-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            Let's talk
+            <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </motion.div>
 
-        <div
-          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ perspective: 1200 }}
-        >
+        <div className="grid grid-cols-1 gap-px border-b border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <motion.div
               key={s.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.06 }}
+              className="group relative bg-background p-8 transition-colors duration-300 hover:bg-card/60"
             >
-              <TiltCard className="group relative h-full">
-                <div className="glass-liquid relative h-full overflow-hidden rounded-3xl p-7 transition-all duration-500 hover:bg-white/[0.08]">
-                  <div
-                    className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ background: "radial-gradient(circle, oklch(0.65 0.25 280 / 60%), transparent 70%)" }}
-                  />
-
-                  <div
-                    className="glass-liquid relative flex h-12 w-12 items-center justify-center rounded-2xl"
-                    style={{ transform: "translateZ(40px)" }}
-                  >
-                    <s.icon size={20} className="text-foreground" />
-                  </div>
-
-                  <h3
-                    className="relative mt-6 font-display text-2xl"
-                    style={{ transform: "translateZ(30px)" }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p
-                    className="relative mt-2 text-sm leading-relaxed text-muted-foreground"
-                    style={{ transform: "translateZ(20px)" }}
-                  >
-                    {s.desc}
-                  </p>
-
-                </div>
-              </TiltCard>
+              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors group-hover:border-accent/50 group-hover:text-accent">
+                <s.icon size={18} />
+              </div>
+              <h3 className="mt-6 text-xl text-foreground">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              <div className="mt-5 border-t border-border pt-4">
+                <div className="eyebrow text-accent">What you get</div>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/85">{s.benefit}</p>
+              </div>
             </motion.div>
           ))}
+          <div className="hidden bg-background lg:block" />
         </div>
       </div>
     </section>

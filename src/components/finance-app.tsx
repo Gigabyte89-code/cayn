@@ -23,7 +23,7 @@ function PhoneMockup() {
       style={{ transformStyle: "preserve-3d" }}
     >
       <div
-        className="relative aspect-[9/19] overflow-hidden rounded-[44px] p-[3px]"
+        className="relative aspect-[9/19] overflow-hidden rounded-[40px] p-[3px]"
         style={{
           background: "linear-gradient(160deg, oklch(0.4 0.05 280), oklch(0.15 0.02 280))",
           boxShadow:
@@ -53,7 +53,7 @@ function PhoneMockup() {
           <div
             className="glass-liquid mt-4 rounded-2xl p-4"
             style={{
-              background: "linear-gradient(135deg, oklch(0.5 0.25 280 / 30%), oklch(0.5 0.25 220 / 20%))",
+              background: "linear-gradient(135deg, oklch(0.5 0.13 48 / 18%), oklch(0.5 0.13 48 / 18%))",
             }}
           >
             <div className="text-[10px] text-muted-foreground">Total Balance</div>
@@ -75,8 +75,8 @@ function PhoneMockup() {
             <svg viewBox="0 0 200 60" className="w-full">
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="oklch(0.7 0.22 280)" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="oklch(0.7 0.22 280)" stopOpacity="0" />
+                  <stop offset="0%" stopColor="oklch(0.7 0.13 48 / 18%)" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="oklch(0.7 0.13 48 / 18%)" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <motion.path
@@ -86,7 +86,7 @@ function PhoneMockup() {
                 transition={{ duration: 1.8, ease: "easeInOut" }}
                 d="M0,40 C20,30 40,45 60,35 C80,25 100,30 120,20 C140,12 160,18 200,8"
                 fill="none"
-                stroke="oklch(0.75 0.2 280)"
+                stroke="oklch(0.75 0.13 48 / 18%)"
                 strokeWidth="2"
               />
               <path
@@ -130,7 +130,7 @@ function PhoneMockup() {
       <div
         className="pointer-events-none absolute -inset-x-10 -bottom-32 h-32 opacity-40 blur-2xl"
         style={{
-          background: "radial-gradient(ellipse at center top, oklch(0.6 0.25 280 / 60%), transparent 70%)",
+          background: "radial-gradient(ellipse at center top, oklch(0.6 0.13 48 / 18%), transparent 70%)",
         }}
       />
     </div>
@@ -147,46 +147,54 @@ export function FinanceApp() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-3, 3]);
 
   return (
-    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-32">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 30%, oklch(0.4 0.25 280 / 30%), transparent 60%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
+    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-28 sm:py-36">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          transition={{ duration: 0.6 }}
+          className="border-b border-border pb-10"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Featured Project
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-7xl">
-            <span className="text-gradient">Meet </span>
-            <span className="text-gradient-brand italic">Cashow.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            A personal finance app designed to help users track expenses, monitor
-            spending habits, manage budgets, and build real financial awareness.
-          </p>
-          <div className="mt-8 flex justify-center">
+          <div className="eyebrow">Selected work · 01</div>
+          <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display text-4xl leading-[1.02] sm:text-5xl lg:text-6xl">
+              Cashow <span className="text-gradient-brand">— personal finance.</span>
+            </h2>
             <a
               href="https://cashow.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/50"
             >
               Try now
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            A personal finance app to track expenses, monitor spending habits, manage
+            budgets and build real financial awareness.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="border-l-2 border-border pl-4">
+              <div className="eyebrow">Problem solved</div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                People know they overspend but never see where — bank apps show
+                transactions, not habits.
+              </p>
+            </div>
+            <div className="border-l-2 border-accent pl-4">
+              <div className="eyebrow text-accent">Result</div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                A single screen that answers "can I spend this?" in seconds — budgets,
+                categories and trends in one calm view, live and usable today.
+              </p>
+            </div>
+          </div>
         </motion.div>
+
+
 
         <div className="mt-20 grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.1fr_1fr]">
           {/* Left features */}
@@ -198,7 +206,7 @@ export function FinanceApp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glass-liquid rounded-3xl p-6"
+                className="glass-liquid rounded-2xl p-6"
               >
                 <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                   <f.icon size={18} />
@@ -226,7 +234,7 @@ export function FinanceApp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glass-liquid rounded-3xl p-6"
+                className="glass-liquid rounded-2xl p-6"
               >
                 <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                   <f.icon size={18} />
@@ -244,10 +252,10 @@ export function FinanceApp() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9 }}
-          className="glass-liquid mt-20 overflow-hidden rounded-[32px] p-2"
+          className="glass-liquid mt-20 overflow-hidden rounded-2xl p-2"
         >
           <div
-            className="rounded-3xl p-8 sm:p-10"
+            className="rounded-2xl p-8 sm:p-10"
             style={{
               background:
                 "linear-gradient(135deg, oklch(0.12 0.02 280) 0%, oklch(0.08 0.03 260) 100%)",
@@ -281,8 +289,8 @@ export function FinanceApp() {
                 <svg viewBox="0 0 400 100" className="w-full">
                   <defs>
                     <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="oklch(0.75 0.2 220)" stopOpacity="0.5" />
-                      <stop offset="100%" stopColor="oklch(0.75 0.2 220)" stopOpacity="0" />
+                      <stop offset="0%" stopColor="oklch(0.75 0.13 48 / 18%)" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="oklch(0.75 0.13 48 / 18%)" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <motion.path
@@ -292,7 +300,7 @@ export function FinanceApp() {
                     transition={{ duration: 2 }}
                     d="M0,70 C40,60 80,80 120,55 C160,30 200,45 240,30 C280,15 320,25 400,10"
                     fill="none"
-                    stroke="oklch(0.8 0.18 220)"
+                    stroke="oklch(0.8 0.13 48 / 18%)"
                     strokeWidth="2"
                   />
                   <path
@@ -323,7 +331,7 @@ export function FinanceApp() {
                           className="h-full rounded-full"
                           style={{
                             background:
-                              "linear-gradient(90deg, oklch(0.7 0.22 280), oklch(0.75 0.18 220))",
+                              "linear-gradient(90deg, oklch(0.7 0.13 48 / 18%), oklch(0.75 0.13 48 / 18%))",
                           }}
                         />
                       </div>

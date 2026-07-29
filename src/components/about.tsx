@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string }) {
   const [failed, setFailed] = useState(false);
   if (failed || !src) {
     return (
-      <span className="flex h-4 w-4 items-center justify-center text-[8px] font-bold text-muted-foreground uppercase">
+      <span className="flex h-4 w-4 items-center justify-center text-[8px] font-bold uppercase text-muted-foreground">
         {name.slice(0, 2)}
       </span>
     );
@@ -22,11 +22,28 @@ function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string 
   );
 }
 
-const HIGHLIGHTS = [
-  { icon: Lightbulb, label: "Creativity", desc: "Turning ideas into refined experiences." },
-  { icon: Brain, label: "Problem Solving", desc: "Engineering thoughtful, scalable solutions." },
-  { icon: Sparkles, label: "Continuous Learning", desc: "Always exploring new tools & ideas." },
-  { icon: Target, label: "Attention to Detail", desc: "Pixel-perfect, end to end." },
+const SOLVES = [
+  {
+    n: "01",
+    title: "You have no site — or one that ages you",
+    desc: "I ship a fast, mobile-first site that looks like the business you actually run, usually in days, not months.",
+  },
+  {
+    n: "02",
+    title: "People visit but never contact you",
+    desc: "Clear structure, one obvious action per screen, forms that land in your inbox. Traffic turns into messages.",
+  },
+  {
+    n: "03",
+    title: "Your idea is still a document",
+    desc: "I turn a rough concept into a working product — real screens, real data, something you can put in front of users.",
+  },
+];
+
+const STATS = [
+  { value: "2", label: "Live client products" },
+  { value: "< 2 wks", label: "Typical delivery" },
+  { value: "24h", label: "Reply time" },
 ];
 
 const TOOLS = [
@@ -37,112 +54,101 @@ const TOOLS = [
   { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
 ];
 
-
 export function About() {
   return (
-    <section id="about" className="relative px-6 py-32">
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            About Me
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">A young developer with a </span>
-            <span className="text-gradient-brand italic">craft mindset.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            Passionate about technology, web development, and UI/UX design — focused on
-            creating useful, beautiful digital products that people love to use.
-          </p>
-        </motion.div>
-
-        <div className="mt-20 grid grid-cols-1 gap-8">
-          {/* Profile card */}
+    <section id="about" className="relative px-6 py-28 sm:py-36">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr]">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="glass-liquid relative overflow-hidden rounded-3xl p-8"
-          >
-            <div
-              className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-50 blur-3xl"
-              style={{ background: "radial-gradient(circle, oklch(0.6 0.25 280 / 60%), transparent 70%)" }}
-            />
-            <div className="relative">
-              <div className="glass mx-auto flex h-32 w-32 items-center justify-center rounded-full">
-                <span className="font-display text-5xl text-gradient-brand">C</span>
-              </div>
-              <h3 className="mt-6 text-center font-display text-2xl">Cayn</h3>
-              <p className="mt-1 text-center text-sm text-muted-foreground">
-                Developer & Digital Creator
-              </p>
-
-              <div className="mt-8 space-y-3">
-                {HIGHLIGHTS.map((h) => (
-                  <motion.div
-                    key={h.label}
-                    whileHover={{ x: 4 }}
-                    className="glass flex items-start gap-3 rounded-2xl p-3"
-                  >
-                    <div className="glass-liquid flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
-                      <h.icon size={16} className="text-foreground" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium">{h.label}</div>
-                      <div className="text-xs text-muted-foreground">{h.desc}</div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Tools I use */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-            className="glass-liquid rounded-3xl p-8"
+            transition={{ duration: 0.6 }}
           >
-            <div className="mb-6 text-center">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                Toolkit
-              </div>
-              <h3 className="mt-2 font-display text-2xl sm:text-3xl">
-                <span className="text-gradient">Programs </span>
-                <span className="text-gradient-brand italic">I use</span>
-              </h3>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              {TOOLS.map((t, i) => (
-                <motion.div
-                  key={t.name}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07, duration: 0.5 }}
-                  whileHover={{ y: -4, scale: 1.04 }}
-                  className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
-                >
-                  <ToolLogo
-                    src={t.logo ?? undefined}
-                    alt={`${t.name} logo`}
-                    name={t.name}
-                  />
+            <div className="eyebrow">About</div>
+            <h2 className="mt-4 font-display text-4xl leading-[1.05] sm:text-5xl">
+              I build the thing
+              <br />
+              <span className="text-gradient-brand">that makes you money.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              I'm Cayn, a developer and digital creator. I don't sell "web presence" —
+              I fix concrete problems: a site nobody trusts, a product that only exists
+              in your head, a page that gets clicks and no replies.
+            </p>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              You get one person end to end: design, build, copy structure and launch.
+              No agency handoffs, no waiting weeks for a mockup.
+            </p>
 
-                  <span className="font-medium">{t.name}</span>
-                </motion.div>
+            <a
+              href="#contact"
+              className="group mt-8 inline-flex items-center gap-2 border-b border-accent/40 pb-1 text-sm font-medium text-foreground transition-colors hover:border-accent"
+            >
+              Tell me your problem
+              <ArrowUpRight
+                size={15}
+                className="text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+
+            <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-6">
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <div className="font-display text-2xl text-foreground">{s.value}</div>
+                  <div className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                    {s.label}
+                  </div>
+                </div>
               ))}
             </div>
           </motion.div>
+
+          <div>
+            <div className="divide-y divide-border border-y border-border">
+              {SOLVES.map((s, i) => (
+                <motion.div
+                  key={s.n}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="group flex gap-6 py-7 transition-colors"
+                >
+                  <span className="mt-1 font-display text-xs text-accent">{s.n}</span>
+                  <div>
+                    <h3 className="text-lg text-foreground transition-transform duration-300 group-hover:translate-x-1">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {s.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-10"
+            >
+              <div className="eyebrow">Toolkit</div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {TOOLS.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-[13px] text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground"
+                  >
+                    <ToolLogo src={t.logo} alt={`${t.name} logo`} name={t.name} />
+                    <span>{t.name}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

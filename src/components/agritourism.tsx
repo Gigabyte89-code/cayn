@@ -29,42 +29,57 @@ const HIGHLIGHTS = [
 
 export function Agritourism() {
   return (
-    <section id="agritourism" className="relative px-6 py-32">
-      <div className="relative mx-auto max-w-7xl">
+    <section id="agritourism" className="relative px-6 py-28 sm:py-36">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          transition={{ duration: 0.6 }}
+          className="border-b border-border pb-10"
         >
-          <div className="glass-liquid mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Client Project
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">Occhiomininno </span>
-            <span className="text-gradient-brand italic">Agritourism.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted-foreground">
-            Development of a professional website for a Puglian agritourism business,
-            featuring a modern design, SEO optimization, a product catalog, an
-            email-based order request system, and performance optimized for all devices.
-          </p>
-          <div className="mt-8 flex justify-center">
+          <div className="eyebrow">Selected work · 02</div>
+          <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display text-4xl leading-[1.02] sm:text-5xl lg:text-6xl">
+              Occhiomininno <span className="text-gradient-brand">— agritourism.</span>
+            </h2>
             <a
               href="https://agriturismocchiomininno.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent/50"
             >
               Visit website
               <ArrowUpRight
-                size={16}
+                size={15}
                 className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </a>
           </div>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            A professional website for a family-run Puglian agritourism business:
+            modern design, SEO, a product catalog and an email-based order system,
+            optimized for every device.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="border-l-2 border-border pl-4">
+              <div className="eyebrow">Problem solved</div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                The business only existed on social media — no way to be found on
+                Google, and product requests were lost in DMs.
+              </p>
+            </div>
+            <div className="border-l-2 border-accent pl-4">
+              <div className="eyebrow text-accent">Result</div>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                An indexable site with a real product catalog, plus booking and order
+                requests that arrive pre-filled straight in the owner's inbox.
+              </p>
+            </div>
+          </div>
         </motion.div>
+
 
         {/* Screens — equal height, media fills the frame (no dead space) */}
         <div className="mt-20 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
@@ -73,16 +88,16 @@ export function Agritourism() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
-            className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
+            className="glass-liquid flex flex-col rounded-2xl p-2"
           >
-            <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
+            <div className="relative h-[260px] overflow-hidden rounded-2xl sm:h-[360px] lg:h-[440px]">
               <img
                 src={heroShot.url}
                 alt="Homepage of the Occhio Mininno agritourism website with hero image of the Puglian masseria"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-top"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
             </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
               Landing experience — Ruvo di Puglia, since 1985
@@ -94,16 +109,16 @@ export function Agritourism() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
+            className="glass-liquid flex flex-col rounded-2xl p-2"
           >
-            <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
+            <div className="relative h-[260px] overflow-hidden rounded-2xl sm:h-[360px] lg:h-[440px]">
               <img
                 src={productShot.url}
                 alt="Product section of the Occhio Mininno website showing organic extra virgin olive oil"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-top"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
             </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
               Product catalog — organic Coratina olive oil
@@ -121,7 +136,7 @@ export function Agritourism() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="glass-liquid liquid-sheen rounded-3xl p-6"
+              className="glass-liquid rounded-2xl p-6"
             >
               <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                 <f.icon size={18} />
@@ -138,7 +153,7 @@ export function Agritourism() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="glass-liquid mt-8 rounded-[32px] p-8"
+          className="glass-liquid mt-8 rounded-2xl p-8"
         >
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
             <div>
@@ -147,7 +162,7 @@ export function Agritourism() {
               </div>
               <h3 className="mt-2 font-display text-2xl sm:text-3xl">
                 <span className="text-gradient">Built for real </span>
-                <span className="text-gradient-brand italic">guests.</span>
+                <span className="text-gradient-brand">guests.</span>
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
                 Bookings, gallery, services and directions — everything a family-run
@@ -159,7 +174,7 @@ export function Agritourism() {
                 <motion.div
                   key={h.label}
                   whileHover={{ x: 4 }}
-                  className="glass-liquid liquid-sheen flex items-center gap-3 rounded-2xl p-3"
+                  className="glass-liquid flex items-center gap-3 rounded-2xl p-3"
                 >
                   <div className="glass flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
                     <h.icon size={15} />
