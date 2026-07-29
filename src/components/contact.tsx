@@ -48,23 +48,33 @@ export function Contact() {
 
       <div className="relative mx-auto max-w-3xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="glass mx-auto mb-5 inline-flex rounded-full px-3 py-1 text-xs text-muted-foreground">
-            Contact
-          </div>
-          <h2 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">Get in </span>
-            <span className="text-gradient-brand">touch.</span>
+          <div className="eyebrow">Contact</div>
+          <h2 className="mt-4 font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+            Let's talk <span className="text-gradient-brand">about your project.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-muted-foreground">
-            Have a project, an idea, or simply want to connect? Feel free to reach out.
+            Two lines about what you need is enough to start. Every message gets a real
+            answer within 24 hours — no bots, no templates.
           </p>
         </motion.div>
+
+        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border p-6">
+          <p className="font-display text-lg leading-relaxed text-foreground/90">
+            “Cayn understood what we needed before we could explain it. The site was
+            online in days and we finally get order requests by email instead of
+            chasing messages.”
+          </p>
+          <div className="mt-4 text-xs uppercase tracking-widest text-muted-foreground">
+            Occhiomininno Agritourism · Ruvo di Puglia
+          </div>
+        </div>
+
 
         <motion.form
           onSubmit={submit}
