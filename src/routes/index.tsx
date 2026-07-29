@@ -6,6 +6,7 @@ import { Services } from "@/components/services";
 import { ICDL } from "@/components/icdl";
 import { FinanceApp } from "@/components/finance-app";
 import { Agritourism } from "@/components/agritourism";
+import { CtaBand } from "@/components/cta-band";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
@@ -47,6 +48,7 @@ function Index() {
         <ICDL />
         <FinanceApp />
         <Agritourism />
+        <CtaBand />
         <Contact />
       </main>
       <Footer />
