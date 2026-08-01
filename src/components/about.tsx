@@ -1,75 +1,172 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
 
-const PRINCIPLES = [
+function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed || !src) {
+    return (
+      <span className="flex h-4 w-4 items-center justify-center text-[8px] font-bold text-muted-foreground uppercase">
+        {name.slice(0, 2)}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className="h-4 w-4 object-contain"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+const HIGHLIGHTS = [
   {
-    n: "01",
-    title: "Structure before style",
-    body: "Content hierarchy and reading order come first. Visual decisions follow the structure instead of hiding it.",
+    icon: Target,
+    label: "You need a site that converts",
+    desc: "I build pages with a clear path from first scroll to contact or purchase.",
   },
   {
-    n: "02",
-    title: "Motion as feedback",
-    body: "Animation confirms an action, orients the eye, or reveals the next step. Nothing moves purely for effect.",
+    icon: Brain,
+    label: "You have an idea, not a spec",
+    desc: "I turn a rough concept into a working product — structure, design and code.",
   },
   {
-    n: "03",
-    title: "Ship, then refine",
-    body: "A working product in front of real users beats a perfect mockup. I ship early and tighten in short passes.",
+    icon: Lightbulb,
+    label: "Your current site feels dated",
+    desc: "Redesign with modern motion, real hierarchy and a brand that looks intentional.",
+  },
+  {
+    icon: Sparkles,
+    label: "You want it fast and fast-loading",
+    desc: "Shipped in days, optimized media, smooth on mobile and on slow connections.",
   },
 ];
 
+
+const TOOLS = [
+  { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
+  { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
+  { name: "Spline", logo: "https://app.spline.design/favicon.ico" },
+  { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
+];
+
+
 export function About() {
   return (
-    <section id="about" className="border-b border-border py-24 sm:py-28">
-      <div className="mx-auto max-w-[1180px] px-6">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.32fr_0.68fr] lg:gap-16">
-          <div>
-            <div className="eyebrow">About</div>
-            <h2 className="mt-5 text-[clamp(1.7rem,3vw,2.35rem)] leading-[1.12]">
-              One person, end to end — from wireframe to production.
-            </h2>
-          </div>
+    <section id="about" className="relative px-6 py-32">
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <div className="eyebrow mx-auto mb-5">About me</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="text-gradient">I build the site your idea </span>
+            <span className="text-gradient-brand italic">deserves.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
+            I'm Cayn — developer and digital creator. I work with founders, small
+            businesses and professionals who need a product online quickly, without
+            it looking like a template. Design, development and launch handled end
+            to end, by one person you can talk to directly.
+          </p>
 
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.55 }}
-              className="max-w-[62ch] space-y-5 text-[15.5px] leading-[1.75] text-muted-foreground"
-            >
-              <p>
-                I work on the part of a product people actually touch: layout, states,
-                copy structure, performance. Most of my projects start with a business
-                that has something real to sell and no interface worth trusting.
-              </p>
-              <p>
-                Because design and implementation sit with the same person, there are no
-                handoffs to lose detail in — the spacing you approve is the spacing that
-                ships. I write TypeScript, keep components small, and measure before
-                adding anything heavy.
-              </p>
-            </motion.div>
+        </motion.div>
 
-            <div className="mt-12 grid grid-cols-1 gap-px border-t border-border sm:grid-cols-3">
-              {PRINCIPLES.map((p, i) => (
-                <motion.article
-                  key={p.n}
-                  initial={{ opacity: 0, y: 14 }}
+        <div className="mt-20 grid grid-cols-1 gap-8">
+          {/* Profile card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="glass-liquid relative overflow-hidden rounded-3xl p-8"
+          >
+            <div
+              className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-50 blur-3xl"
+              style={{ background: "radial-gradient(circle, oklch(0.6 0.25 168 / 60%), transparent 70%)" }}
+            />
+            <div className="relative">
+              <div className="glass mx-auto flex h-32 w-32 items-center justify-center rounded-full">
+                <span className="font-display text-5xl text-gradient-brand">C</span>
+              </div>
+              <h3 className="mt-6 text-center font-display text-2xl">Cayn</h3>
+              <p className="mt-1 text-center text-sm text-muted-foreground">
+                Developer & Digital Creator
+              </p>
+
+              <div className="mt-10 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                What I can solve for you
+              </div>
+
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {HIGHLIGHTS.map((h) => (
+                  <div
+                    key={h.label}
+                    className="glass hover-lift flex items-start gap-3 rounded-2xl p-4"
+                  >
+                    <div className="glass-liquid flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
+                      <h.icon size={16} style={{ color: "var(--accent)" }} />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">{h.label}</div>
+                      <div className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                        {h.desc}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </motion.div>
+
+          {/* Tools I use */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="glass-liquid rounded-3xl p-8"
+          >
+            <div className="mb-6 text-center">
+              <div className="text-xs uppercase tracking-widest text-muted-foreground">
+                Toolkit
+              </div>
+              <h3 className="mt-2 font-display text-2xl sm:text-3xl">
+                <span className="text-gradient">Programs </span>
+                <span className="text-gradient-brand italic">I use</span>
+              </h3>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {TOOLS.map((t, i) => (
+                <motion.div
+                  key={t.name}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="group border-b border-border pt-6 pb-7 sm:border-r sm:pr-6 sm:last:border-r-0 sm:[&:not(:first-child)]:pl-6"
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07, duration: 0.5 }}
+                  whileHover={{ y: -4, scale: 1.04 }}
+                  className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
                 >
-                  <span className="text-[11px] tabular-nums text-accent">{p.n}</span>
-                  <h3 className="mt-3 text-[15px] text-foreground">{p.title}</h3>
-                  <p className="mt-2 text-[13.5px] leading-[1.65] text-muted-foreground">
-                    {p.body}
-                  </p>
-                </motion.article>
+                  <ToolLogo
+                    src={t.logo ?? undefined}
+                    alt={`${t.name} logo`}
+                    name={t.name}
+                  />
+
+                  <span className="font-medium">{t.name}</span>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,18 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, type FormEvent } from "react";
-import { ArrowUpRight, Check } from "lucide-react";
-
-const CHANNELS = [
-  { label: "Email", value: "jacopo.dev0@gmail.com", href: "mailto:jacopo.dev0@gmail.com" },
-  { label: "Response time", value: "Within 24 hours", href: null },
-  { label: "Working with", value: "Founders & small businesses", href: null },
-];
+import { Check, Send, Mail } from "lucide-react";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const [error, setError] = useState<string | null>(null);
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
@@ -34,176 +29,152 @@ export function Contact() {
       if (!res.ok) throw new Error("Failed");
       setSent(true);
     } catch {
-      setError("Something went wrong — please email me directly at jacopo.dev0@gmail.com.");
+      setError("Something went wrong. Please email me directly at jacopo.dev0@gmail.com.");
     } finally {
       setLoading(false);
     }
   };
 
+
   return (
-    <section id="contact" className="py-24 sm:py-28">
-      <div className="mx-auto max-w-[1180px] px-6">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.42fr_0.58fr] lg:gap-16">
-          <div>
-            <div className="eyebrow">Contact</div>
-            <h2 className="mt-5 max-w-[20ch] text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.08]">
-              Tell me the problem in two lines.
-            </h2>
-            <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.75] text-muted-foreground">
-              You get an honest answer — scope, timing, and whether I'm the right person
-              for it. No sales sequence, no template reply.
-            </p>
+    <section id="contact" className="relative px-6 py-32">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, oklch(0.5 0.25 168 / 30%), transparent 60%)",
+        }}
+      />
 
-            <dl className="mt-10 border-t border-border">
-              {CHANNELS.map((c) => (
-                <div
-                  key={c.label}
-                  className="flex items-baseline justify-between gap-6 border-b border-border py-4"
-                >
-                  <dt className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                    {c.label}
-                  </dt>
-                  <dd className="text-right text-[14px] text-foreground">
-                    {c.href ? (
-                      <a
-                        href={c.href}
-                        className="group inline-flex items-center gap-1.5 transition-colors hover:text-accent"
-                      >
-                        {c.value}
-                        <ArrowUpRight
-                          size={13}
-                          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        />
-                      </a>
-                    ) : (
-                      c.value
-                    )}
-                  </dd>
+      <div className="relative mx-auto max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center"
+        >
+          <div className="eyebrow mx-auto mb-5">Contact</div>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="text-gradient">Get in </span>
+            <span className="text-gradient-brand italic">touch.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-muted-foreground">
+            Have a project, an idea, or simply want to connect? Feel free to reach out.
+          </p>
+        </motion.div>
+
+        <motion.form
+          onSubmit={submit}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="glass-liquid relative mt-12 overflow-hidden rounded-[32px] p-6 sm:p-10"
+        >
+          <div
+            className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-40 blur-3xl"
+            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 168 / 60%), transparent 70%)" }}
+          />
+
+          <AnimatePresence mode="wait">
+            {!sent ? (
+              <motion.div
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative space-y-5"
+              >
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <Field
+                    label="Name"
+                    value={form.name}
+                    onChange={(v) => setForm((f) => ({ ...f, name: v }))}
+                    placeholder="Your name"
+                    maxLength={100}
+                  />
+                  <Field
+                    label="Email"
+                    type="email"
+                    value={form.email}
+                    onChange={(v) => setForm((f) => ({ ...f, email: v }))}
+                    placeholder="you@example.com"
+                    maxLength={255}
+                  />
                 </div>
-              ))}
-            </dl>
 
-            <figure className="mt-10 border-l border-accent pl-5">
-              <blockquote className="text-[14.5px] leading-[1.75] text-foreground/85">
-                “Cayn understood what we needed before we could explain it. The site was
-                online in days and order requests now arrive by email instead of getting
-                lost in messages.”
-              </blockquote>
-              <figcaption className="mt-3 text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                Occhiomininno Agritourism · Ruvo di Puglia
-              </figcaption>
-            </figure>
-          </div>
+                <div>
+                  <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                    Message
+                  </label>
+                  <textarea
+                    required
+                    rows={5}
+                    maxLength={2000}
+                    value={form.message}
+                    onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                    placeholder="Tell me about your project..."
+                    className="glass w-full resize-none rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
+                  />
+                </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
-            className="surface p-6 sm:p-9"
-          >
-            <AnimatePresence mode="wait">
-              {!sent ? (
-                <motion.form
-                  key="form"
-                  onSubmit={submit}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-6"
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.01] disabled:opacity-60 sm:w-auto"
                 >
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <Field
-                      id="name"
-                      label="Name"
-                      value={form.name}
-                      onChange={(v) => setForm((f) => ({ ...f, name: v }))}
-                      placeholder="Your name"
-                      maxLength={100}
-                    />
-                    <Field
-                      id="email"
-                      label="Email"
-                      type="email"
-                      value={form.email}
-                      onChange={(v) => setForm((f) => ({ ...f, email: v }))}
-                      placeholder="you@company.com"
-                      maxLength={255}
-                    />
-                  </div>
+                  {loading ? "Sending..." : "Send Message"}
+                  <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </button>
+                {error && (
+                  <p className="text-xs text-destructive">{error}</p>
+                )}
+              </motion.div>
 
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="mb-2 block text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-                    >
-                      Project
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={6}
-                      maxLength={2000}
-                      value={form.message}
-                      onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                      placeholder="What are you building, and what's blocking it?"
-                      className="w-full resize-none border border-border bg-background px-3.5 py-3 text-[14.5px] text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 hover:border-border-strong focus:border-accent"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="group inline-flex w-full items-center justify-center gap-2 bg-foreground px-6 py-3.5 text-[13.5px] font-medium text-background transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-60 sm:w-auto"
-                  >
-                    {loading ? "Sending…" : "Send message"}
-                    <ArrowUpRight
-                      size={15}
-                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </button>
-
-                  {error && (
-                    <p role="alert" className="text-[13px] text-destructive">
-                      {error}
-                    </p>
-                  )}
-                </motion.form>
-              ) : (
+            ) : (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative flex flex-col items-center py-8 text-center"
+              >
                 <motion.div
-                  key="sent"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="py-10"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
+                  style={{ boxShadow: "0 0 60px oklch(0.7 0.22 168 / 50%)" }}
                 >
-                  <div className="flex h-11 w-11 items-center justify-center border border-accent">
-                    <Check size={18} className="text-accent" aria-hidden="true" />
-                  </div>
-                  <h3 className="mt-6 text-[22px]">Message sent</h3>
-                  <p className="mt-3 max-w-[42ch] text-[14.5px] leading-[1.7] text-muted-foreground">
-                    Thanks for reaching out — I'll reply within 24 hours from{" "}
-                    <a
-                      href="mailto:jacopo.dev0@gmail.com"
-                      className="text-foreground underline-offset-4 hover:underline"
-                    >
-                      jacopo.dev0@gmail.com
-                    </a>
-                    .
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSent(false);
-                      setForm({ name: "", email: "", message: "" });
-                    }}
-                    className="mt-7 border border-border-strong px-4 py-2 text-[13px] transition-colors hover:border-accent hover:text-accent"
-                  >
-                    Send another
-                  </button>
+                  <Check size={28} className="text-glow-2" />
                 </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+                <h3 className="mt-6 font-display text-2xl">Message sent</h3>
+                <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+                  Thanks for reaching out — I'll get back to you soon at{" "}
+                  <a href="mailto:jacopo.dev0@gmail.com" className="text-foreground underline-offset-4 hover:underline">
+                    jacopo.dev0@gmail.com
+                  </a>
+                </p>
+                <button
+                  onClick={() => {
+                    setSent(false);
+                    setForm({ name: "", email: "", message: "" });
+                  }}
+                  className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
+                >
+                  Send another
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.form>
+
+        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <Mail size={12} />
+          <a href="mailto:jacopo.dev0@gmail.com" className="hover:text-foreground">
+            jacopo.dev0@gmail.com
+          </a>
         </div>
       </div>
     </section>
@@ -211,7 +182,6 @@ export function Contact() {
 }
 
 function Field({
-  id,
   label,
   value,
   onChange,
@@ -219,7 +189,6 @@ function Field({
   type = "text",
   maxLength,
 }: {
-  id: string;
   label: string;
   value: string;
   onChange: (v: string) => void;
@@ -229,21 +198,17 @@ function Field({
 }) {
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="mb-2 block text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-      >
+      <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
         {label}
       </label>
       <input
-        id={id}
         required
         type={type}
         value={value}
         maxLength={maxLength}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full border border-border bg-background px-3.5 py-3 text-[14.5px] text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 hover:border-border-strong focus:border-accent"
+        className="glass w-full rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
       />
     </div>
   );

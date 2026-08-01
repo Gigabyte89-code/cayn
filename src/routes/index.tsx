@@ -2,29 +2,31 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-import { Work } from "@/components/work";
-import { Experience } from "@/components/experience";
-import { Stack } from "@/components/stack";
+import { Services } from "@/components/services";
+import { ICDL } from "@/components/icdl";
+import { FinanceApp } from "@/components/finance-app";
+import { Agritourism } from "@/components/agritourism";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { NoiseOverlay } from "@/components/ambient";
+import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { MobilePrompt } from "@/components/mobile-prompt";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cayn — Frontend Developer & Digital Creator" },
+      { title: "Cayn — Developer & Digital Creator" },
       {
         name: "description",
         content:
-          "Cayn designs and ships production frontends in React and TypeScript — case studies, experience and a focused tech stack for founders and small businesses.",
+          "Cayn is a young developer and digital creator building modern websites, applications and digital products focused on usability, performance and clean design.",
       },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Cayn — Frontend Developer & Digital Creator" },
+      { property: "og:title", content: "Cayn — Developer & Digital Creator" },
       {
         property: "og:description",
         content:
-          "Production frontends in React and TypeScript: clean structure, fast loads, and interfaces built to be used.",
+          "Modern digital experiences — websites, apps and products designed and developed by Cayn.",
       },
     ],
   }),
@@ -33,18 +35,22 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
+      <NoiseOverlay />
       <SmoothScroll />
+      <CursorFX />
       <Navigation />
-      <main>
+      <main className="page-flow relative overflow-x-clip">
         <Hero />
         <About />
-        <Work />
-        <Experience />
-        <Stack />
+        <Services />
+        <ICDL />
+        <FinanceApp />
+        <Agritourism />
         <Contact />
       </main>
       <Footer />
+      <MobilePrompt />
     </div>
   );
 }
