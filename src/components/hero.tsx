@@ -39,9 +39,9 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl xl:text-[80px]"
           >
-            <span className="text-gradient">Creo siti web professionali</span>
+            <span className="text-gradient">I build professional websites</span>
             <br />
-            <span className="text-gradient-brand italic">per aziende e attività.</span>
+            <span className="text-gradient-brand italic">for companies and local businesses.</span>
           </motion.h1>
 
           <motion.p
@@ -50,9 +50,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Sviluppatore e web designer freelance: realizzo siti vetrina, e-commerce e
-            landing page veloci, mobile-first e ottimizzati SEO per farti trovare dai
-            tuoi clienti su Google.
+            Freelance web designer and developer: fast, mobile-first business websites,
+            online stores and landing pages, SEO-ready so your customers find you
+            on Google.
           </motion.p>
 
           <motion.div
