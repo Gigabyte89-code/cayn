@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
-import { Timer, MessagesSquare, Receipt, Cpu, Search, Smartphone } from "lucide-react";
+import { Timer, MessagesSquare, Receipt, Cpu, Search, Smartphone, Quote } from "lucide-react";
 
 const POINTS = [
   {
     icon: Timer,
-    title: "Consegna rapida",
-    desc: "Un sito vetrina online in 1–2 settimane, con revisioni incluse e nessuna attesa infinita.",
+    title: "Fast delivery",
+    desc: "A business website live in 1–2 weeks, revisions included — no endless waiting.",
   },
   {
     icon: MessagesSquare,
-    title: "Comunicazione diretta",
-    desc: "Parli sempre con chi realizza il sito: nessuna agenzia di mezzo, nessun ticket.",
+    title: "Direct communication",
+    desc: "You always talk to the person building your site. No agency layers, no ticket queues.",
   },
   {
     icon: Receipt,
-    title: "Prezzi trasparenti",
-    desc: "Preventivo chiaro prima di iniziare, senza costi nascosti o canoni a sorpresa.",
+    title: "Transparent pricing",
+    desc: "A clear quote before we start, with no hidden costs or surprise subscriptions.",
   },
   {
     icon: Cpu,
-    title: "Tecnologie moderne",
-    desc: "React, TypeScript e Tailwind: siti veloci, sicuri e facili da far crescere nel tempo.",
+    title: "Modern technology",
+    desc: "React, TypeScript and Tailwind: sites that load fast, stay secure and scale with you.",
   },
   {
     icon: Search,
-    title: "SEO inclusa",
-    desc: "Struttura, metadati e dati strutturati curati dal primo giorno per farti trovare su Google.",
+    title: "SEO included",
+    desc: "Clean structure, metadata and structured data from day one, so Google can find you.",
   },
   {
     icon: Smartphone,
     title: "Mobile-first",
-    desc: "Il tuo sito è perfetto su smartphone, dove arriva la maggior parte dei tuoi clienti.",
+    desc: "Your site looks right on phones — where most of your customers actually are.",
   },
 ];
 
@@ -45,14 +45,15 @@ export function WhyMe() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="eyebrow mx-auto mb-5">Perché scegliermi</div>
+          <div className="eyebrow mx-auto mb-5">Why work with me</div>
           <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">Un partner unico per la </span>
-            <span className="text-gradient-brand italic">creazione del tuo sito web.</span>
+            <span className="text-gradient">One partner for your whole </span>
+            <span className="text-gradient-brand italic">website project.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            Sviluppatore e web designer freelance: realizzo siti web aziendali,
-            landing page ed e-commerce per aziende e attività che vogliono crescere online.
+            Freelance developer and web designer building business websites, landing pages
+            and online stores for companies that want to grow online — based in Puglia,
+            Italy, working with clients anywhere.
           </p>
         </motion.div>
 
@@ -75,6 +76,24 @@ export function WhyMe() {
           ))}
         </div>
 
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="glass-liquid mt-8 rounded-[32px] p-8 sm:p-10"
+        >
+          <Quote size={20} style={{ color: "var(--accent)" }} />
+          <blockquote className="mt-4 font-display text-xl leading-relaxed sm:text-2xl">
+            “We finally have a website that looks as good as our masseria. Guests book a
+            table and ask for our olive oil directly from their phones.”
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-muted-foreground">
+            Occhio Mininno Agritourism — Ruvo di Puglia, Italy
+            <span className="mt-1 block text-xs">Translated from Italian.</span>
+          </figcaption>
+        </motion.figure>
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,18 +102,18 @@ export function WhyMe() {
           className="glass-liquid mt-8 flex flex-col items-center gap-5 rounded-[32px] p-10 text-center"
         >
           <h3 className="font-display text-2xl sm:text-3xl">
-            <span className="text-gradient">Hai un progetto in mente? </span>
-            <span className="text-gradient-brand italic">Richiedi un preventivo gratuito.</span>
+            <span className="text-gradient">Got a project in mind? </span>
+            <span className="text-gradient-brand italic">Get a free quote.</span>
           </h3>
           <p className="max-w-lg text-sm text-muted-foreground">
-            Raccontami la tua attività: ti rispondo con una proposta chiara su tempi, costi e
-            risultati attesi.
+            Tell me about your business and I'll reply with a clear proposal on timeline,
+            cost and the results you can expect.
           </p>
           <a
             href="#contact"
             className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
           >
-            Richiedi un preventivo
+            Request a free quote
           </a>
         </motion.div>
       </div>
