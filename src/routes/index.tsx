@@ -134,6 +134,7 @@ function Index() {
         <ICDL />
         <FinanceApp />
         <Agritourism />
+        <WhyMe />
         <Contact />
       </main>
       <Footer />
