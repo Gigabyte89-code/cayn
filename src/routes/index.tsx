@@ -14,9 +14,9 @@ import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { MobilePrompt } from "@/components/mobile-prompt";
 
-const TITLE = "Cayn | Creazione Siti Web Professionali per Aziende";
+const TITLE = "Cayn | Professional Website Design for Businesses";
 const DESCRIPTION =
-  "Realizzo siti web moderni, veloci e ottimizzati SEO per aziende e attività. Web designer e sviluppatore freelance. Richiedi un preventivo gratuito.";
+  "I build modern, fast, SEO-ready websites for companies and local businesses. Freelance web designer and developer. Request a free quote today.";
 const URL = "https://cayn.lovable.app/";
 
 export const Route = createFileRoute("/")({
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "creazione siti web aziendali, sviluppatore siti web, freelance siti web per aziende, web designer freelance, realizzazione sito web azienda, chi crea siti web professionali",
+          "business website design, freelance web developer, freelance websites for companies, freelance web designer, professional website development, who builds professional websites",
       },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
@@ -48,11 +48,11 @@ export const Route = createFileRoute("/")({
               "@type": "Person",
               "@id": `${URL}#person`,
               name: "Cayn",
-              jobTitle: "Web Designer & Sviluppatore Siti Web Freelance",
+              jobTitle: "Freelance Web Designer & Website Developer",
               url: URL,
               email: "mailto:jacopo.dev0@gmail.com",
               knowsAbout: [
-                "Creazione siti web aziendali",
+                "Business website design",
                 "Web design",
                 "SEO",
                 "React",
@@ -62,32 +62,32 @@ export const Route = createFileRoute("/")({
             {
               "@type": "ProfessionalService",
               "@id": `${URL}#service`,
-              name: "Cayn — Creazione Siti Web Professionali",
+              name: "Cayn — Professional Website Design",
               description: DESCRIPTION,
               url: URL,
               email: "jacopo.dev0@gmail.com",
               priceRange: "$$",
               areaServed: [
-                { "@type": "Country", name: "Italia" },
-                { "@type": "AdministrativeArea", name: "Puglia" },
+                { "@type": "Country", name: "Italy" },
+                { "@type": "AdministrativeArea", name: "Apulia" },
               ],
               provider: { "@id": `${URL}#person` },
               serviceType: [
-                "Creazione siti web aziendali",
-                "Siti vetrina",
+                "Business website design",
+                "Brochure websites",
                 "E-commerce",
-                "Landing page",
-                "Ottimizzazione SEO",
+                "Landing pages",
+                "SEO optimization",
               ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Servizi web",
+                name: "Web services",
                 itemListElement: [
-                  "Siti vetrina per aziende",
-                  "E-commerce",
-                  "Landing page",
-                  "Ottimizzazione SEO",
-                  "Web app su misura",
+                  "Business brochure websites",
+                  "E-commerce stores",
+                  "Landing pages",
+                  "SEO optimization",
+                  "Custom web apps",
                 ].map((n) => ({
                   "@type": "Offer",
                   itemOffered: { "@type": "Service", name: n },
@@ -96,18 +96,18 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "ItemList",
-              name: "Progetti realizzati",
+              name: "Selected projects",
               itemListElement: [
                 {
                   "@type": "ListItem",
                   position: 1,
-                  name: "Cashow — app di finanza personale",
+                  name: "Cashow — personal finance app",
                   url: "https://cashow.lovable.app/",
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: "Occhiomininno Agriturismo — sito web aziendale in Puglia",
+                  name: "Occhio Mininno Agritourism — business website in Puglia, Italy",
                   url: "https://agriturismocchiomininno.lovable.app",
                 },
               ],
