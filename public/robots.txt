@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cayn.lovable.app/sitemap.xml

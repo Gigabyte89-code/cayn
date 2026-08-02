@@ -84,7 +84,7 @@ export function Agritourism() {
             <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
               <img
                 src={heroShot.url}
-                alt="Homepage of the Occhio Mininno agritourism website with hero image of the Puglian masseria"
+                alt="Sito web aziendale realizzato per l'agriturismo Occhio Mininno in Puglia — homepage con masseria"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-top"
               />
@@ -105,7 +105,7 @@ export function Agritourism() {
             <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
               <img
                 src={productShot.url}
-                alt="Product section of the Occhio Mininno website showing organic extra virgin olive oil"
+                alt="Catalogo prodotti del sito web realizzato per un agriturismo pugliese — olio extravergine biologico"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-top"
               />
