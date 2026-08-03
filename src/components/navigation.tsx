@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "ICDL", href: "#icdl" },
-  { label: "Projects", href: "#finance" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/", hash: "#home" },
+  { label: "About", href: "/about", hash: "#about" },
+  { label: "Services", href: "/services", hash: "#services" },
+  { label: "Projects", href: "/projects", hash: "#finance" },
+  { label: "FAQ", href: "/faq", hash: "#faq" },
+  { label: "Contact", href: "/contact", hash: "#contact" },
 ];
 
 export function Navigation() {
@@ -22,17 +23,23 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!href.startsWith("#")) return;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onHome = pathname === "/";
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    if (!onHome) {
+      setOpen(false);
+      return;
+    }
     e.preventDefault();
     setOpen(false);
-    const id = href.slice(1);
+    const id = hash.slice(1);
     const el = document.getElementById(id);
     if (!el) return;
     const offset = 90;
     const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
-    history.replaceState(null, "", href);
+    history.replaceState(null, "", hash);
   };
 
 
@@ -49,7 +56,7 @@ export function Navigation() {
         }`}
       >
         <a
-          href="#home"
+          href="/"
           onClick={(e) => handleNavClick(e, "#home")}
           className="font-display text-xl tracking-tight text-foreground"
         >
@@ -61,7 +68,7 @@ export function Navigation() {
             <li key={item.href}>
               <a
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+                onClick={(e) => handleNavClick(e, item.hash)}
                 className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
@@ -71,7 +78,7 @@ export function Navigation() {
         </ul>
 
         <a
-          href="#contact"
+          href="/contact"
           onClick={(e) => handleNavClick(e, "#contact")}
           className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-block"
         >
@@ -100,7 +107,7 @@ export function Navigation() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    onClick={(e) => handleNavClick(e, item.hash)}
                     className="block rounded-2xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
                   >
                     {item.label}

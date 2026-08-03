@@ -13,10 +13,12 @@ import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { MobilePrompt } from "@/components/mobile-prompt";
+import { FAQ, FAQ_ITEMS } from "@/components/faq";
+import { OG_IMAGE, SITE_NAME } from "@/lib/seo";
 
-const TITLE = "Cayn | Professional Website Design for Businesses";
+const TITLE = "Freelance Web Developer | Custom Business Websites";
 const DESCRIPTION =
-  "I build modern, fast, SEO-ready websites for companies and local businesses. Freelance web designer and developer. Request a free quote today.";
+  "I build fast, custom websites for businesses and local shops — SEO-ready and mobile-first. See my portfolio and get a free quote today.";
 const URL = "https://cayn.lovable.app/";
 
 export const Route = createFileRoute("/")({
@@ -27,15 +29,18 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "business website design, freelance web developer, freelance websites for companies, freelance web designer, professional website development, who builds professional websites",
+          "freelance web developer, website developer for businesses, custom website design, professional website designer, small business website developer, web developer portfolio, hire web developer, responsive website design services",
       },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
@@ -95,6 +100,15 @@ export const Route = createFileRoute("/")({
               },
             },
             {
+              "@type": "FAQPage",
+              "@id": `${URL}#faq`,
+              mainEntity: FAQ_ITEMS.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+            {
               "@type": "ItemList",
               name: "Selected projects",
               itemListElement: [
@@ -135,6 +149,7 @@ function Index() {
         <FinanceApp />
         <Agritourism />
         <WhyMe />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
