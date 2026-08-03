@@ -62,14 +62,14 @@ export function Hero() {
             className={`mt-9 flex flex-wrap items-center gap-3 ${lite ? "justify-center" : ""}`}
           >
             <a
-              href="#finance"
+              href="/projects"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
             >
               View My Work
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground transition-all hover:bg-white/10"
             >
               Contact Me

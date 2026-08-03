@@ -33,10 +33,11 @@ export function Footer() {
               </div>
               <ul className="space-y-2 text-sm">
                 {[
-                  ["Home", "#home"],
-                  ["About", "#about"],
-                  ["Services", "#services"],
-                  ["Projects", "#finance"],
+                  ["Home", "/"],
+                  ["About", "/about"],
+                  ["Services", "/services"],
+                  ["Projects", "/projects"],
+                  ["FAQ", "/faq"],
                 ].map(([l, h]) => (
                   <li key={h}>
                     <a href={h} className="text-muted-foreground transition-colors hover:text-foreground">
@@ -62,7 +63,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="text-muted-foreground transition-colors hover:text-foreground"
                   >
                     Start a project
