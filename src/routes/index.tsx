@@ -16,7 +16,7 @@ import { MobilePrompt } from "@/components/mobile-prompt";
 import { FAQ, FAQ_ITEMS } from "@/components/faq";
 import { OG_IMAGE, SITE_NAME } from "@/lib/seo";
 
-const TITLE = "Freelance Web Developer | Custom Business Websites";
+const TITLE = "Cayn Developer";
 const DESCRIPTION =
   "I build fast, custom websites for businesses and local shops — SEO-ready and mobile-first. See my portfolio and get a free quote today.";
 const URL = "https://cayn.lovable.app/";
