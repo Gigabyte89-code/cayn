@@ -81,14 +81,14 @@ export function Agritourism() {
             transition={{ duration: 0.8 }}
             className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
           >
-            <div className="relative h-[260px] overflow-hidden rounded-3xl sm:h-[360px] lg:h-[440px]">
+            <div className="relative overflow-hidden rounded-3xl">
               <img
                 src={heroShot.url}
                 alt="Business website designed for the Occhio Mininno agritourism in Puglia — homepage with the masseria"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className="block h-auto w-full object-contain"
               />
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/30 via-transparent to-white/5" />
             </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
               Landing experience — Ruvo di Puglia, since 1985
