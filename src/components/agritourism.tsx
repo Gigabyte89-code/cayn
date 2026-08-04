@@ -11,8 +11,8 @@ import {
   Leaf,
 } from "lucide-react";
 import { CaseNotes } from "@/components/case-notes";
-import heroShot from "@/assets/occhio-hero.png.asset.json";
-import productShot from "@/assets/occhio-products.png.asset.json";
+const heroShot = { url: "/projects/occhio-hero.png" };
+const productShot = { url: "/projects/occhio-products.png" };
 
 const FEATURES = [
   { icon: Search, title: "SEO optimization", desc: "Structured metadata and semantic markup for local search." },
