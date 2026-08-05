@@ -60,14 +60,11 @@ export function Navigation() {
         <a
           href="/"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="relative flex items-center"
+          className="font-display text-lg tracking-tight text-foreground"
         >
-          <img
-            src={logoAsset.url}
-            alt="Cayn logo"
-            className="h-8 w-auto object-contain"
-          />
+          Cayn
         </a>
+
 
         <ul className="hidden items-center gap-1 md:flex">
           {NAV_ITEMS.map((item) => (
