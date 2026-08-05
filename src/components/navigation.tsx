@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
-import logoAsset from "@/assets/cayn-logo.png.asset.json";
+
 
 
 const NAV_ITEMS = [
