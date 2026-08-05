@@ -19,12 +19,11 @@ export function Footer() {
 
           <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <img
-                src={logoAsset.url}
-                alt="Cayn logo"
-                className="h-10 w-auto object-contain"
-              />
+              <div className="font-display text-2xl tracking-tight text-foreground">
+                Cayn
+              </div>
               <p className="mt-3 max-w-sm text-sm text-muted-foreground">
+
                 Developer & Digital Creator — designing and building modern digital
                 experiences with care for every detail.
               </p>
