@@ -60,9 +60,13 @@ export function Navigation() {
         <a
           href="/"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="font-display text-xl tracking-tight text-foreground"
+          className="relative flex items-center"
         >
-          CAYN<span className="text-gradient-brand">.</span>
+          <img
+            src={logoAsset.url}
+            alt="Cayn logo"
+            className="h-8 w-auto object-contain"
+          />
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
