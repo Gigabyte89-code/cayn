@@ -96,6 +96,8 @@ export function Hero() {
 
         {!lite && (
           <motion.div
+            role="img"
+            aria-label="Interactive 3D glass sphere representing Cayn's web development work"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
