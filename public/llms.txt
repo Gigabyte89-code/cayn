@@ -1,0 +1,14 @@
+# Cayn
+
+> Freelance web developer and digital creator building fast, custom, SEO-ready websites and web apps for businesses and local shops.
+
+Cayn is the portfolio of a freelance web developer working with React, TypeScript, Figma, Framer and Spline. Services include business websites, landing pages, e-commerce stores, website redesigns and SEO optimization, with fixed quotes and typical delivery in 1–2 weeks.
+
+## Pages
+
+- [Home](/): Overview of services, projects and how to get a free quote.
+- [Services](/services): Business websites, landing pages, e-commerce, redesigns and SEO optimization.
+- [Projects](/projects): Live client work, including a rural tourism business website and Cashow, a personal finance web app.
+- [About](/about): Background, ICDL certification, toolkit and working process.
+- [FAQ](/faq): Website costs, timelines, maintenance, SEO and mobile design.
+- [Contact](/contact): Request a quote on timeline and cost for a new website.

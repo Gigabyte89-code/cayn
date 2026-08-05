@@ -89,11 +89,12 @@ export function Navigation() {
         </a>
 
         <button
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className="rounded-full p-2 text-foreground md:hidden"
         >
-          {open ? <X size={18} /> : <Menu size={18} />}
+          {open ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
         </button>
       </nav>
 

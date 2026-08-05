@@ -20,6 +20,8 @@ const FEATURES = [
 function PhoneMockup() {
   return (
     <div
+      role="img"
+      aria-label="Mockup of the Cashow personal finance app showing a total balance, spending chart and recent transactions on a phone screen"
       className="relative mx-auto w-[280px] sm:w-[320px]"
       style={{ transformStyle: "preserve-3d" }}
     >
@@ -62,7 +64,7 @@ function PhoneMockup() {
               €4,820<span className="text-sm text-muted-foreground">.50</span>
             </div>
             <div className="mt-2 flex items-center gap-1.5 text-[10px] text-glow-2">
-              <ArrowUpRight size={10} />
+              <ArrowUpRight size={10} aria-hidden="true" />
               +12.4% this month
             </div>
           </div>
@@ -73,7 +75,7 @@ function PhoneMockup() {
               <span>Spending</span>
               <span>Nov</span>
             </div>
-            <svg viewBox="0 0 200 60" className="w-full">
+            <svg viewBox="0 0 200 60" className="w-full" role="img" aria-label="Monthly spending trend chart">
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="oklch(0.7 0.22 300)" stopOpacity="0.6" />
@@ -284,7 +286,7 @@ export function FinanceApp() {
                   <div className="text-sm text-foreground">Cashflow</div>
                   <div className="text-xs text-muted-foreground">Last 30 days</div>
                 </div>
-                <svg viewBox="0 0 400 100" className="w-full">
+                <svg viewBox="0 0 400 100" className="w-full" role="img" aria-label="Cashflow chart for the last 30 days">
                   <defs>
                     <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="oklch(0.75 0.2 285)" stopOpacity="0.5" />
