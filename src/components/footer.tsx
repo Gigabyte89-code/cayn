@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import logoAsset from "@/assets/cayn-logo.png.asset.json";
+
 
 export function Footer() {
   return (
