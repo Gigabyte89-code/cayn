@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import logoAsset from "@/assets/cayn-logo.png.asset.json";
+
 
 export function Footer() {
   return (
@@ -18,9 +20,11 @@ export function Footer() {
 
           <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <div className="font-display text-3xl">
-                CAYN<span className="text-gradient-brand">.</span>
-              </div>
+              <img
+                src={logoAsset.url}
+                alt="Cayn logo"
+                className="h-10 w-auto object-contain"
+              />
               <p className="mt-3 max-w-sm text-sm text-muted-foreground">
                 Developer & Digital Creator — designing and building modern digital
                 experiences with care for every detail.
