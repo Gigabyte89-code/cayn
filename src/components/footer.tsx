@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import logoAsset from "@/assets/cayn-logo.png.asset.json";
-
 
 export function Footer() {
+
   return (
     <footer className="relative px-6 pb-10 pt-20">
       <div className="mx-auto max-w-7xl">
