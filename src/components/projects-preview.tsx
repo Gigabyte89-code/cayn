@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { PhoneMockup } from "@/components/finance-app";
 
 const PROJECTS = [
   {
     eyebrow: "Featured project",
     title: "Cashow",
     line: "A personal finance app to track expenses, manage budgets and build real financial awareness.",
-    image: "/projects/cashow-preview.png",
+    image: null,
   },
   {
     eyebrow: "Client project",
@@ -16,6 +17,7 @@ const PROJECTS = [
     image: "/projects/occhio-hero.png",
   },
 ];
+
 
 export function ProjectsPreview() {
   return (
@@ -50,14 +52,23 @@ export function ProjectsPreview() {
                 <span className="text-gradient">{p.title}</span>
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.line}</p>
-              <div className="glass mt-6 overflow-hidden rounded-2xl">
-                <img
-                  src={p.image}
-                  alt={`${p.title} preview`}
-                  loading="lazy"
-                  className="block h-auto w-full object-contain"
-                />
+              <div className="mt-6">
+                {p.image ? (
+                  <div className="glass overflow-hidden rounded-2xl">
+                    <img
+                      src={p.image}
+                      alt={`${p.title} preview`}
+                      loading="lazy"
+                      className="block h-auto w-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="scale-[0.85]">
+                    <PhoneMockup />
+                  </div>
+                )}
               </div>
+
               <Link
                 to="/projects"
                 className="group mt-6 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground"
