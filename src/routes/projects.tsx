@@ -53,8 +53,6 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
-  const hash = Route.useMatch({ select: (m) => m.id }) && undefined;
-  void hash;
   useHashScroll();
   return (
     <PageShell breadcrumb="Projects">
