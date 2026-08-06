@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
-
-
+import { Link } from "@tanstack/react-router";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/", hash: "#home" },
-  { label: "About", href: "/about", hash: "#about" },
-  { label: "Services", href: "/services", hash: "#services" },
-  { label: "Projects", href: "/projects", hash: "#finance" },
-  { label: "FAQ", href: "/faq", hash: "#faq" },
-  { label: "Contact", href: "/contact", hash: "#contact" },
-];
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
+] as const;
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,26 +22,6 @@ export function Navigation() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const onHome = pathname === "/";
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-    if (!onHome) {
-      setOpen(false);
-      return;
-    }
-    e.preventDefault();
-    setOpen(false);
-    const id = hash.slice(1);
-    const el = document.getElementById(id);
-    if (!el) return;
-    const offset = 90;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: "smooth" });
-    history.replaceState(null, "", hash);
-  };
-
 
   return (
     <motion.header
@@ -57,36 +35,30 @@ export function Navigation() {
           scrolled ? "shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]" : ""
         }`}
       >
-        <a
-          href="/"
-          onClick={(e) => handleNavClick(e, "#home")}
-          className="font-display text-lg tracking-tight text-foreground"
-        >
+        <Link to="/" className="font-display text-lg tracking-tight text-foreground">
           Cayn
-        </a>
-
+        </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
-              <a
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.hash)}
-                className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              <Link
+                to={item.href}
+                activeOptions={{ exact: item.href === "/" }}
+                className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground data-[status=active]:glass data-[status=active]:text-foreground"
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        <a
-          href="/contact"
-          onClick={(e) => handleNavClick(e, "#contact")}
+        <Link
+          to="/contact"
           className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-block"
         >
           Let's talk
-        </a>
+        </Link>
 
         <button
           aria-label={open ? "Close menu" : "Open menu"}
@@ -109,13 +81,14 @@ export function Navigation() {
             <ul className="flex flex-col gap-1">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.hash)}
-                    className="block rounded-2xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+                  <Link
+                    to={item.href}
+                    activeOptions={{ exact: item.href === "/" }}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-2xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground data-[status=active]:bg-white/5 data-[status=active]:text-foreground"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -125,3 +98,4 @@ export function Navigation() {
     </motion.header>
   );
 }
+
