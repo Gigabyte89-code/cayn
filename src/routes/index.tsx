@@ -3,7 +3,6 @@ import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { ProjectsPreview } from "@/components/projects-preview";
 import { WhyMe } from "@/components/why-me";
-import { HomeCTA } from "@/components/home-cta";
 import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
@@ -142,7 +141,6 @@ function Index() {
         <Hero />
         <ProjectsPreview />
         <WhyMe />
-        <HomeCTA />
 
       </main>
       <Footer />
