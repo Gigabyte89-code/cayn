@@ -140,14 +140,10 @@ function Index() {
       <Navigation />
       <main className="page-flow relative overflow-x-clip">
         <Hero />
-        <About />
-        <Services />
-        <ICDL />
-        <FinanceApp />
-        <Agritourism />
+        <ProjectsPreview />
         <WhyMe />
-        <FAQ />
-        <Contact />
+        <HomeCTA />
+
       </main>
       <Footer />
       <MobilePrompt />
