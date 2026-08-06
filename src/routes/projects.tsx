@@ -52,10 +52,28 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
+  const hash = Route.useMatch({ select: (m) => m.id }) && undefined;
+  void hash;
+  useHashScroll();
   return (
     <PageShell breadcrumb="Projects">
       <FinanceApp />
       <Agritourism />
     </PageShell>
   );
+}
+
+function useHashScroll() {
+  const location = useLocation();
+  useEffect(() => {
+    const id = location.hash?.replace(/^#/, "");
+    if (!id) return;
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 120);
+    return () => window.clearTimeout(t);
+  }, [location.hash]);
 }
