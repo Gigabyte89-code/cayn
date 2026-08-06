@@ -17,7 +17,7 @@ const FEATURES = [
   { icon: Sparkles, title: "Beautiful UI", desc: "Designed to make finance feel calm." },
 ];
 
-function PhoneMockup() {
+export function PhoneMockup() {
   return (
     <div
       role="img"
