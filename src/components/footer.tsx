@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 
 export function Footer() {
@@ -69,7 +70,7 @@ export function Footer() {
                     className="text-muted-foreground transition-colors hover:text-foreground"
                   >
                     Start a project
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

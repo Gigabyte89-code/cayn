@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Timer, MessagesSquare, Receipt, Cpu, Search, Smartphone, Quote } from "lucide-react";
 
@@ -114,7 +115,7 @@ export function WhyMe() {
             className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
           >
             Request a free quote
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
