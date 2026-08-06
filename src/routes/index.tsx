@@ -1,20 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
-import { About } from "@/components/about";
-import { Services } from "@/components/services";
-import { ICDL } from "@/components/icdl";
-import { FinanceApp } from "@/components/finance-app";
-import { Agritourism } from "@/components/agritourism";
+import { ProjectsPreview } from "@/components/projects-preview";
 import { WhyMe } from "@/components/why-me";
-import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { MobilePrompt } from "@/components/mobile-prompt";
-import { FAQ, FAQ_ITEMS } from "@/components/faq";
+import { FAQ_ITEMS } from "@/components/faq";
 import { OG_IMAGE, SITE_NAME } from "@/lib/seo";
+
 
 const TITLE = "Cayn Developer";
 const DESCRIPTION =
@@ -143,14 +139,9 @@ function Index() {
       <Navigation />
       <main className="page-flow relative overflow-x-clip">
         <Hero />
-        <About />
-        <Services />
-        <ICDL />
-        <FinanceApp />
-        <Agritourism />
+        <ProjectsPreview />
         <WhyMe />
-        <FAQ />
-        <Contact />
+
       </main>
       <Footer />
       <MobilePrompt />

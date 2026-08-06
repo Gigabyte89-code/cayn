@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Timer, MessagesSquare, Receipt, Cpu, Search, Smartphone, Quote } from "lucide-react";
 
@@ -109,12 +110,12 @@ export function WhyMe() {
             Tell me about your business and I'll reply with a clear proposal on timeline,
             cost and the results you can expect.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
           >
             Request a free quote
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
