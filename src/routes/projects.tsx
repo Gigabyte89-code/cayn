@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { FinanceApp } from "@/components/finance-app";
 import { Agritourism } from "@/components/agritourism";
