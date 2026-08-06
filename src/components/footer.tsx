@@ -64,8 +64,8 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/contact"
+                  <Link
+                    to="/contact"
                     className="text-muted-foreground transition-colors hover:text-foreground"
                   >
                     Start a project

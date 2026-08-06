@@ -86,8 +86,8 @@ export function FAQ() {
             <span className="text-gradient">Still unsure? </span>
             <span className="text-gradient-brand italic">Let's build your website.</span>
           </h3>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
           >
             Get a free quote
