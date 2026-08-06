@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { FinanceApp } from "@/components/finance-app";
 import { Agritourism } from "@/components/agritourism";
@@ -52,10 +53,26 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
+  useHashScroll();
   return (
     <PageShell breadcrumb="Projects">
       <FinanceApp />
       <Agritourism />
     </PageShell>
   );
+}
+
+function useHashScroll() {
+  const location = useLocation();
+  useEffect(() => {
+    const id = location.hash?.replace(/^#/, "");
+    if (!id) return;
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 120);
+    return () => window.clearTimeout(t);
+  }, [location.hash]);
 }
