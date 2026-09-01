@@ -61,7 +61,8 @@ html.lenis, html.lenis body { height: auto; }
   --color-accent-warm: var(--accent-warm);
 
   --font-display: "Instrument Serif", "Times New Roman", serif;
-  --font-sans: "Manrope", "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 :root {
@@ -122,7 +123,6 @@ html.lenis, html.lenis body { height: auto; }
     background-color: oklch(0.025 0.008 300);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -308,4 +308,97 @@ html.lenis, html.lenis body { height: auto; }
 }
 @utility animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
+}
+
+
+/* ── Signature motion & surfaces (redesign) ───────────────────────── */
+
+/* Horizontal clip reveal for headings/text — replaces uniform fade-up */
+@keyframes clip-reveal {
+  from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@utility reveal-clip {
+  animation: clip-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Slow logo marquee */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee-x 32s linear infinite;
+}
+.animate-marquee:hover { animation-play-state: paused; }
+
+/* Cursor-following refraction glow on liquid glass surfaces.
+   Driven by --mx/--my set in JS; degrades to nothing without them. */
+@utility glow-follow {
+  position: relative;
+  isolation: isolate;
+}
+.glow-follow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    18rem 18rem at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--accent) 26%, transparent),
+    transparent 70%
+  );
+  z-index: -1;
+}
+.glow-follow:hover::before { opacity: 1; }
+
+/* Animated border that tracks the pointer */
+@utility edge-trace {
+  position: relative;
+}
+.edge-trace::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    12rem 12rem at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--accent) 90%, white),
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+.edge-trace:hover::after { opacity: 1; }
+
+/* Flat sections: deliberately no glass, gives the glass panels room to breathe */
+@utility flat-band {
+  background: transparent;
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility index-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in oklab, var(--accent) 70%, white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .reveal-clip { animation: none; }
 }
