@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
+import { useState } from "react";
+
 
 export const FAQ_ITEMS = [
   {
@@ -34,66 +35,95 @@ export const FAQ_ITEMS = [
 ];
 
 export function FAQ() {
+  const [active, setActive] = useState(0);
+  const current = FAQ_ITEMS[active]!;
+
   return (
     <section id="faq" className="relative px-6 py-32">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          className="max-w-2xl"
         >
-          <div className="eyebrow mx-auto mb-5">FAQ</div>
-          <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+            FAQ · {FAQ_ITEMS.length} questions
+          </div>
+          <h2 className="mt-5 font-display text-4xl leading-[1.03] tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">Questions before hiring a </span>
             <span className="text-gradient-brand italic">web developer.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
+          <p className="mt-6 max-w-xl text-balance text-muted-foreground">
             Costs, timelines, maintenance and SEO — the answers business owners ask for
             most before starting a website project.
           </p>
         </motion.div>
 
-        <div className="mt-14 space-y-3">
-          {FAQ_ITEMS.map((item, i) => (
-            <motion.details
-              key={item.q}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="glass-liquid liquid-sheen group rounded-3xl px-6 py-5 [&[open]_.faq-icon]:rotate-45"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                <h3 className="font-display text-lg sm:text-xl">{item.q}</h3>
-                <span className="glass faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300">
-                  <Plus size={15} style={{ color: "var(--accent)" }} />
-                </span>
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
-            </motion.details>
-          ))}
-        </div>
+        <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          {/* Index */}
+          <ol className="border-t border-border">
+            {FAQ_ITEMS.map((item, i) => {
+              const isActive = i === active;
+              return (
+                <li key={item.q} className="border-b border-border">
+                  <button
+                    type="button"
+                    onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                    aria-current={isActive}
+                    className="group flex w-full items-baseline gap-4 py-4 text-left"
+                  >
+                    <span
+                      className="font-mono text-[11px] tabular-nums"
+                      style={{ color: isActive ? "var(--accent)" : undefined }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className={`font-display text-lg leading-snug transition-colors sm:text-xl ${
+                        isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
+                      }`}
+                    >
+                      {item.q}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="glass-liquid mt-8 flex flex-col items-center gap-4 rounded-[32px] p-10 text-center"
-        >
-          <h3 className="font-display text-2xl sm:text-3xl">
-            <span className="text-gradient">Still unsure? </span>
-            <span className="text-gradient-brand italic">Let's build your website.</span>
-          </h3>
-          <Link
-            to="/contact"
-            className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
-          >
-            Get a free quote
-          </Link>
-        </motion.div>
+          {/* Answer */}
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <motion.div
+              key={current.q}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="glass-liquid rounded-3xl p-8 sm:p-10"
+            >
+              <div className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: "var(--accent)" }}>
+                Answer {String(active + 1).padStart(2, "0")}
+              </div>
+              <h3 className="mt-4 font-display text-2xl leading-tight sm:text-3xl">{current.q}</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{current.a}</p>
+            </motion.div>
+
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Link
+                to="/contact"
+                className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
+              >
+                Ask me your question
+              </Link>
+              <span className="text-xs text-muted-foreground">
+                Answered personally, usually within 24 hours.
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
