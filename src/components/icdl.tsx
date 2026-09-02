@@ -25,15 +25,19 @@ export function ICDL() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className="eyebrow mb-5">Certification</div>
-            <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              <span className="text-gradient">ICDL </span>
-              <span className="text-gradient-brand italic">Essentials.</span>
+            <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+              Certification · Essentials · 2025
+            </div>
+            <h2 className="mt-6 font-display text-[15vw] leading-[0.82] tracking-[-0.04em] sm:text-[110px] lg:text-[136px]">
+              <span className="text-gradient">ICDL</span>
             </h2>
-            <p className="mt-5 max-w-lg text-muted-foreground">
-              Internationally recognized certification proving verified digital
-              competencies — a foundation built on rigor, accuracy, and a deep
-              understanding of the digital toolset.
+            <div className="mt-2 font-display text-3xl italic leading-tight text-gradient-brand sm:text-5xl">
+              Essentials.
+            </div>
+            <p className="mt-7 max-w-lg text-lg leading-relaxed text-muted-foreground">
+              An internationally recognised certification of verified digital
+              competencies. It is not what makes the websites good — but it is the
+              part of this page someone else signed off on.
             </p>
 
             <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2">

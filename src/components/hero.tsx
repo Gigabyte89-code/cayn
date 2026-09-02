@@ -24,16 +24,6 @@ export function Hero() {
         }`}
       >
         <div className={lite ? "mx-auto max-w-3xl text-center" : ""}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="glass mb-6 inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-muted-foreground"
-          >
-            <Sparkles size={12} className="text-glow" />
-            Available for new projects · 2026
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,18 +53,28 @@ export function Hero() {
             className={`mt-9 flex flex-wrap items-center gap-3 ${lite ? "justify-center" : ""}`}
           >
             <Link
-              to="/projects"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+              to="/contact"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-transform hover:scale-[1.03]"
             >
-              View My Work
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              Get a free quote
+              <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <Link
-              to="/contact"
-              className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground transition-all hover:bg-white/10"
+              to="/projects"
+              className="text-sm font-medium text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
             >
-              Contact Me
+              or look at the two sites I built
             </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className={`mt-7 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground ${lite ? "" : ""}`}
+          >
+            <Sparkles size={12} className="text-glow" />
+            Available for new projects · 2026
           </motion.div>
 
           <motion.div

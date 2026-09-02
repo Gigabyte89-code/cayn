@@ -56,11 +56,13 @@ export function Contact() {
         >
           <div className="eyebrow mx-auto mb-5">Contact</div>
           <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">Get in </span>
-            <span className="text-gradient-brand italic">touch.</span>
+            <span className="text-gradient">Tell me what you </span>
+            <span className="text-gradient-brand italic">need built.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-muted-foreground">
-            Have a project, an idea, or simply want to connect? Feel free to reach out.
+            Two or three lines are enough — what your business does and what the site
+            should achieve. I read every message myself and reply with a real timeline
+            and a real price, not a brochure.
           </p>
         </motion.div>
 
@@ -124,7 +126,7 @@ export function Contact() {
                   disabled={loading}
                   className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.01] disabled:opacity-60 sm:w-auto"
                 >
-                  {loading ? "Sending..." : "Send Message"}
+                  {loading ? "Sending..." : "Send it to Cayn"}
                   <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
                 </button>
                 {error && (
@@ -149,9 +151,10 @@ export function Contact() {
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
-                <h3 className="mt-6 font-display text-2xl">Message sent</h3>
+                <h3 className="mt-6 font-display text-3xl italic">Got it — thank you.</h3>
                 <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  Thanks for reaching out — I'll get back to you soon at{" "}
+                  Your message is in my inbox and I'll answer it personally, usually
+                  within a day. If it is urgent, write me straight at{" "}
                   <a href="mailto:jacopo.dev0@gmail.com" className="text-foreground underline-offset-4 hover:underline">
                     jacopo.dev0@gmail.com
                   </a>
@@ -163,7 +166,7 @@ export function Contact() {
                   }}
                   className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
                 >
-                  Send another
+                  Write another one
                 </button>
               </motion.div>
             )}
