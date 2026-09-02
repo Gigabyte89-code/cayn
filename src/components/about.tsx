@@ -148,43 +148,46 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Tools I use */}
+          {/* Toolkit — narrative marquee */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="glass-liquid rounded-3xl p-8"
+            className="relative -mx-6 overflow-hidden py-8"
           >
-            <div className="mb-6 text-center">
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                Toolkit
+            <div className="mx-auto mb-6 max-w-7xl px-6">
+              <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                Toolkit · what each thing is actually for
               </div>
-              <h3 className="mt-2 font-display text-2xl sm:text-3xl">
-                <span className="text-gradient">Programs </span>
-                <span className="text-gradient-brand italic">I use</span>
-              </h3>
             </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              {TOOLS.map((t, i) => (
-                <motion.div
-                  key={t.name}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07, duration: 0.5 }}
-                  whileHover={{ y: -4, scale: 1.04 }}
-                  className="glass flex items-center gap-2.5 rounded-full px-4 py-2 text-sm"
-                >
-                  <ToolLogo
-                    src={t.logo ?? undefined}
-                    alt={`${t.name} logo`}
-                    name={t.name}
-                  />
 
-                  <span className="font-medium">{t.name}</span>
-                </motion.div>
-              ))}
+            <div
+              className="relative"
+              style={{
+                maskImage:
+                  "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
+                WebkitMaskImage:
+                  "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
+              }}
+            >
+              <div className="animate-marquee flex w-max items-center gap-10 pl-6">
+                {[...TOOLS, ...TOOLS].map((t, i) => (
+                  <span
+                    key={`${t.name}-${i}`}
+                    className="flex shrink-0 items-center gap-3 text-lg sm:text-2xl"
+                  >
+                    <ToolLogo
+                      src={t.logo ?? undefined}
+                      alt={`${t.name} logo`}
+                      name={t.name}
+                    />
+                    <span className="font-display text-foreground">{t.name}</span>
+                    <span className="text-muted-foreground">{t.use}</span>
+                    <span style={{ color: "var(--accent)" }}>/</span>
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
