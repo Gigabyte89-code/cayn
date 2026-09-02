@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { Services } from "@/components/services";
-import { WhyMe } from "@/components/why-me";
 import { breadcrumbLd, pageMeta, SITE_URL } from "@/lib/seo";
 
 const TITLE = "Website Developer for Businesses | Services";
@@ -57,7 +56,6 @@ function ServicesPage() {
   return (
     <PageShell breadcrumb="Services">
       <Services />
-      <WhyMe />
     </PageShell>
   );
 }
