@@ -47,11 +47,31 @@ const HIGHLIGHTS = [
 
 
 const TOOLS = [
-  { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
-  { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
-  { name: "Framer", logo: "https://cdn.simpleicons.org/framer/ffffff" },
-  { name: "Spline", logo: "https://app.spline.design/favicon.ico" },
-  { name: "Claude Code", logo: "https://cdn.simpleicons.org/claude" },
+  {
+    name: "Figma",
+    logo: "https://cdn.simpleicons.org/figma",
+    use: "where the layout gets decided before a single line of code",
+  },
+  {
+    name: "Framer",
+    logo: "https://cdn.simpleicons.org/framer/ffffff",
+    use: "for testing motion until it stops feeling like a template",
+  },
+  {
+    name: "Spline",
+    logo: "https://app.spline.design/favicon.ico",
+    use: "for the 3D pieces that carry the page instead of decorating it",
+  },
+  {
+    name: "Lovable",
+    logo: "https://lovable.dev/favicon.ico",
+    use: "to go from a rough idea to something clickable the same day",
+  },
+  {
+    name: "Claude Code",
+    logo: "https://cdn.simpleicons.org/claude",
+    use: "as a second pair of eyes on the code, never as the author",
+  },
 ];
 
 
