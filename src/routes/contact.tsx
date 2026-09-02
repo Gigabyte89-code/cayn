@@ -35,7 +35,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   return (
-    <PageShell breadcrumb="Contact">
+    <PageShell breadcrumb="Contact" fullFooter>
       <Contact />
     </PageShell>
   );

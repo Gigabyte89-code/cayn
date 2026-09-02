@@ -11,9 +11,11 @@ import { MobilePrompt } from "@/components/mobile-prompt";
 export function PageShell({
   children,
   breadcrumb,
+  fullFooter = false,
 }: {
   children: ReactNode;
   breadcrumb?: string;
+  fullFooter?: boolean;
 }) {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -39,7 +41,7 @@ export function PageShell({
         )}
         {children}
       </main>
-      <Footer />
+      <Footer variant={fullFooter ? "full" : "minimal"} />
       <MobilePrompt />
     </div>
   );

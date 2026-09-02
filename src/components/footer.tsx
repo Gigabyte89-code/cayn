@@ -1,7 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 
-export function Footer() {
+export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
+  if (variant === "minimal") {
+    return (
+      <footer className="relative px-6 pb-10 pt-16">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
+          <div>© {new Date().getFullYear()} Cayn. All rights reserved.</div>
+          <div className="flex items-center gap-4">
+            <Link to="/contact" className="transition-colors hover:text-foreground">
+              Start a project
+            </Link>
+            <a
+              href="mailto:jacopo.dev0@gmail.com"
+              className="transition-colors hover:text-foreground"
+            >
+              jacopo.dev0@gmail.com
+            </a>
+          </div>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="relative px-6 pb-10 pt-20">
