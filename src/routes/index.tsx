@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { ProjectsPreview } from "@/components/projects-preview";
-import { WhyMe } from "@/components/why-me";
+import { MilestoneLog } from "@/components/milestone-log";
 import { Footer } from "@/components/footer";
 import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
@@ -140,7 +140,7 @@ function Index() {
       <main className="page-flow relative overflow-x-clip">
         <Hero />
         <ProjectsPreview />
-        <WhyMe />
+        <MilestoneLog />
 
       </main>
       <Footer />

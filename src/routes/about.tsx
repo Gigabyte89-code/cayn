@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { About } from "@/components/about";
 import { ICDL } from "@/components/icdl";
+import { WhyMe } from "@/components/why-me";
 import { breadcrumbLd, pageMeta, SITE_URL } from "@/lib/seo";
 
 const TITLE = "About | Professional Website Designer & Developer";
@@ -48,6 +49,7 @@ function AboutPage() {
   return (
     <PageShell breadcrumb="About">
       <About />
+      <WhyMe />
       <ICDL />
     </PageShell>
   );
