@@ -118,7 +118,7 @@ export const Route = createFileRoute("/")({
                   "@type": "ListItem",
                   position: 2,
                   name: "Occhio Mininno Agritourism — business website in Puglia, Italy",
-                  url: "https://agriturismocchiomininno.lovable.app",
+                  url: "https://www.agriturismocchiomininno.com",
                 },
               ],
             },
