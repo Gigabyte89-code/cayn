@@ -137,7 +137,7 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
 
           <div className="relative mt-10 flex justify-center">
             <motion.a
-              href="https://discord.com/users/1266052744746106895"
+              href="http://discordapp.com/users/1542577611677499506"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}

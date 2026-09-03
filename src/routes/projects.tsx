@@ -29,7 +29,7 @@ export const Route = createFileRoute("/projects")({
                 name: "Business Website for a Rural Tourism Company",
                 description:
                   "Business website for the Occhio Mininno agritourism in Apulia, Italy, with product catalog, email order requests and SEO optimization.",
-                url: "https://agriturismocchiomininno.lovable.app",
+                url: "https://www.agriturismocchiomininno.com",
               },
             },
             {

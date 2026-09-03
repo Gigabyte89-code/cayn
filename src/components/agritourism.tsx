@@ -57,7 +57,7 @@ export function Agritourism() {
 
           <div className="mt-10 flex justify-center">
             <a
-              href="https://agriturismocchiomininno.lovable.app"
+              href="https://www.agriturismocchiomininno.com"
               target="_blank"
               rel="noopener noreferrer"
               className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
