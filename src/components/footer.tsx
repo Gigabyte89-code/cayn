@@ -174,8 +174,10 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
 
           <div className="relative mt-8 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
             <div>© {new Date().getFullYear()} Cayn. All rights reserved.</div>
+            <LocalTime />
             <div>Crafted with care · Built in 2026</div>
           </div>
+
         </motion.div>
       </div>
     </footer>
