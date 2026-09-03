@@ -1,7 +1,46 @@
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 
+function LocalTime() {
+  const [time, setTime] = useState<string | null>(null);
+
+  useEffect(() => {
+    const tick = () =>
+      setTime(
+        new Intl.DateTimeFormat("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+          timeZone: "Europe/Rome",
+        }).format(new Date()),
+      );
+    tick();
+    const id = setInterval(tick, 30_000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+      <span
+        className="inline-block h-1.5 w-1.5 rounded-full"
+        style={{ background: "var(--accent)" }}
+      />
+      <span>Italy · {time ?? "--:--"} local</span>
+    </div>
+  );
+}
+
 export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    // eslint-disable-next-line no-console
+    console.log(
+      "%cCayn — you found the console. Nice. Want something built? jacopo.dev0@gmail.com",
+      "color:#a78bfa;font-weight:bold",
+    );
+  }, []);
+
+
   if (variant === "minimal") {
     return (
       <footer className="relative px-6 pb-10 pt-16">
