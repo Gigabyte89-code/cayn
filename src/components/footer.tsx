@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useT } from "@/lib/i18n";
 
 function LocalTime() {
   const [time, setTime] = useState<string | null>(null);
+  const d = useT();
 
   useEffect(() => {
     const tick = () =>
@@ -25,12 +27,13 @@ function LocalTime() {
         className="inline-block h-1.5 w-1.5 rounded-full"
         style={{ background: "var(--accent)" }}
       />
-      <span>Italy · {time ?? "--:--"} local</span>
+      <span>Italy · {time ?? "--:--"} {d.footer.local}</span>
     </div>
   );
 }
 
 export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
+  const d = useT();
   useEffect(() => {
     if (typeof window === "undefined") return;
     // eslint-disable-next-line no-console
@@ -45,10 +48,10 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
     return (
       <footer className="relative px-6 pb-10 pt-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-          <div>© {new Date().getFullYear()} Cayn. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Cayn. {d.footer.rights}</div>
           <div className="flex items-center gap-4">
             <Link to="/contact" className="transition-colors hover:text-foreground">
-              Start a project
+              {d.footer.startProject}
             </Link>
             <a
               href="mailto:jacopo.dev0@gmail.com"
@@ -84,22 +87,21 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
               </div>
               <p className="mt-3 max-w-sm text-sm text-muted-foreground">
 
-                Developer & Digital Creator — designing and building modern digital
-                experiences with care for every detail.
+                {d.footer.tagline}
               </p>
             </div>
 
             <div>
               <div className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
-                Navigate
+                {d.footer.navigate}
               </div>
               <ul className="space-y-2 text-sm">
                 {[
-                  ["Home", "/"],
-                  ["About", "/about"],
-                  ["Services", "/services"],
-                  ["Projects", "/projects"],
-                  ["FAQ", "/faq"],
+                  [d.nav.home, "/"],
+                  [d.nav.about, "/about"],
+                  [d.nav.services, "/services"],
+                  [d.nav.projects, "/projects"],
+                  [d.nav.faq, "/faq"],
                 ].map(([l, h]) => (
                   <li key={h}>
                     <a href={h} className="text-muted-foreground transition-colors hover:text-foreground">
@@ -112,7 +114,7 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
 
             <div>
               <div className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
-                Contact
+                {d.footer.contact}
               </div>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -128,7 +130,7 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
                     to="/contact"
                     className="text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    Start a project
+                    {d.footer.startProject}
                   </Link>
                 </li>
               </ul>
@@ -173,9 +175,9 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
           </div>
 
           <div className="relative mt-8 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-            <div>© {new Date().getFullYear()} Cayn. All rights reserved.</div>
+            <div>© {new Date().getFullYear()} Cayn. {d.footer.rights}</div>
             <LocalTime />
-            <div>Crafted with care · Built in 2026</div>
+            <div>{d.footer.crafted}</div>
           </div>
 
         </motion.div>

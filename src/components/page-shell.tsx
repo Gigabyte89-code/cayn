@@ -7,6 +7,7 @@ import { NoiseOverlay } from "@/components/ambient";
 import { CursorFX } from "@/components/cursor-fx";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { MobilePrompt } from "@/components/mobile-prompt";
+import { useT } from "@/lib/i18n";
 
 export function PageShell({
   children,
@@ -17,6 +18,7 @@ export function PageShell({
   breadcrumb?: string;
   fullFooter?: boolean;
 }) {
+  const d = useT();
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <NoiseOverlay />
@@ -25,11 +27,11 @@ export function PageShell({
       <Navigation />
       <main className="page-flow relative overflow-x-clip pt-28">
         {breadcrumb && (
-          <nav aria-label="Breadcrumb" className="mx-auto max-w-7xl px-6">
+          <nav aria-label={d.breadcrumb.label} className="mx-auto max-w-7xl px-6">
             <ol className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <li>
                 <Link to="/" className="transition-colors hover:text-foreground">
-                  Home
+                  {d.breadcrumb.home}
                 </Link>
               </li>
               <li aria-hidden className="flex items-center">
