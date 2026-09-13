@@ -4,12 +4,14 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 import { GlassOrbs, GridOverlay } from "./ambient";
 import { TechCore } from "./tech-core";
 import { useLiteMode } from "@/hooks/use-lite-mode";
+import { useT } from "@/lib/i18n";
 
 
 
 
 export function Hero() {
   const { lite } = useLiteMode();
+  const d = useT();
   return (
     <section
       id="home"
@@ -30,9 +32,9 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl xl:text-[80px]"
           >
-            <span className="text-gradient">I build professional websites</span>
+            <span className="text-gradient">{d.hero.title1}</span>
             <br />
-            <span className="text-gradient-brand italic">for companies and local businesses.</span>
+            <span className="text-gradient-brand italic">{d.hero.title2}</span>
           </motion.h1>
 
           <motion.p
@@ -41,9 +43,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Freelance web designer and developer: fast, mobile-first business websites,
-            online stores and landing pages, SEO-ready so your customers find you
-            on Google.
+            {d.hero.lead}
           </motion.p>
 
           <motion.div
@@ -56,14 +56,14 @@ export function Hero() {
               to="/contact"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-transform hover:scale-[1.03]"
             >
-              Get a free quote
+              {d.hero.cta}
               <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <Link
               to="/projects"
               className="text-sm font-medium text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
             >
-              or look at the two sites I built
+              {d.hero.secondary}
             </Link>
           </motion.div>
 
@@ -74,7 +74,7 @@ export function Hero() {
             className={`mt-7 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground ${lite ? "" : ""}`}
           >
             <Sparkles size={12} className="text-glow" />
-            Available for new projects · 2026
+            {d.hero.badge}
           </motion.div>
 
           <motion.div
@@ -85,12 +85,12 @@ export function Hero() {
           >
             <div>
               <div className="font-display text-2xl text-foreground">ICDL</div>
-              <div className="mt-1">Certified</div>
+              <div className="mt-1">{d.hero.stat1}</div>
             </div>
             <div className="h-8 w-px bg-border" />
             <div>
               <div className="font-display text-2xl text-foreground">100%</div>
-              <div className="mt-1">Custom design</div>
+              <div className="mt-1">{d.hero.stat2}</div>
             </div>
           </motion.div>
         </div>
@@ -98,7 +98,7 @@ export function Hero() {
         {!lite && (
           <motion.div
             role="img"
-            aria-label="Interactive 3D glass sphere representing Cayn's web development work"
+            aria-label={d.hero.sphereAlt}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
