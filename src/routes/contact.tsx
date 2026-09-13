@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { useT } from "@/lib/i18n";
 import { Contact } from "@/components/contact";
 import { breadcrumbLd, pageMeta, SITE_URL } from "@/lib/seo";
 
@@ -34,8 +35,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const d = useT();
   return (
-    <PageShell breadcrumb="Contact" fullFooter>
+    <PageShell breadcrumb={d.nav.contact} fullFooter>
       <Contact />
     </PageShell>
   );
