@@ -1,15 +1,9 @@
 import { motion } from "framer-motion";
 import { Check, ShieldCheck } from "lucide-react";
-
-const SKILLS = [
-  "Computer fundamentals",
-  "Digital literacy",
-  "Online communication",
-  "Productivity tools",
-  "Digital competencies",
-];
+import { useT } from "@/lib/i18n";
 
 export function ICDL() {
+  const d = useT();
   return (
     <section id="icdl" className="relative px-6 py-32">
       <div
@@ -26,22 +20,20 @@ export function ICDL() {
             transition={{ duration: 0.7 }}
           >
             <div className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-              Certification · Essentials · 2025
+              {d.icdl.meta}
             </div>
             <h2 className="mt-6 font-display text-[15vw] leading-[0.82] tracking-[-0.04em] sm:text-[110px] lg:text-[136px]">
               <span className="text-gradient">ICDL</span>
             </h2>
             <div className="mt-2 font-display text-3xl italic leading-tight text-gradient-brand sm:text-5xl">
-              Essentials.
+              {d.icdl.subtitle}
             </div>
             <p className="mt-7 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              An internationally recognised certification of verified digital
-              competencies. It is not what makes the websites good — but it is the
-              part of this page someone else signed off on.
+              {d.icdl.lead}
             </p>
 
             <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {SKILLS.map((s, i) => (
+              {d.icdl.skills.map((s, i) => (
                 <motion.li
                   key={s}
                   initial={{ opacity: 0, y: 10 }}
@@ -86,9 +78,9 @@ export function ICDL() {
               <div className="relative flex items-start justify-between">
                 <div>
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Certificate
+                    {d.icdl.certLabel}
                   </div>
-                  <div className="mt-1 font-display text-2xl">ICDL Essentials</div>
+                  <div className="mt-1 font-display text-2xl">{d.icdl.certName}</div>
                 </div>
                 <motion.div
                   animate={{ rotate: [0, 8, -8, 0] }}
@@ -107,19 +99,19 @@ export function ICDL() {
               <div className="relative my-8 h-px w-full bg-border" />
 
               <div className="relative">
-                <div className="text-sm text-muted-foreground">Awarded</div>
+                <div className="text-sm text-muted-foreground">{d.icdl.awarded}</div>
                 <div className="mt-1 text-xs text-muted-foreground">
-                  Verified digital competencies · Issued by ICDL
+                  {d.icdl.awardedSub}
                 </div>
               </div>
 
               <div className="relative mt-8 flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <ShieldCheck size={14} className="text-glow-2" />
-                  Verified
+                  {d.icdl.verified}
                 </div>
                 <div className="glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Essentials · 2025
+                  {d.icdl.badge}
                 </div>
               </div>
 

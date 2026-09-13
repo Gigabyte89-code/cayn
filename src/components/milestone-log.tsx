@@ -1,37 +1,20 @@
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/count-up";
+import { useT } from "@/lib/i18n";
 
-const LOG = [
-  {
-    year: "2025",
-    label: "ICDL Essentials certified",
-    note: "Verified digital competencies — the formal baseline behind the self-taught part.",
-  },
-  {
-    year: "2025",
-    label: "Cashow shipped",
-    note: "A personal-finance web app: budgets, categories and charts, built and released solo.",
-  },
-  {
-    year: "2026",
-    label: "Occhio Mininno went live",
-    note: "Catalog, order form and Google indexing — 9 days from the first message.",
-  },
-  {
-    year: "2026",
-    label: "Portfolio rebuilt from scratch",
-    note: "Six hand-written pages, structured data on every one of them.",
-  },
-];
+const LOG_YEARS = ["2025", "2025", "2026", "2026"];
 
-const STATS = [
-  { to: 9, suffix: "", label: "days brief → live", sub: "on the last business site" },
-  { to: 6, suffix: "/6", label: "pages with structured data", sub: "SEO done at build time" },
-  { to: 24, suffix: "h", label: "usual reply time", sub: "you write to me directly" },
-  { to: 100, suffix: "%", label: "custom code", sub: "no page builder, no plugins" },
+const STATS_DATA = [
+  { to: 9, suffix: "" },
+  { to: 6, suffix: "/6" },
+  { to: 24, suffix: "h" },
+  { to: 100, suffix: "%" },
 ];
 
 export function MilestoneLog() {
+  const d = useT();
+  const LOG = LOG_YEARS.map((year, i) => ({ ...d.log.items[i], year }));
+  const STATS = STATS_DATA.map((s, i) => ({ ...s, ...d.log.stats[i] }));
   return (
     <section id="log" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
@@ -43,14 +26,13 @@ export function MilestoneLog() {
             transition={{ duration: 0.7 }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
-            <div className="eyebrow mb-5">The log</div>
+            <div className="eyebrow mb-5">{d.log.eyebrow}</div>
             <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-5xl">
-              <span className="text-gradient">What actually </span>
-              <span className="text-gradient-brand italic">happened.</span>
+              <span className="text-gradient">{d.log.title1}</span>
+              <span className="text-gradient-brand italic">{d.log.title2}</span>
             </h2>
             <p className="mt-5 max-w-sm text-muted-foreground">
-              No invented numbers. Just the things that shipped, in the order they
-              shipped, and what came out of them.
+              {d.log.lead}
             </p>
 
             <div className="mt-10 grid grid-cols-2 gap-6">

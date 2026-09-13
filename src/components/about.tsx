@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Brain, Lightbulb, Sparkles, Target } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string }) {
   const [failed, setFailed] = useState(false);
@@ -22,60 +23,21 @@ function ToolLogo({ src, alt, name }: { src?: string; alt: string; name: string 
   );
 }
 
-const HIGHLIGHTS = [
-  {
-    icon: Target,
-    label: "You need a site that converts",
-    desc: "I build pages with a clear path from first scroll to contact or purchase.",
-  },
-  {
-    icon: Brain,
-    label: "You have an idea, not a spec",
-    desc: "I turn a rough concept into a working product — structure, design and code.",
-  },
-  {
-    icon: Lightbulb,
-    label: "Your current site feels dated",
-    desc: "Redesign with modern motion, real hierarchy and a brand that looks intentional.",
-  },
-  {
-    icon: Sparkles,
-    label: "You want it fast and fast-loading",
-    desc: "Shipped in days, optimized media, smooth on mobile and on slow connections.",
-  },
-];
+const HIGHLIGHT_ICONS = [Target, Brain, Lightbulb, Sparkles];
 
-
-const TOOLS = [
-  {
-    name: "Figma",
-    logo: "https://cdn.simpleicons.org/figma",
-    use: "where the layout gets decided before a single line of code",
-  },
-  {
-    name: "Framer",
-    logo: "https://cdn.simpleicons.org/framer/ffffff",
-    use: "for testing motion until it stops feeling like a template",
-  },
-  {
-    name: "Spline",
-    logo: "https://app.spline.design/favicon.ico",
-    use: "for the 3D pieces that carry the page instead of decorating it",
-  },
-  {
-    name: "Lovable",
-    logo: "https://lovable.dev/favicon.ico",
-    use: "to go from a rough idea to something clickable the same day",
-  },
-  {
-    name: "Claude Code",
-    logo: "https://cdn.simpleicons.org/claude",
-    use: "as a second pair of eyes on the code, never as the author",
-  },
-];
-
+const TOOL_LOGOS: Record<string, string> = {
+  Figma: "https://cdn.simpleicons.org/figma",
+  Framer: "https://cdn.simpleicons.org/framer/ffffff",
+  Spline: "https://app.spline.design/favicon.ico",
+  Lovable: "https://lovable.dev/favicon.ico",
+  "Claude Code": "https://cdn.simpleicons.org/claude",
+};
 
 export function About() {
+  const d = useT();
+  const highlights = d.about.highlights.map((h, i) => ({ ...h, icon: HIGHLIGHT_ICONS[i] }));
+  const tools = d.about.tools.map((t) => ({ ...t, logo: TOOL_LOGOS[t.name] }));
+
   return (
     <section id="about" className="relative px-6 py-32">
       <div className="mx-auto max-w-7xl">
@@ -86,16 +48,13 @@ export function About() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="eyebrow mx-auto mb-5">About me</div>
+          <div className="eyebrow mx-auto mb-5">{d.about.eyebrow}</div>
           <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">I build the site your idea </span>
-            <span className="text-gradient-brand italic">deserves.</span>
+            <span className="text-gradient">{d.about.title1}</span>
+            <span className="text-gradient-brand italic">{d.about.title2}</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            I'm Cayn — developer and digital creator. I work with founders, small
-            businesses and professionals who need a product online quickly, without
-            it looking like a template. Design, development and launch handled end
-            to end, by one person you can talk to directly.
+            {d.about.lead}
           </p>
 
         </motion.div>
@@ -119,15 +78,15 @@ export function About() {
               </div>
               <h3 className="mt-6 text-center font-display text-2xl">Cayn</h3>
               <p className="mt-1 text-center text-sm text-muted-foreground">
-                Developer & Digital Creator
+                {d.about.role}
               </p>
 
               <div className="mt-10 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                What I can solve for you
+                {d.about.solveLabel}
               </div>
 
               <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {HIGHLIGHTS.map((h) => (
+                {highlights.map((h) => (
                   <div
                     key={h.label}
                     className="glass hover-lift flex items-start gap-3 rounded-2xl p-4"
@@ -158,7 +117,7 @@ export function About() {
           >
             <div className="mx-auto mb-6 max-w-7xl px-6">
               <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                Toolkit · what each thing is actually for
+                {d.about.toolkitLabel}
               </div>
             </div>
 
@@ -172,7 +131,7 @@ export function About() {
               }}
             >
               <div className="animate-marquee flex w-max items-center gap-10 pl-6">
-                {[...TOOLS, ...TOOLS].map((t, i) => (
+                {[...tools, ...tools].map((t, i) => (
                   <span
                     key={`${t.name}-${i}`}
                     className="flex shrink-0 items-center gap-3 text-lg sm:text-2xl"

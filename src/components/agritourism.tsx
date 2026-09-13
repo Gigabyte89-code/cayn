@@ -11,24 +11,17 @@ import {
   Leaf,
 } from "lucide-react";
 import { CaseNotes } from "@/components/case-notes";
+import { useT } from "@/lib/i18n";
 const heroShot = { url: "/projects/occhio-hero.png" };
 const productShot = { url: "/projects/occhio-products.png" };
 
-const FEATURES = [
-  { icon: Search, title: "SEO optimization", desc: "Structured metadata and semantic markup for local search." },
-  { icon: ShoppingBasket, title: "Product catalog", desc: "Organic Coratina olive oil, presented with dedicated pages." },
-  { icon: Mail, title: "Email order requests", desc: "Pre-filled requests sent straight to the owner's inbox." },
-  { icon: Gauge, title: "Performance first", desc: "Optimized media and smooth motion on every device." },
-];
-
-const HIGHLIGHTS = [
-  { icon: CalendarCheck, label: "Table booking form" },
-  { icon: Images, label: "Photo gallery" },
-  { icon: MapPin, label: "Maps & directions" },
-  { icon: Leaf, label: "Farm-to-table story" },
-];
+const FEATURE_ICONS = [Search, ShoppingBasket, Mail, Gauge];
+const HIGHLIGHT_ICONS = [CalendarCheck, Images, MapPin, Leaf];
 
 export function Agritourism() {
+  const d = useT();
+  const FEATURES = d.agritourism.features.map((f, i) => ({ ...f, icon: FEATURE_ICONS[i]! }));
+  const HIGHLIGHTS = d.agritourism.highlights.map((label, i) => ({ label, icon: HIGHLIGHT_ICONS[i]! }));
   return (
     <section id="agritourism" className="relative px-6 py-32">
       <div className="relative mx-auto max-w-7xl">
@@ -39,20 +32,18 @@ export function Agritourism() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="eyebrow mx-auto mb-5">Client project</div>
+          <div className="eyebrow mx-auto mb-5">{d.agritourism.eyebrow}</div>
           <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">Occhiomininno </span>
-            <span className="text-gradient-brand italic">Agritourism.</span>
+            <span className="text-gradient">{d.agritourism.title1}</span>
+            <span className="text-gradient-brand italic">{d.agritourism.title2}</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            Development of a professional website for a Puglian agritourism business,
-            featuring a modern design, SEO optimization, a product catalog, an
-            email-based order request system, and performance optimized for all devices.
+            {d.agritourism.lead}
           </p>
 
           <CaseNotes
-            problem="A family-run masseria with no real web presence: bookings and olive oil orders arrived only by phone or word of mouth, and nobody searching locally could find them."
-            result="A fast, SEO-ready site with a product catalog and email order requests — guests can now book a table or ask for oil in a couple of taps, from any device."
+            problem={d.agritourism.problem}
+            result={d.agritourism.result}
           />
 
           <div className="mt-10 flex justify-center">
@@ -62,7 +53,7 @@ export function Agritourism() {
               rel="noopener noreferrer"
               className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
             >
-              Visit website
+              {d.agritourism.cta}
               <ArrowUpRight
                 size={16}
                 className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -84,14 +75,14 @@ export function Agritourism() {
             <div className="relative overflow-hidden rounded-3xl">
               <img
                 src={heroShot.url}
-                alt="Business website designed for the Occhio Mininno agritourism in Puglia — homepage with the masseria"
+                alt={d.agritourism.heroAlt}
                 loading="lazy"
                 className="block h-auto w-full object-contain"
               />
               <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/30 via-transparent to-white/5" />
             </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
-              Landing experience — Ruvo di Puglia, since 1985
+              {d.agritourism.heroCaption}
             </figcaption>
           </motion.figure>
 
@@ -105,14 +96,14 @@ export function Agritourism() {
             <div className="relative overflow-hidden rounded-3xl">
               <img
                 src={productShot.url}
-                alt="Product catalog of the website built for a Puglian agritourism business — organic extra virgin olive oil"
+                alt={d.agritourism.productAlt}
                 loading="lazy"
                 className="block h-auto w-full object-contain"
               />
               <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/30 via-transparent to-white/5" />
             </div>
             <figcaption className="px-4 py-3 text-xs text-muted-foreground">
-              Product catalog — organic Coratina olive oil
+              {d.agritourism.productCaption}
             </figcaption>
           </motion.figure>
         </div>
@@ -148,15 +139,14 @@ export function Agritourism() {
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
             <div>
               <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                Also included
+                {d.agritourism.alsoIncluded}
               </div>
               <h3 className="mt-2 font-display text-2xl sm:text-3xl">
-                <span className="text-gradient">Built for real </span>
-                <span className="text-gradient-brand italic">guests.</span>
+                <span className="text-gradient">{d.agritourism.builtFor1}</span>
+                <span className="text-gradient-brand italic">{d.agritourism.builtFor2}</span>
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
-                Bookings, gallery, services and directions — everything a family-run
-                masseria needs to turn visitors into guests.
+                {d.agritourism.builtForLead}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">

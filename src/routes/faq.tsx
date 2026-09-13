@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { useT } from "@/lib/i18n";
 import { FAQ, FAQ_ITEMS } from "@/components/faq";
 import { breadcrumbLd, pageMeta } from "@/lib/seo";
 
@@ -30,8 +31,9 @@ export const Route = createFileRoute("/faq")({
 });
 
 function FaqPage() {
+  const d = useT();
   return (
-    <PageShell breadcrumb="FAQ">
+    <PageShell breadcrumb={d.nav.faq}>
       <FAQ />
     </PageShell>
   );

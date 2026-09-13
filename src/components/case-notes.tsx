@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CircleAlert, Trophy } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 type Props = {
   problem: string;
@@ -8,9 +9,10 @@ type Props = {
 
 /** Two-line case study summary: the problem solved and the result achieved. */
 export function CaseNotes({ problem, result }: Props) {
+  const d = useT();
   const rows = [
-    { icon: CircleAlert, label: "Problem solved", text: problem },
-    { icon: Trophy, label: "Result achieved", text: result },
+    { icon: CircleAlert, label: d.caseNotes.problem, text: problem },
+    { icon: Trophy, label: d.caseNotes.result, text: result },
   ];
 
   return (

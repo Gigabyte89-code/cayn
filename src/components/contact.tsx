@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, type FormEvent } from "react";
 import { Check, Send, Mail } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 export function Contact() {
+  const d = useT();
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -22,14 +24,14 @@ export function Contact() {
           name: form.name,
           email: form.email,
           message: form.message,
-          _subject: `New message from ${form.name}`,
+          _subject: d.contact.subject(form.name),
           _template: "table",
         }),
       });
       if (!res.ok) throw new Error("Failed");
       setSent(true);
     } catch {
-      setError("Something went wrong. Please email me directly at jacopo.dev0@gmail.com.");
+      setError(d.contact.error);
     } finally {
       setLoading(false);
     }
@@ -54,15 +56,13 @@ export function Contact() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <div className="eyebrow mx-auto mb-5">Contact</div>
+          <div className="eyebrow mx-auto mb-5">{d.contact.eyebrow}</div>
           <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">Tell me what you </span>
-            <span className="text-gradient-brand italic">need built.</span>
+            <span className="text-gradient">{d.contact.title1}</span>
+            <span className="text-gradient-brand italic">{d.contact.title2}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-muted-foreground">
-            Two or three lines are enough — what your business does and what the site
-            should achieve. I read every message myself and reply with a real timeline
-            and a real price, not a brochure.
+            {d.contact.lead}
           </p>
         </motion.div>
 
@@ -90,25 +90,25 @@ export function Contact() {
               >
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <Field
-                    label="Name"
+                    label={d.contact.name}
                     value={form.name}
                     onChange={(v) => setForm((f) => ({ ...f, name: v }))}
-                    placeholder="Your name"
+                    placeholder={d.contact.namePlaceholder}
                     maxLength={100}
                   />
                   <Field
-                    label="Email"
+                    label={d.contact.email}
                     type="email"
                     value={form.email}
                     onChange={(v) => setForm((f) => ({ ...f, email: v }))}
-                    placeholder="you@example.com"
+                    placeholder={d.contact.emailPlaceholder}
                     maxLength={255}
                   />
                 </div>
 
                 <div>
                   <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                    Message
+                    {d.contact.message}
                   </label>
                   <textarea
                     required
@@ -116,7 +116,7 @@ export function Contact() {
                     maxLength={2000}
                     value={form.message}
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                    placeholder="Tell me about your project..."
+                    placeholder={d.contact.messagePlaceholder}
                     className="glass w-full resize-none rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
                   />
                 </div>
@@ -126,7 +126,7 @@ export function Contact() {
                   disabled={loading}
                   className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.01] disabled:opacity-60 sm:w-auto"
                 >
-                  {loading ? "Sending..." : "Send it to Cayn"}
+                  {loading ? d.contact.sending : d.contact.send}
                   <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
                 </button>
                 {error && (
@@ -151,10 +151,9 @@ export function Contact() {
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
-                <h3 className="mt-6 font-display text-3xl italic">Got it — thank you.</h3>
+                <h3 className="mt-6 font-display text-3xl italic">{d.contact.successTitle}</h3>
                 <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  Your message is in my inbox and I'll answer it personally, usually
-                  within a day. If it is urgent, write me straight at{" "}
+                  {d.contact.successBody1}{" "}
                   <a href="mailto:jacopo.dev0@gmail.com" className="text-foreground underline-offset-4 hover:underline">
                     jacopo.dev0@gmail.com
                   </a>
@@ -166,7 +165,7 @@ export function Contact() {
                   }}
                   className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
                 >
-                  Write another one
+                  {d.contact.another}
                 </button>
               </motion.div>
             )}

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { useT } from "@/lib/i18n";
 import { About } from "@/components/about";
 import { ICDL } from "@/components/icdl";
 import { WhyMe } from "@/components/why-me";
@@ -46,8 +47,9 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const d = useT();
   return (
-    <PageShell breadcrumb="About">
+    <PageShell breadcrumb={d.nav.about}>
       <About />
       <WhyMe />
       <ICDL />

@@ -1,52 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { usePointerGlow } from "@/hooks/use-pointer-glow";
+import { useT } from "@/lib/i18n";
 
 /**
  * Editorial numbered list — deliberately NOT a card grid.
  * This block lives only on /about; it is never repeated on other pages.
  */
-const POINTS = [
-  {
-    n: "01",
-    title: "You write to me, not to an account manager",
-    body: "The person answering your email is the person writing the code. No briefing passed down three levels, no ticket number, no \"I'll check with the team\".",
-    meta: "reply time · usually < 24h",
-  },
-  {
-    n: "02",
-    title: "Two weeks, normally less",
-    body: "The Occhio Mininno site went live 9 days after the first message — catalog, order form and Google indexing included. Revisions are part of that, not an extra invoice.",
-    meta: "occhiomininno · 9 days brief→live",
-  },
-  {
-    n: "03",
-    title: "You know the price before I start",
-    body: "One fixed quote, written down. If the scope grows halfway through we talk about it first — you'll never open an invoice with something on it you didn't agree to.",
-    meta: "fixed quote · no hourly billing",
-  },
-  {
-    n: "04",
-    title: "Built by hand, in React",
-    body: "No page builder, no plugin stack quietly rotting in the background. React, TypeScript and Tailwind, which is why these pages load in well under a second.",
-    meta: "react 19 · typescript · tailwind 4",
-  },
-  {
-    n: "05",
-    title: "Google can actually read it",
-    body: "Semantic markup, unique titles, structured data, sitemap. Done at build time on every page — not sold back to you later as an \"SEO package\".",
-    meta: "structured data on 6/6 pages",
-  },
-  {
-    n: "06",
-    title: "Designed on a phone screen first",
-    body: "Most people who find your business are standing outside it holding a phone. So I start there and scale up, instead of shrinking a desktop layout and hoping.",
-    meta: "mobile-first · tested on real devices",
-  },
-];
+const NUMBERS = ["01", "02", "03", "04", "05", "06"];
 
 export function WhyMe() {
+  const d = useT();
   const glow = usePointerGlow<HTMLDivElement>();
+  const points = d.whyMe.points.map((p, i) => ({ ...p, n: NUMBERS[i] }));
 
   return (
     <section id="why-me" className="relative flat-band px-6 py-28">
@@ -60,21 +26,19 @@ export function WhyMe() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
-            <div className="label-mono">Why work with me</div>
+            <div className="label-mono">{d.whyMe.label}</div>
             <h2 className="mt-4 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              <span className="text-gradient">Six honest </span>
-              <span className="text-gradient-brand italic">reasons.</span>
+              <span className="text-gradient">{d.whyMe.title1}</span>
+              <span className="text-gradient-brand italic">{d.whyMe.title2}</span>
             </h2>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              I'm a freelance developer in Puglia, Italy, building websites for small
-              companies and local businesses. Here's what actually changes when you
-              work with one person instead of an agency.
+              {d.whyMe.lead}
             </p>
           </motion.div>
 
           {/* Editorial rows */}
           <ol className="relative">
-            {POINTS.map((p, i) => (
+            {points.map((p, i) => (
               <motion.li
                 key={p.n}
                 initial={{ opacity: 0, y: 18 }}
@@ -122,12 +86,11 @@ export function WhyMe() {
         >
           <blockquote className="max-w-3xl font-display text-2xl leading-[1.3] sm:text-4xl">
             <span className="text-gradient">
-              “We finally have a website that looks as good as our masseria. Guests book a
-              table and ask for our olive oil straight from their phones.”
+              {d.whyMe.quote}
             </span>
           </blockquote>
           <figcaption className="label-mono mt-5">
-            Occhio Mininno Agritourism — Ruvo di Puglia · translated from Italian
+            {d.whyMe.quoteCaption}
           </figcaption>
         </motion.figure>
 
@@ -139,14 +102,13 @@ export function WhyMe() {
           className="mt-20 flex flex-col items-start gap-4 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between"
         >
           <p className="max-w-md text-sm text-muted-foreground">
-            Tell me what your business does and roughly what you need. I'll reply with a
-            price, a timeline, and what I'd do differently.
+            {d.whyMe.ctaLine}
           </p>
           <Link
             to="/contact"
             className="liquid-sheen inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
           >
-            Ask me what it would cost
+            {d.whyMe.cta}
           </Link>
         </motion.div>
       </div>

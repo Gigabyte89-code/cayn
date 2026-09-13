@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createFileRoute, useLocation } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
+import { useT } from "@/lib/i18n";
 import { FinanceApp } from "@/components/finance-app";
 import { Agritourism } from "@/components/agritourism";
 import { breadcrumbLd, pageMeta } from "@/lib/seo";
@@ -53,9 +54,10 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
+  const d = useT();
   useHashScroll();
   return (
-    <PageShell breadcrumb="Projects">
+    <PageShell breadcrumb={d.nav.projects}>
       <FinanceApp />
       <Agritourism />
     </PageShell>

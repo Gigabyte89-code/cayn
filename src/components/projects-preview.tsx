@@ -2,25 +2,16 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PhoneMockup } from "@/components/finance-app";
+import { useT } from "@/lib/i18n";
 
-const PROJECTS = [
-  {
-    eyebrow: "Featured project",
-    title: "Cashow",
-    line: "A personal finance app to track expenses, manage budgets and build real financial awareness.",
-    image: null as string | null,
-    hash: "finance",
-  },
-  {
-    eyebrow: "Client project",
-    title: "Occhiomininno Agritourism",
-    line: "A fast, SEO-ready website for a Puglian agritourism, with product catalog and email order requests.",
-    image: "/projects/occhio-hero.png",
-    hash: "agritourism",
-  },
+const PROJECTS_DATA = [
+  { image: null as string | null, hash: "finance" },
+  { image: "/projects/occhio-hero.png", hash: "agritourism" },
 ];
 
 export function ProjectsPreview() {
+  const d = useT();
+  const PROJECTS = PROJECTS_DATA.map((p, i) => ({ ...p, ...d.projectsPreview.items[i] }));
   return (
     <section id="projects-preview" className="relative px-6 py-32">
       <div className="mx-auto max-w-7xl">
@@ -31,10 +22,10 @@ export function ProjectsPreview() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="eyebrow mx-auto mb-5">Selected work</div>
+          <div className="eyebrow mx-auto mb-5">{d.projectsPreview.eyebrow}</div>
           <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-gradient">Real projects, </span>
-            <span className="text-gradient-brand italic">real results.</span>
+            <span className="text-gradient">{d.projectsPreview.title1}</span>
+            <span className="text-gradient-brand italic">{d.projectsPreview.title2}</span>
           </h2>
         </motion.div>
 
@@ -60,7 +51,7 @@ export function ProjectsPreview() {
                 {p.image ? (
                   <img
                     src={p.image}
-                    alt={`${p.title} website preview`}
+                    alt={`${p.title} ${d.projectsPreview.previewAlt}`}
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover object-top"
                   />
@@ -79,7 +70,7 @@ export function ProjectsPreview() {
                 hash={p.hash}
                 className="group mt-6 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground"
               >
-                See full case study
+                {d.projectsPreview.cta}
                 <ArrowUpRight
                   size={15}
                   className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

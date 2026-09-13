@@ -9,19 +9,28 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { CaseNotes } from "@/components/case-notes";
+import { useT } from "@/lib/i18n";
 
-const FEATURES = [
-  { icon: Wallet, title: "Expense tracking", desc: "Effortless logging of every transaction." },
-  { icon: PieChart, title: "Budget management", desc: "Smart budgets that adapt to your life." },
-  { icon: TrendingUp, title: "Financial insights", desc: "Clear analytics, actionable trends." },
-  { icon: Sparkles, title: "Beautiful UI", desc: "Designed to make finance feel calm." },
+const FEATURE_ICONS = [Wallet, PieChart, TrendingUp, Sparkles];
+const TX_META = [
+  { amt: "-€4.20", up: false },
+  { amt: "+€1,820", up: true },
+  { amt: "-€9.99", up: false },
 ];
+const STAT_VALUES = [
+  { value: "€1,240", trend: "-8%" },
+  { value: "€580", trend: "+22%" },
+  { value: "6/8", trend: "+1" },
+  { value: "12", trend: "" },
+];
+const CATEGORY_PCT = [65, 40, 28];
 
 export function PhoneMockup() {
+  const d = useT();
   return (
     <div
       role="img"
-      aria-label="Mockup of the Cashow personal finance app showing a total balance, spending chart and recent transactions on a phone screen"
+      aria-label={d.finance.phone.alt}
       className="relative mx-auto w-[280px] sm:w-[320px]"
       style={{ transformStyle: "preserve-3d" }}
     >
@@ -46,7 +55,7 @@ export function PhoneMockup() {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-[10px] text-muted-foreground">Good morning</div>
+              <div className="text-[10px] text-muted-foreground">{d.finance.phone.greeting}</div>
               <div className="font-display text-base text-foreground">Cayn</div>
             </div>
             <div className="glass h-8 w-8 rounded-full" />
@@ -59,23 +68,23 @@ export function PhoneMockup() {
               background: "linear-gradient(135deg, oklch(0.5 0.25 300 / 30%), oklch(0.5 0.25 285 / 20%))",
             }}
           >
-            <div className="text-[10px] text-muted-foreground">Total Balance</div>
+            <div className="text-[10px] text-muted-foreground">{d.finance.phone.totalBalance}</div>
             <div className="mt-1 font-display text-2xl text-foreground">
               €4,820<span className="text-sm text-muted-foreground">.50</span>
             </div>
             <div className="mt-2 flex items-center gap-1.5 text-[10px] text-glow-2">
               <ArrowUpRight size={10} aria-hidden="true" />
-              +12.4% this month
+              {d.finance.phone.thisMonth}
             </div>
           </div>
 
           {/* Chart */}
           <div className="glass mt-3 rounded-2xl p-3">
             <div className="mb-2 flex items-center justify-between text-[10px] text-muted-foreground">
-              <span>Spending</span>
-              <span>Nov</span>
+              <span>{d.finance.phone.spending}</span>
+              <span>{d.finance.phone.month}</span>
             </div>
-            <svg viewBox="0 0 200 60" className="w-full" role="img" aria-label="Monthly spending trend chart">
+            <svg viewBox="0 0 200 60" className="w-full" role="img" aria-label={d.finance.phone.chartAlt}>
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="oklch(0.7 0.22 300)" stopOpacity="0.6" />
@@ -101,15 +110,11 @@ export function PhoneMockup() {
 
           {/* Transactions */}
           <div className="mt-3 space-y-2">
-            {[
-              { name: "Coffee", cat: "Food", amt: "-€4.20", up: false },
-              { name: "Salary", cat: "Income", amt: "+€1,820", up: true },
-              { name: "Spotify", cat: "Subs", amt: "-€9.99", up: false },
-            ].map((t) => (
+            {d.finance.phone.tx.map((t, i) => (
               <div key={t.name} className="glass flex items-center justify-between rounded-xl p-2.5">
                 <div className="flex items-center gap-2">
                   <div className="glass-liquid flex h-7 w-7 items-center justify-center rounded-lg">
-                    {t.up ? (
+                    {TX_META[i]!.up ? (
                       <ArrowUpRight size={12} className="text-glow-2" />
                     ) : (
                       <ArrowDownRight size={12} className="text-muted-foreground" />
@@ -120,8 +125,8 @@ export function PhoneMockup() {
                     <div className="text-[9px] text-muted-foreground">{t.cat}</div>
                   </div>
                 </div>
-                <div className={`text-[11px] ${t.up ? "text-glow-2" : "text-foreground"}`}>
-                  {t.amt}
+                <div className={`text-[11px] ${TX_META[i]!.up ? "text-glow-2" : "text-foreground"}`}>
+                  {TX_META[i]!.amt}
                 </div>
               </div>
             ))}
@@ -141,6 +146,8 @@ export function PhoneMockup() {
 }
 
 export function FinanceApp() {
+  const d = useT();
+  const FEATURES = d.finance.features.map((f, i) => ({ ...f, icon: FEATURE_ICONS[i]! }));
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -167,19 +174,18 @@ export function FinanceApp() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="eyebrow mx-auto mb-5">Featured project</div>
+          <div className="eyebrow mx-auto mb-5">{d.finance.eyebrow}</div>
           <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">Meet </span>
-            <span className="text-gradient-brand italic">Cashow.</span>
+            <span className="text-gradient">{d.finance.title1}</span>
+            <span className="text-gradient-brand italic">{d.finance.title2}</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            A personal finance app designed to help users track expenses, monitor
-            spending habits, manage budgets, and build real financial awareness.
+            {d.finance.lead}
           </p>
 
           <CaseNotes
-            problem="People stop tracking their money because spreadsheets and bank apps show transactions, not habits — so overspending is only visible when it's too late."
-            result="A single dashboard where balance, budgets and trends are readable in one glance; the full app was designed and shipped as a working product, usable on mobile from day one."
+            problem={d.finance.problem}
+            result={d.finance.result}
           />
 
           <div className="mt-10 flex justify-center">
@@ -189,7 +195,7 @@ export function FinanceApp() {
               rel="noopener noreferrer"
               className="liquid-sheen group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
             >
-              Try now
+              {d.finance.cta}
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
@@ -262,19 +268,14 @@ export function FinanceApp() {
             }}
           >
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              {[
-                { label: "Monthly spend", value: "€1,240", trend: "-8%" },
-                { label: "Saved", value: "€580", trend: "+22%" },
-                { label: "Budgets on track", value: "6/8", trend: "+1" },
-                { label: "Categories", value: "12", trend: "" },
-              ].map((stat) => (
-                <div key={stat.label} className="glass rounded-2xl p-4">
+              {d.finance.dash.stats.map((label, i) => (
+                <div key={label} className="glass rounded-2xl p-4">
                   <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                    {stat.label}
+                    {label}
                   </div>
-                  <div className="mt-2 font-display text-2xl text-gradient">{stat.value}</div>
-                  {stat.trend && (
-                    <div className="mt-1 text-[10px] text-glow-2">{stat.trend}</div>
+                  <div className="mt-2 font-display text-2xl text-gradient">{STAT_VALUES[i]!.value}</div>
+                  {STAT_VALUES[i]!.trend && (
+                    <div className="mt-1 text-[10px] text-glow-2">{STAT_VALUES[i]!.trend}</div>
                   )}
                 </div>
               ))}
@@ -283,10 +284,10 @@ export function FinanceApp() {
             <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
               <div className="glass rounded-2xl p-5">
                 <div className="mb-3 flex items-center justify-between">
-                  <div className="text-sm text-foreground">Cashflow</div>
-                  <div className="text-xs text-muted-foreground">Last 30 days</div>
+                  <div className="text-sm text-foreground">{d.finance.dash.cashflow}</div>
+                  <div className="text-xs text-muted-foreground">{d.finance.dash.last30}</div>
                 </div>
-                <svg viewBox="0 0 400 100" className="w-full" role="img" aria-label="Cashflow chart for the last 30 days">
+                <svg viewBox="0 0 400 100" className="w-full" role="img" aria-label={d.finance.dash.cashflowAlt}>
                   <defs>
                     <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="oklch(0.75 0.2 285)" stopOpacity="0.5" />
@@ -310,22 +311,18 @@ export function FinanceApp() {
                 </svg>
               </div>
               <div className="glass rounded-2xl p-5">
-                <div className="text-sm text-foreground">Top categories</div>
+                <div className="text-sm text-foreground">{d.finance.dash.topCategories}</div>
                 <div className="mt-3 space-y-2.5">
-                  {[
-                    { c: "Food", p: 65 },
-                    { c: "Transport", p: 40 },
-                    { c: "Subscriptions", p: 28 },
-                  ].map((c) => (
-                    <div key={c.c}>
+                  {d.finance.dash.categories.map((c, i) => (
+                    <div key={c}>
                       <div className="mb-1 flex justify-between text-[10px] text-muted-foreground">
-                        <span>{c.c}</span>
-                        <span>{c.p}%</span>
+                        <span>{c}</span>
+                        <span>{CATEGORY_PCT[i]}%</span>
                       </div>
                       <div className="h-1.5 overflow-hidden rounded-full bg-white/5">
                         <motion.div
                           initial={{ width: 0 }}
-                          whileInView={{ width: `${c.p}%` }}
+                          whileInView={{ width: `${CATEGORY_PCT[i]}%` }}
                           viewport={{ once: true }}
                           transition={{ duration: 1.2, ease: "easeOut" }}
                           className="h-full rounded-full"

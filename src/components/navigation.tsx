@@ -2,19 +2,24 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useT } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
-const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
-] as const;
+const NAV_HREFS = ["/", "/about", "/services", "/projects", "/faq", "/contact"] as const;
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const d = useT();
+
+  const items = [
+    { label: d.nav.home, href: NAV_HREFS[0] },
+    { label: d.nav.about, href: NAV_HREFS[1] },
+    { label: d.nav.services, href: NAV_HREFS[2] },
+    { label: d.nav.projects, href: NAV_HREFS[3] },
+    { label: d.nav.faq, href: NAV_HREFS[4] },
+    { label: d.nav.contact, href: NAV_HREFS[5] },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -40,7 +45,7 @@ export function Navigation() {
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
-          {NAV_ITEMS.map((item) => (
+          {items.map((item) => (
             <li key={item.href}>
               <Link
                 to={item.href}
@@ -53,21 +58,27 @@ export function Navigation() {
           ))}
         </ul>
 
-        <Link
-          to="/contact"
-          className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-block"
-        >
-          Let's talk
-        </Link>
+        <div className="hidden items-center gap-2.5 md:flex">
+          <LanguageSwitcher />
+          <Link
+            to="/contact"
+            className="rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
+          >
+            {d.nav.cta}
+          </Link>
+        </div>
 
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="rounded-full p-2 text-foreground md:hidden"
-        >
-          {open ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
+          <button
+            aria-label={open ? d.nav.closeMenu : d.nav.openMenu}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="rounded-full p-2 text-foreground"
+          >
+            {open ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -79,7 +90,7 @@ export function Navigation() {
             className="glass-liquid absolute left-4 right-4 top-20 rounded-3xl p-4 md:hidden"
           >
             <ul className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
+              {items.map((item) => (
                 <li key={item.href}>
                   <Link
                     to={item.href}
@@ -98,4 +109,3 @@ export function Navigation() {
     </motion.header>
   );
 }
-
