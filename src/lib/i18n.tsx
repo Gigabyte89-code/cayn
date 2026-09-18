@@ -24,7 +24,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
-  // Restore the saved choice (or the browser language) after hydration.
+  // English is always the default on first visit; a saved choice wins after that.
   useEffect(() => {
     let saved: string | null = null;
     try {
@@ -32,10 +32,6 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     } catch {}
     if (isLang(saved)) {
       setLangState(saved);
-      return;
-    }
-    if (typeof navigator !== "undefined" && navigator.language?.toLowerCase().startsWith("it")) {
-      setLangState("it");
     }
   }, []);
 
