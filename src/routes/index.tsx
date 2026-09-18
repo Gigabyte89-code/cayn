@@ -12,7 +12,7 @@ import { FAQ_ITEMS } from "@/components/faq";
 import { OG_IMAGE, SITE_NAME } from "@/lib/seo";
 
 
-const TITLE = "Cayn Developer";
+const TITLE = "Cayn Developer — Freelance Web Developer in Italy";
 const DESCRIPTION =
   "I build fast, custom websites for businesses and local shops — SEO-ready and mobile-first. See my portfolio and get a free quote today.";
 const URL = "https://cayn.lovable.app/";
