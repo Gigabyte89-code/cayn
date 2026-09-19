@@ -8,14 +8,25 @@ export function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-
   const [error, setError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
-    setLoading(true);
     setError(null);
+    setEmailError(null);
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setError(d.contact.missingFields);
+      return;
+    }
+
+    if (!form.email.includes("@")) {
+      setEmailError(d.contact.emailMissingAt);
+      return;
+    }
+
+    setLoading(true);
     try {
       const res = await fetch("https://formsubmit.co/ajax/jacopo.dev0@gmail.com", {
         method: "POST",
@@ -68,6 +79,7 @@ export function Contact() {
 
         <motion.form
           onSubmit={submit}
+          noValidate
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -100,9 +112,13 @@ export function Contact() {
                     label={d.contact.email}
                     type="email"
                     value={form.email}
-                    onChange={(v) => setForm((f) => ({ ...f, email: v }))}
+                    onChange={(v) => {
+                      setForm((f) => ({ ...f, email: v }));
+                      if (v.includes("@")) setEmailError(null);
+                    }}
                     placeholder={d.contact.emailPlaceholder}
                     maxLength={255}
+                    error={emailError}
                   />
                 </div>
 
@@ -162,6 +178,8 @@ export function Contact() {
                   onClick={() => {
                     setSent(false);
                     setForm({ name: "", email: "", message: "" });
+                    setEmailError(null);
+                    setError(null);
                   }}
                   className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
                 >
@@ -190,6 +208,7 @@ function Field({
   placeholder,
   type = "text",
   maxLength,
+  error,
 }: {
   label: string;
   value: string;
@@ -197,7 +216,10 @@ function Field({
   placeholder?: string;
   type?: string;
   maxLength?: number;
+  error?: string | null;
 }) {
+  const errorId = error ? `field-${type}-error` : undefined;
+
   return (
     <div>
       <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
@@ -210,8 +232,15 @@ function Field({
         maxLength={maxLength}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="glass w-full rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
+        aria-invalid={Boolean(error)}
+        aria-describedby={errorId}
+        className="glass w-full rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring aria-invalid:ring-2 aria-invalid:ring-destructive"
       />
+      {error && (
+        <p id={errorId} role="alert" className="mt-2 text-xs text-destructive">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

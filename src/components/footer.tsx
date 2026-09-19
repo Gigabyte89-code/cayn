@@ -8,16 +8,16 @@ function LocalTime() {
   const d = useT();
 
   useEffect(() => {
-    const tick = () =>
-      setTime(
-        new Intl.DateTimeFormat("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-          timeZone: "Europe/Rome",
-        }).format(new Date()),
-      );
+    const formatter = new Intl.DateTimeFormat("it-IT", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hourCycle: "h23",
+      timeZone: "Europe/Rome",
+    });
+    const tick = () => setTime(formatter.format(new Date()));
     tick();
-    const id = setInterval(tick, 30_000);
+    const id = window.setInterval(tick, 1_000);
     return () => clearInterval(id);
   }, []);
 
@@ -27,7 +27,7 @@ function LocalTime() {
         className="inline-block h-1.5 w-1.5 rounded-full"
         style={{ background: "var(--accent)" }}
       />
-      <span>Italy · {time ?? "--:--"} {d.footer.local}</span>
+      <span aria-live="off">Italia · {time ?? "--:--:--"} {d.footer.local}</span>
     </div>
   );
 }

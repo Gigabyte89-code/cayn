@@ -371,6 +371,7 @@ export const en = {
     namePlaceholder: "Your name",
     email: "Email",
     emailPlaceholder: "you@example.com",
+    emailMissingAt: "The email address is invalid: the @ symbol is missing.",
     message: "Message",
     messagePlaceholder: "Tell me about your project...",
     send: "Send it to Cayn",
@@ -458,17 +459,17 @@ export const it: Dict = {
   hero: {
     title1: "Creo siti web professionali",
     title2: "per aziende e attività locali.",
-    lead: "Web designer e sviluppatore freelance: siti aziendali veloci e pensati prima per il mobile, negozi online e landing page, ottimizzati SEO così i tuoi clienti ti trovano su Google.",
+    lead: "Sono un web designer e sviluppatore freelance. Realizzo siti aziendali, e-commerce e landing page veloci, progettati per il mobile e ottimizzati per farti trovare su Google.",
     cta: "Richiedi un preventivo gratuito",
-    secondary: "oppure guarda i due siti che ho realizzato",
+    secondary: "oppure scopri due progetti che ho realizzato",
     badge: "Disponibile per nuovi progetti · 2026",
-    stat1: "Certificato",
+    stat1: "Certificazione ICDL",
     stat2: "Design su misura",
     sphereAlt: "Sfera di vetro 3D interattiva che rappresenta il lavoro di sviluppo web di Cayn",
   },
 
   projectsPreview: {
-    eyebrow: "Lavori selezionati",
+    eyebrow: "Progetti selezionati",
     title1: "Progetti reali, ",
     title2: "risultati reali.",
     cta: "Vedi il case study completo",
@@ -476,7 +477,7 @@ export const it: Dict = {
       {
         eyebrow: "Progetto in evidenza",
         title: "Cashow",
-        line: "Un'app di finanza personale per tracciare le spese, gestire i budget e costruire una vera consapevolezza finanziaria.",
+        line: "Un'app di finanza personale per tenere sotto controllo le spese, gestire i budget e acquisire maggiore consapevolezza delle proprie finanze.",
       },
       {
         eyebrow: "Progetto cliente",
@@ -488,13 +489,13 @@ export const it: Dict = {
   },
 
   log: {
-    eyebrow: "Il diario",
-    title1: "Cosa è ",
-    title2: "davvero successo.",
-    lead: "Nessun numero inventato. Solo le cose che sono uscite, nell'ordine in cui sono uscite, e cosa ne è venuto fuori.",
+    eyebrow: "Il percorso",
+    title1: "Risultati concreti, ",
+    title2: "senza numeri inventati.",
+    lead: "Solo progetti realmente pubblicati, raccontati in ordine cronologico insieme ai risultati che hanno prodotto.",
     stats: [
       { label: "giorni dal brief al sito online", sub: "sull'ultimo sito aziendale" },
-      { label: "pagine con dati strutturati", sub: "SEO fatta in fase di build" },
+      { label: "pagine con dati strutturati", sub: "SEO integrata fin dallo sviluppo" },
       { label: "tempo di risposta abituale", sub: "scrivi direttamente a me" },
       { label: "codice scritto a mano", sub: "nessun page builder, nessun plugin" },
     ],
@@ -502,12 +503,12 @@ export const it: Dict = {
       {
         year: "2025",
         label: "Certificazione ICDL Essentials",
-        note: "Competenze digitali verificate — la base formale dietro alla parte da autodidatta.",
+        note: "Competenze digitali certificate: una base solida che affianca il mio percorso da autodidatta.",
       },
       {
         year: "2025",
         label: "Cashow pubblicata",
-        note: "Un'app web di finanza personale: budget, categorie e grafici, realizzata e rilasciata da solo.",
+        note: "Un'app web di finanza personale con budget, categorie e grafici, progettata e pubblicata in autonomia.",
       },
       {
         year: "2026",
@@ -517,41 +518,41 @@ export const it: Dict = {
       {
         year: "2026",
         label: "Portfolio ricostruito da zero",
-        note: "Sei pagine scritte a mano, con dati strutturati su ognuna.",
+        note: "Sei pagine sviluppate su misura, ciascuna completa di dati strutturati.",
       },
     ],
   },
 
   about: {
     eyebrow: "Chi sono",
-    title1: "Costruisco il sito che la tua idea ",
+    title1: "Realizzo il sito che la tua idea ",
     title2: "merita.",
-    lead: "Sono Cayn — sviluppatore e digital creator. Lavoro con founder, piccole imprese e professionisti che hanno bisogno di andare online in fretta, senza sembrare un template. Design, sviluppo e lancio gestiti dall'inizio alla fine, da una persona con cui puoi parlare direttamente.",
+    lead: "Sono Cayn, sviluppatore e digital creator. Affianco startup, piccole imprese e professionisti che vogliono portare online un progetto in tempi rapidi, senza ritrovarsi con un sito uguale a tanti altri. Seguo personalmente ogni fase, dal design alla pubblicazione.",
     role: "Sviluppatore & Digital Creator",
     solveLabel: "Cosa posso risolvere per te",
     highlights: [
       {
-        label: "Ti serve un sito che converte",
-        desc: "Costruisco pagine con un percorso chiaro dal primo scroll al contatto o all'acquisto.",
+        label: "Ti serve un sito che porti risultati",
+        desc: "Progetto un percorso chiaro che accompagna le persone dalla prima visita al contatto o all'acquisto.",
       },
       {
         label: "Hai un'idea, non un capitolato",
         desc: "Trasformo un'idea abbozzata in un prodotto funzionante — struttura, design e codice.",
       },
       {
-        label: "Il tuo sito attuale sembra vecchio",
-        desc: "Restyling con animazioni moderne, gerarchia vera e un'immagine curata.",
+        label: "Il tuo sito non ti rappresenta più",
+        desc: "Lo riprogetto con una struttura chiara, animazioni mirate e un'identità visiva più curata.",
       },
       {
-        label: "Lo vuoi in fretta e veloce da caricare",
-        desc: "Online in pochi giorni, media ottimizzati, fluido su mobile e con connessioni lente.",
+        label: "Lo vuoi online in fretta e rapido da caricare",
+        desc: "Tempi di consegna contenuti, immagini ottimizzate e un'esperienza fluida anche da mobile o con connessioni lente.",
       },
     ],
-    toolkitLabel: "Strumenti · a cosa serve davvero ognuno",
+    toolkitLabel: "Strumenti · come li uso nei progetti",
     tools: [
       { name: "Figma", use: "dove si decide il layout prima di scrivere una riga di codice" },
       { name: "Framer", use: "per provare le animazioni finché non sembrano più un template" },
-      { name: "Spline", use: "per i pezzi 3D che sostengono la pagina invece di decorarla" },
+      { name: "Spline", use: "per creare elementi 3D che arricchiscono davvero l'esperienza" },
       { name: "Lovable", use: "per passare da un'idea grezza a qualcosa di cliccabile lo stesso giorno" },
       { name: "Claude Code", use: "come secondo paio di occhi sul codice, mai come autore" },
     ],
@@ -559,8 +560,8 @@ export const it: Dict = {
 
   whyMe: {
     label: "Perché lavorare con me",
-    title1: "Sei motivi ",
-    title2: "onesti.",
+    title1: "Sei buoni motivi ",
+    title2: "per lavorare insieme.",
     lead: "Sono uno sviluppatore freelance in Puglia e realizzo siti per piccole aziende e attività locali. Ecco cosa cambia davvero quando lavori con una persona invece che con un'agenzia.",
     points: [
       {
@@ -569,28 +570,28 @@ export const it: Dict = {
         meta: "tempo di risposta · di solito < 24h",
       },
       {
-        title: "Due settimane, normalmente meno",
+        title: "Due settimane, spesso anche meno",
         body: "Il sito di Occhio Mininno è andato online 9 giorni dopo il primo messaggio — catalogo, modulo d'ordine e indicizzazione Google inclusi. Le revisioni fanno parte del prezzo, non di una fattura extra.",
         meta: "occhiomininno · 9 giorni dal brief all'online",
       },
       {
-        title: "Sai il prezzo prima che io inizi",
+        title: "Conosci il prezzo prima di iniziare",
         body: "Un preventivo fisso, messo per iscritto. Se il progetto cresce in corsa ne parliamo prima — non aprirai mai una fattura con qualcosa che non hai approvato.",
         meta: "preventivo fisso · nessuna fatturazione a ore",
       },
       {
-        title: "Scritto a mano, in React",
-        body: "Nessun page builder, nessuna pila di plugin che si deteriora in silenzio. React, TypeScript e Tailwind: è per questo che queste pagine si caricano in meno di un secondo.",
+        title: "Sviluppato su misura, in React",
+        body: "Nessun page builder e nessuna lunga lista di plugin da mantenere. Uso React, TypeScript e Tailwind per creare pagine leggere, solide e veloci.",
         meta: "react 19 · typescript · tailwind 4",
       },
       {
-        title: "Google riesce davvero a leggerlo",
-        body: "Markup semantico, titoli unici, dati strutturati, sitemap. Fatto in fase di build su ogni pagina — non rivenduto dopo come \"pacchetto SEO\".",
+        title: "Un sito che Google può comprendere",
+        body: "Codice semantico, titoli unici, dati strutturati e sitemap sono inclusi fin dall'inizio in ogni pagina, non aggiunti in seguito come “pacchetto SEO”.",
         meta: "dati strutturati su 6/6 pagine",
       },
       {
-        title: "Progettato prima sullo schermo del telefono",
-        body: "Chi cerca la tua attività spesso è davanti alla porta con il telefono in mano. Quindi parto da lì e salgo, invece di rimpicciolire un layout desktop e sperare.",
+        title: "Progettato prima per lo smartphone",
+        body: "Spesso le persone cercano un'attività mentre sono fuori casa, con il telefono in mano. Per questo parto dal mobile e adatto poi l'esperienza agli schermi più grandi.",
         meta: "mobile-first · testato su dispositivi reali",
       },
     ],
@@ -598,14 +599,14 @@ export const it: Dict = {
       "“Finalmente abbiamo un sito bello come la nostra masseria. Gli ospiti prenotano un tavolo e chiedono il nostro olio direttamente dal telefono.”",
     quoteCaption: "Agriturismo Occhio Mininno — Ruvo di Puglia",
     ctaLine:
-      "Raccontami cosa fa la tua attività e più o meno cosa ti serve. Ti rispondo con un prezzo, una tempistica e cosa farei diversamente.",
-    cta: "Chiedimi quanto costerebbe",
+      "Raccontami di cosa si occupa la tua attività e che cosa vorresti realizzare. Ti risponderò con una proposta chiara, completa di costi e tempistiche.",
+    cta: "Richiedi una stima",
   },
 
   icdl: {
     meta: "Certificazione · Essentials · 2025",
     subtitle: "Essentials.",
-    lead: "Una certificazione riconosciuta a livello internazionale di competenze digitali verificate. Non è ciò che rende buoni i siti — ma è la parte di questa pagina che ha firmato qualcun altro.",
+    lead: "Una certificazione riconosciuta a livello internazionale che attesta competenze digitali concrete. Non basta da sola a creare un buon sito, ma conferma le basi su cui costruisco ogni progetto.",
     skills: [
       "Fondamenti di informatica",
       "Alfabetizzazione digitale",
@@ -625,26 +626,26 @@ export const it: Dict = {
     label: "Servizi",
     title1: "Cosa ",
     title2: "realizzo davvero.",
-    lead: "Cinque cose, raccontate come te le racconterei al telefono. Aprine una per vedere cosa comprende e più o meno quanto costa.",
-    footNote: "non sai quale ti serve? è una domanda normale",
+    lead: "Cinque servizi spiegati in modo semplice e diretto. Apri una voce per scoprire cosa comprende e avere un'indicazione dei costi.",
+    footNote: "Non sai quale servizio fa per te? È del tutto normale.",
     cta: "Raccontami il tuo progetto",
     items: [
       {
         id: "web",
         title: "Siti web aziendali",
         tag: "da 700 € · 1–2 settimane",
-        body: "Il pacchetto completo: pagine, catalogo o menu, moduli di contatto e d'ordine, scheda Google Business, indicizzazione. Costruito in React, così resta veloce anche quando aggiungi contenuti.",
+        body: "Una presenza online completa: pagine, catalogo o menu, moduli di contatto e d'ordine, integrazione con Google Business e indicizzazione. Tutto sviluppato in React per mantenere il sito veloce anche nel tempo.",
         detail: [
           "Struttura e testi pianificati insieme prima di scrivere codice",
           "Catalogo / menu / galleria basati su contenuti che puoi inviarmi per email",
-          "Moduli che arrivano nella tua casella, senza dashboard esterne da imparare",
+          "Richieste inviate direttamente alla tua casella email, senza nuove piattaforme da imparare",
         ],
       },
       {
         id: "landing",
         title: "Landing page",
         tag: "da 400 € · pochi giorni",
-        body: "Una pagina, un'azione. Per un lancio, un'offerta stagionale o una campagna pubblicitaria che ha bisogno di una destinazione.",
+        body: "Una sola pagina, costruita attorno a un obiettivo preciso. Ideale per un lancio, un'offerta stagionale o una campagna pubblicitaria.",
         detail: [
           "Scritta intorno a una sola conversione — prenotare, chiamare, comprare o iscriversi",
           "Si carica in meno di un secondo in rete mobile",
@@ -655,11 +656,11 @@ export const it: Dict = {
         id: "uiux",
         title: "Design UI / UX",
         tag: "da Figma al codice",
-        body: "Progetto in Figma e poi lo costruisco io, quindi niente si perde tra il mockup e il browser.",
+        body: "Progetto l'interfaccia in Figma e la sviluppo personalmente, così ciò che approvi nel prototipo arriva davvero nel prodotto finale.",
         detail: [
           "Layout reale, scala tipografica reale, contenuti reali — nessun lorem ipsum",
           "Interazioni e animazioni prototipate in Framer dove serve",
-          "Lo rivedi nel browser, non come un'immagine piatta",
+          "Puoi valutarlo direttamente nel browser, non soltanto come immagine statica",
         ],
       },
       {
@@ -677,10 +678,10 @@ export const it: Dict = {
         id: "apps",
         title: "Web app & strumenti digitali",
         tag: "Cashow è nata così",
-        body: "Quando un sito non è la risposta: un piccolo strumento su misura con account, dati e logica. Cashow, l'app di finanza nel mio portfolio, è nata esattamente da un brief così.",
+        body: "Quando un sito tradizionale non basta, realizzo strumenti digitali su misura con account, dati e funzioni dedicate. Cashow, l'app finanziaria nel mio portfolio, è nata proprio così.",
         detail: [
           "Account, database e dashboard dove il progetto ne ha bisogno",
-          "Rilasciato a pezzi utilizzabili, così puoi provarlo subito",
+          "Sviluppo per fasi già utilizzabili, così puoi testare il prodotto fin da subito",
           "Stessa tecnologia dei siti, quindi resta economico da mantenere",
         ],
       },
@@ -693,17 +694,17 @@ export const it: Dict = {
     eyebrow: "Progetto in evidenza",
     title1: "Ecco ",
     title2: "Cashow.",
-    lead: "Un'app di finanza personale pensata per aiutare le persone a tracciare le spese, monitorare le abitudini, gestire i budget e costruire una vera consapevolezza finanziaria.",
+    lead: "Un'app di finanza personale che aiuta a registrare le spese, capire le proprie abitudini, gestire i budget e prendere decisioni più consapevoli.",
     problem:
-      "Le persone smettono di tracciare i soldi perché fogli di calcolo e app bancarie mostrano transazioni, non abitudini — così le spese eccessive si vedono solo quando è troppo tardi.",
+      "Molte persone smettono di controllare le proprie finanze perché fogli di calcolo e app bancarie mostrano singole operazioni, ma non rendono chiare le abitudini di spesa.",
     result:
-      "Un'unica dashboard dove saldo, budget e andamenti si leggono in un colpo d'occhio; l'app è stata progettata e rilasciata come prodotto funzionante, usabile da telefono dal primo giorno.",
+      "Un'unica schermata in cui saldo, budget e andamento delle spese sono subito comprensibili. L'app è stata progettata e pubblicata come prodotto completo, utilizzabile da mobile fin dal primo giorno.",
     cta: "Provala ora",
     features: [
       { title: "Tracciamento spese", desc: "Registrare ogni transazione senza fatica." },
       { title: "Gestione dei budget", desc: "Budget intelligenti che si adattano alla tua vita." },
-      { title: "Analisi finanziarie", desc: "Dati chiari, tendenze su cui agire." },
-      { title: "Interfaccia curata", desc: "Progettata per rendere la finanza serena." },
+      { title: "Analisi finanziarie", desc: "Dati leggibili e indicazioni utili per decidere meglio." },
+      { title: "Interfaccia curata", desc: "Pensata per rendere la gestione del denaro più semplice e serena." },
     ],
     phone: {
       alt: "Mockup dell'app di finanza personale Cashow con saldo totale, grafico delle spese e transazioni recenti sullo schermo di un telefono",
@@ -720,7 +721,7 @@ export const it: Dict = {
       ],
     },
     dash: {
-      stats: ["Spesa mensile", "Risparmiato", "Budget in linea", "Categorie"],
+      stats: ["Spesa mensile", "Risparmi", "Budget rispettati", "Categorie"],
       cashflow: "Flusso di cassa",
       last30: "Ultimi 30 giorni",
       cashflowAlt: "Grafico del flusso di cassa degli ultimi 30 giorni",
@@ -733,11 +734,11 @@ export const it: Dict = {
     eyebrow: "Progetto cliente",
     title1: "Agriturismo ",
     title2: "Occhiomininno.",
-    lead: "Sviluppo di un sito professionale per un agriturismo pugliese, con design moderno, ottimizzazione SEO, catalogo prodotti, sistema di richiesta ordini via email e performance ottimizzate su tutti i dispositivi.",
+    lead: "Un sito professionale per un agriturismo pugliese, con un'identità moderna, SEO locale, catalogo prodotti, richieste d'ordine via email e prestazioni curate su ogni dispositivo.",
     problem:
-      "Una masseria a gestione familiare senza una vera presenza online: prenotazioni e ordini di olio arrivavano solo per telefono o passaparola, e chi cercava in zona non la trovava.",
+      "La masseria, a conduzione familiare, non aveva una presenza online efficace: prenotazioni e ordini di olio arrivavano soltanto per telefono o tramite passaparola, mentre chi cercava un agriturismo in zona faticava a trovarla.",
     result:
-      "Un sito veloce e ottimizzato SEO con catalogo prodotti e richieste d'ordine via email — gli ospiti prenotano un tavolo o chiedono l'olio in un paio di tap, da qualsiasi dispositivo.",
+      "Un sito veloce e ottimizzato per la ricerca locale, con catalogo prodotti e richieste d'ordine via email. Ora gli ospiti possono prenotare un tavolo o richiedere l'olio in pochi passaggi, da qualsiasi dispositivo.",
     cta: "Visita il sito",
     heroAlt:
       "Sito aziendale realizzato per l'agriturismo Occhio Mininno in Puglia — homepage con la masseria",
@@ -749,11 +750,11 @@ export const it: Dict = {
       { title: "Ottimizzazione SEO", desc: "Metadati strutturati e markup semantico per la ricerca locale." },
       { title: "Catalogo prodotti", desc: "Olio Coratina biologico, presentato con pagine dedicate." },
       { title: "Richieste d'ordine via email", desc: "Richieste precompilate che arrivano direttamente al titolare." },
-      { title: "Performance al primo posto", desc: "Media ottimizzati e animazioni fluide su ogni dispositivo." },
+      { title: "Prestazioni curate", desc: "Immagini ottimizzate e animazioni fluide su ogni dispositivo." },
     ],
-    alsoIncluded: "Incluso anche",
-    builtFor1: "Pensato per ospiti ",
-    builtFor2: "veri.",
+    alsoIncluded: "Il progetto comprende anche",
+    builtFor1: "Pensato per chi vuole ",
+    builtFor2: "diventare ospite.",
     builtForLead:
       "Prenotazioni, galleria, servizi e indicazioni — tutto quello che serve a una masseria familiare per trasformare i visitatori in ospiti.",
     highlights: ["Modulo prenotazione tavolo", "Galleria fotografica", "Mappe e indicazioni", "Storia dal campo alla tavola"],
@@ -761,16 +762,16 @@ export const it: Dict = {
 
   faq: {
     eyebrowSuffix: "domande",
-    title1: "Domande prima di assumere uno ",
+    title1: "Domande prima di scegliere uno ",
     title2: "sviluppatore web.",
-    lead: "Costi, tempi, manutenzione e SEO — le risposte che i titolari chiedono più spesso prima di iniziare un progetto web.",
+    lead: "Costi, tempistiche, manutenzione e SEO: le risposte alle domande più frequenti prima di iniziare un progetto web.",
     answerLabel: "Risposta",
     cta: "Fammi la tua domanda",
     ctaNote: "Rispondo personalmente, di solito entro 24 ore.",
     items: [
       {
         q: "Quanto costa un sito web aziendale?",
-        a: "Una landing page di una sola pagina parte in genere da circa 400 €, mentre un sito aziendale multipagina con catalogo, moduli e impostazione SEO si colloca solitamente tra 700 € e 1.800 €. Ricevi sempre un preventivo fisso prima di iniziare — nessuna sorpresa a ore.",
+        a: "Una landing page parte in genere da circa 400 €, mentre un sito aziendale con più pagine, catalogo, moduli e configurazione SEO costa solitamente tra 700 € e 1.800 €. Prima di iniziare ricevi sempre un preventivo fisso: niente conteggi a ore o sorprese in fattura.",
       },
       {
         q: "Quanto tempo serve per realizzare un sito?",
@@ -794,7 +795,7 @@ export const it: Dict = {
       },
       {
         q: "Lavori anche con clienti fuori dall'Italia?",
-        a: "Sì. Sono in Puglia e lavoro da remoto con clienti in qualsiasi paese. Ci si sente via email o videochiamata, e parli sempre direttamente con la persona che costruisce il tuo sito.",
+        a: "Sì. Vivo in Puglia e lavoro da remoto con clienti in Italia e all'estero. Comunichiamo via email o videochiamata e avrai sempre un contatto diretto con chi realizza il tuo sito.",
       },
     ],
   },
@@ -803,11 +804,12 @@ export const it: Dict = {
     eyebrow: "Contatti",
     title1: "Dimmi cosa ",
     title2: "vuoi realizzare.",
-    lead: "Bastano due o tre righe — cosa fa la tua attività e cosa dovrebbe ottenere il sito. Leggo ogni messaggio personalmente e rispondo con tempi e prezzi reali, non con una brochure.",
+    lead: "Bastano poche righe: raccontami di cosa si occupa la tua attività e quale risultato vuoi ottenere. Leggo personalmente ogni messaggio e rispondo con costi e tempistiche concreti.",
     name: "Nome",
     namePlaceholder: "Il tuo nome",
     email: "Email",
     emailPlaceholder: "tu@esempio.com",
+    emailMissingAt: "L'indirizzo email non è valido: manca la @.",
     message: "Messaggio",
     messagePlaceholder: "Raccontami il tuo progetto...",
     send: "Invia a Cayn",
@@ -816,15 +818,15 @@ export const it: Dict = {
     error: "Qualcosa è andato storto. Scrivimi direttamente a jacopo.dev0@gmail.com.",
     successTitle: "Ricevuto — grazie.",
     successBody1:
-      "Il tuo messaggio è nella mia casella e ti risponderò personalmente, di solito entro un giorno. Se è urgente scrivimi direttamente a",
+      "Ho ricevuto il tuo messaggio e ti risponderò personalmente, di solito entro un giorno. Se è urgente, scrivimi direttamente a",
     another: "Scrivine un altro",
     subject: (name: string) => `Nuovo messaggio da ${name}`,
   },
 
   footer: {
     tagline:
-      "Sviluppatore & Digital Creator — progetto e costruisco esperienze digitali moderne, curando ogni dettaglio.",
-    navigate: "Naviga",
+      "Sviluppatore e digital creator — progetto e realizzo esperienze digitali moderne, con cura per ogni dettaglio.",
+    navigate: "Esplora",
     contact: "Contatti",
     startProject: "Inizia un progetto",
     rights: "Tutti i diritti riservati.",
