@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Check, Send, Mail } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
@@ -10,11 +10,22 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [error, setError] = useState<string | null>(null);
   const [emailError, setEmailError] = useState<string | null>(null);
+  // Antispam: honeypot invisibile + tempo minimo di compilazione.
+  const [honeypot, setHoneypot] = useState("");
+  const mountTime = useRef(Date.now());
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
     setEmailError(null);
+
+    // Bot: campo honeypot compilato o invio troppo veloce (< 2s).
+    if (honeypot || Date.now() - mountTime.current < 2000) {
+      // Simula un invio riuscito per non dare feedback ai bot.
+      setSent(true);
+      return;
+    }
+
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setError(d.contact.missingFields);
@@ -137,6 +148,20 @@ export function Contact() {
                   />
                 </div>
 
+                {/* Honeypot antispam: invisibile agli utenti, compilato solo dai bot */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0">
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <button
                   type="submit"
                   disabled={loading}
@@ -180,6 +205,8 @@ export function Contact() {
                     setForm({ name: "", email: "", message: "" });
                     setEmailError(null);
                     setError(null);
+                    setHoneypot("");
+                    mountTime.current = Date.now();
                   }}
                   className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
                 >
