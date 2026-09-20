@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Check, Send, Mail } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
@@ -10,11 +10,22 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [error, setError] = useState<string | null>(null);
   const [emailError, setEmailError] = useState<string | null>(null);
+  // Antispam: honeypot invisibile + tempo minimo di compilazione.
+  const [honeypot, setHoneypot] = useState("");
+  const mountTime = useRef(Date.now());
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
     setEmailError(null);
+
+    // Bot: campo honeypot compilato o invio troppo veloce (< 2s).
+    if (honeypot || Date.now() - mountTime.current < 2000) {
+      // Simula un invio riuscito per non dare feedback ai bot.
+      setSent(true);
+      return;
+    }
+
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setError(d.contact.missingFields);
