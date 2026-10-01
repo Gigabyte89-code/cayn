@@ -8,7 +8,7 @@ import {
   ArrowDownRight,
   ArrowUpRight,
 } from "lucide-react";
-import { CaseNotes } from "@/components/case-notes";
+import { CaseHeader } from "@/components/case-header";
 import { useT } from "@/lib/i18n";
 
 const FEATURE_ICONS = [Wallet, PieChart, TrendingUp, Sparkles];
