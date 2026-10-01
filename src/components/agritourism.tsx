@@ -10,7 +10,7 @@ import {
   Images,
   Leaf,
 } from "lucide-react";
-import { CaseNotes } from "@/components/case-notes";
+import { CaseHeader } from "@/components/case-header";
 import { useT } from "@/lib/i18n";
 const heroShot = { url: "/projects/occhio-hero.png" };
 const productShot = { url: "/projects/occhio-products.png" };
