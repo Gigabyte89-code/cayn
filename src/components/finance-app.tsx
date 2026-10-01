@@ -8,7 +8,7 @@ import {
   ArrowDownRight,
   ArrowUpRight,
 } from "lucide-react";
-import { CaseNotes } from "@/components/case-notes";
+import { CaseHeader } from "@/components/case-header";
 import { useT } from "@/lib/i18n";
 
 const FEATURE_ICONS = [Wallet, PieChart, TrendingUp, Sparkles];
@@ -157,50 +157,25 @@ export function FinanceApp() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-3, 3]);
 
   return (
-    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-32">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 30%, oklch(0.4 0.25 300 / 30%), transparent 60%)",
-        }}
-      />
-
+    <section id="finance" ref={ref} className="relative overflow-hidden px-6 py-28 sm:py-32">
       <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <div className="eyebrow mx-auto mb-5">{d.finance.eyebrow}</div>
-          <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">{d.finance.title1}</span>
-            <span className="text-gradient-brand italic">{d.finance.title2}</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            {d.finance.lead}
-          </p>
+        <CaseHeader
+          index="01"
+          eyebrow={d.finance.eyebrow}
+          title1={d.finance.title1}
+          title2={d.finance.title2}
+          lead={d.finance.lead}
+          problem={d.finance.problem}
+          result={d.finance.result}
+          cta={d.finance.cta}
+          href="https://cashow.lovable.app/"
+          meta={[
+            { label: d.caseMeta.role, value: d.caseMeta.roleFinance },
+            { label: d.caseMeta.year, value: "2025" },
+            { label: d.caseMeta.scope, value: d.caseMeta.scopeFinance },
+          ]}
+        />
 
-          <CaseNotes
-            problem={d.finance.problem}
-            result={d.finance.result}
-          />
-
-          <div className="mt-10 flex justify-center">
-            <a
-              href="https://cashow.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="liquid-sheen group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
-            >
-              {d.finance.cta}
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </div>
-
-        </motion.div>
 
         <div className="mt-20 grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.1fr_1fr]">
           {/* Left features */}

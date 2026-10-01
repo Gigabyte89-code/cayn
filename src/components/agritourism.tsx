@@ -23,89 +23,45 @@ export function Agritourism() {
   const FEATURES = d.agritourism.features.map((f, i) => ({ ...f, icon: FEATURE_ICONS[i]! }));
   const HIGHLIGHTS = d.agritourism.highlights.map((label, i) => ({ label, icon: HIGHLIGHT_ICONS[i]! }));
   return (
-    <section id="agritourism" className="relative px-6 py-32">
+    <section id="agritourism" className="relative px-6 py-28 sm:py-32">
       <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <div className="eyebrow mx-auto mb-5">{d.agritourism.eyebrow}</div>
-          <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient">{d.agritourism.title1}</span>
-            <span className="text-gradient-brand italic">{d.agritourism.title2}</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-balance text-muted-foreground">
-            {d.agritourism.lead}
-          </p>
+        <CaseHeader
+          index="02"
+          eyebrow={d.agritourism.eyebrow}
+          title1={d.agritourism.title1}
+          title2={d.agritourism.title2}
+          lead={d.agritourism.lead}
+          problem={d.agritourism.problem}
+          result={d.agritourism.result}
+          cta={d.agritourism.cta}
+          href="https://www.agriturismocchiomininno.com"
+          meta={[
+            { label: d.caseMeta.role, value: d.caseMeta.roleAgri },
+            { label: d.caseMeta.year, value: "2025" },
+            { label: d.caseMeta.scope, value: d.caseMeta.scopeAgri },
+          ]}
+        />
 
-          <CaseNotes
-            problem={d.agritourism.problem}
-            result={d.agritourism.result}
-          />
-
-          <div className="mt-10 flex justify-center">
-            <a
-              href="https://www.agriturismocchiomininno.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="liquid-sheen group relative inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
+        {/* Screens — uniform frames, media fills them edge to edge */}
+        <div className="mt-16 grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
+          {[
+            { shot: heroShot, alt: d.agritourism.heroAlt, caption: d.agritourism.heroCaption },
+            { shot: productShot, alt: d.agritourism.productAlt, caption: d.agritourism.productCaption },
+          ].map((item, i) => (
+            <motion.figure
+              key={item.caption}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className="flex flex-col"
             >
-              {d.agritourism.cta}
-              <ArrowUpRight
-                size={16}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </a>
-          </div>
-
-        </motion.div>
-
-        {/* Screens — equal height, media fills the frame (no dead space) */}
-        <div className="mt-20 grid grid-cols-1 items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
-          <motion.figure
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8 }}
-            className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
-          >
-            <div className="relative overflow-hidden rounded-3xl">
-              <img
-                src={heroShot.url}
-                alt={d.agritourism.heroAlt}
-                loading="lazy"
-                className="block h-auto w-full object-contain"
-              />
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/30 via-transparent to-white/5" />
-            </div>
-            <figcaption className="px-4 py-3 text-xs text-muted-foreground">
-              {d.agritourism.heroCaption}
-            </figcaption>
-          </motion.figure>
-
-          <motion.figure
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="glass-liquid liquid-sheen flex flex-col rounded-[32px] p-2"
-          >
-            <div className="relative overflow-hidden rounded-3xl">
-              <img
-                src={productShot.url}
-                alt={d.agritourism.productAlt}
-                loading="lazy"
-                className="block h-auto w-full object-contain"
-              />
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-background/30 via-transparent to-white/5" />
-            </div>
-            <figcaption className="px-4 py-3 text-xs text-muted-foreground">
-              {d.agritourism.productCaption}
-            </figcaption>
-          </motion.figure>
+              <div className="media-frame aspect-[16/10]">
+                <img src={item.shot.url} alt={item.alt} loading="lazy" />
+              </div>
+              <figcaption className="case-meta mt-3">{item.caption}</figcaption>
+            </motion.figure>
+          ))}
         </div>
 
         {/* Feature grid */}

@@ -251,6 +251,17 @@ export const en = {
   },
 
   caseNotes: { problem: "Problem solved", result: "Result achieved" },
+  caseMeta: {
+    role: "Role",
+    year: "Year",
+    stack: "Built with",
+    scope: "Scope",
+    live: "Live",
+    roleFinance: "Design & development",
+    roleAgri: "Design, development & SEO",
+    scopeFinance: "Product design, UI, shipping",
+    scopeAgri: "Website, catalog, local SEO",
+  },
 
   finance: {
     eyebrow: "Featured project",
@@ -689,6 +700,17 @@ export const it: Dict = {
   },
 
   caseNotes: { problem: "Problema risolto", result: "Risultato ottenuto" },
+  caseMeta: {
+    role: "Ruolo",
+    year: "Anno",
+    stack: "Realizzato con",
+    scope: "Attività",
+    live: "Online",
+    roleFinance: "Design e sviluppo",
+    roleAgri: "Design, sviluppo e SEO",
+    scopeFinance: "Design di prodotto, UI, rilascio",
+    scopeAgri: "Sito, catalogo, SEO locale",
+  },
 
   finance: {
     eyebrow: "Progetto in evidenza",
