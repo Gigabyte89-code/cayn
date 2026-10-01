@@ -251,6 +251,17 @@ export const en = {
   },
 
   caseNotes: { problem: "Problem solved", result: "Result achieved" },
+  caseMeta: {
+    role: "Role",
+    year: "Year",
+    stack: "Built with",
+    scope: "Scope",
+    live: "Live",
+    roleFinance: "Design & development",
+    roleAgri: "Design, development & SEO",
+    scopeFinance: "Product design, UI, shipping",
+    scopeAgri: "Website, catalog, local SEO",
+  },
 
   finance: {
     eyebrow: "Featured project",
