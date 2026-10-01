@@ -700,6 +700,17 @@ export const it: Dict = {
   },
 
   caseNotes: { problem: "Problema risolto", result: "Risultato ottenuto" },
+  caseMeta: {
+    role: "Ruolo",
+    year: "Anno",
+    stack: "Realizzato con",
+    scope: "Attività",
+    live: "Online",
+    roleFinance: "Design e sviluppo",
+    roleAgri: "Design, sviluppo e SEO",
+    scopeFinance: "Design di prodotto, UI, rilascio",
+    scopeAgri: "Sito, catalogo, SEO locale",
+  },
 
   finance: {
     eyebrow: "Progetto in evidenza",
