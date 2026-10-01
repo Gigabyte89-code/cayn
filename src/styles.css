@@ -227,7 +227,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @utility text-gradient-brand {
-  background: linear-gradient(135deg, oklch(0.88 0.17 300) 0%, oklch(0.86 0.14 292) 45%, oklch(0.86 0.13 330) 100%);
+  background: linear-gradient(120deg, oklch(0.97 0 0) 0%, oklch(0.84 0.12 300) 70%, oklch(0.78 0.15 295) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
