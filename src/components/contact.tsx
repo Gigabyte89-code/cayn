@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, type FormEvent } from "react";
-import { Check, Send, Mail } from "lucide-react";
+import { Check, Send } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 export function Contact() {
@@ -61,31 +61,27 @@ export function Contact() {
 
 
   return (
-    <section id="contact" className="relative px-6 py-32">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, oklch(0.5 0.25 300 / 30%), transparent 60%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-3xl">
+    <section id="contact" className="relative px-6 py-28 sm:py-36">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-14 border-t border-border pt-6 lg:grid-cols-[minmax(0,.75fr)_minmax(32rem,1.25fr)] lg:gap-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center"
+          className="lg:sticky lg:top-28 lg:self-start"
         >
-          <div className="eyebrow mx-auto mb-5">{d.contact.eyebrow}</div>
-          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+          <div className="label-mono mb-6 flex items-center gap-3"><span className="index-num">01</span>{d.contact.eyebrow}</div>
+          <h2 className="font-display text-5xl leading-[0.98] sm:text-6xl lg:text-7xl">
             <span className="text-gradient">{d.contact.title1}</span>
             <span className="text-gradient-brand italic">{d.contact.title2}</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-md text-muted-foreground">
+          <p className="mt-6 max-w-md text-muted-foreground">
             {d.contact.lead}
           </p>
+          <div className="mt-10 border-t border-border pt-5">
+            <div className="label-mono mb-2">Email</div>
+            <a href="mailto:jacopo.dev0@gmail.com" className="text-sm text-foreground transition-colors hover:text-accent">jacopo.dev0@gmail.com</a>
+          </div>
         </motion.div>
 
         <motion.form
@@ -95,13 +91,8 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="glass-liquid relative mt-12 overflow-hidden rounded-[32px] p-6 sm:p-10"
+          className="relative border-t border-border pt-8"
         >
-          <div
-            className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, oklch(0.6 0.25 300 / 60%), transparent 70%)" }}
-          />
-
           <AnimatePresence mode="wait">
             {!sent ? (
               <motion.div
@@ -144,7 +135,7 @@ export function Contact() {
                     value={form.message}
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     placeholder={d.contact.messagePlaceholder}
-                    className="glass w-full resize-none rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring"
+                    className="form-field min-h-40 w-full resize-none px-0 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-accent"
                   />
                 </div>
 
@@ -165,7 +156,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.01] disabled:opacity-60 sm:w-auto"
+                  className="btn-solid liquid-sheen group w-full justify-center px-7 py-3.5 text-sm disabled:opacity-60 sm:w-auto"
                 >
                   {loading ? d.contact.sending : d.contact.send}
                   <Send size={14} className="transition-transform group-hover:translate-x-0.5" />
@@ -187,8 +178,7 @@ export function Contact() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="glass-liquid flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{ boxShadow: "0 0 60px oklch(0.7 0.22 300 / 50%)" }}
+                  className="success-mark flex h-16 w-16 items-center justify-center rounded-full"
                 >
                   <Check size={28} className="text-glow-2" />
                 </motion.div>
@@ -208,7 +198,7 @@ export function Contact() {
                     setHoneypot("");
                     mountTime.current = Date.now();
                   }}
-                  className="glass mt-6 rounded-full px-5 py-2 text-xs text-foreground hover:bg-white/10"
+                  className="btn-outline mt-6 px-5 py-2 text-xs"
                 >
                   {d.contact.another}
                 </button>
@@ -217,12 +207,6 @@ export function Contact() {
           </AnimatePresence>
         </motion.form>
 
-        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
-          <Mail size={12} />
-          <a href="mailto:jacopo.dev0@gmail.com" className="hover:text-foreground">
-            jacopo.dev0@gmail.com
-          </a>
-        </div>
       </div>
     </section>
   );
@@ -261,7 +245,7 @@ function Field({
         placeholder={placeholder}
         aria-invalid={Boolean(error)}
         aria-describedby={errorId}
-        className="glass w-full rounded-2xl px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:bg-white/[0.08] focus:ring-2 focus:ring-ring aria-invalid:ring-2 aria-invalid:ring-destructive"
+        className="form-field w-full px-0 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-accent aria-invalid:border-destructive"
       />
       {error && (
         <p id={errorId} role="alert" className="mt-2 text-xs text-destructive">

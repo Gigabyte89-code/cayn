@@ -469,6 +469,20 @@ html.lenis, html.lenis body { height: auto; }
   background: linear-gradient(90deg, oklch(0.78 0.17 300), transparent);
 }
 
+/* Editorial form controls: quiet by default, precise on focus. */
+@utility form-field {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+
+@utility success-mark {
+  border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  box-shadow: 0 0 60px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
 /* Sticky case-study meta column */
 @utility case-meta {
   font-family: var(--font-mono);

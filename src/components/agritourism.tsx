@@ -37,7 +37,7 @@ export function Agritourism() {
           href="https://www.agriturismocchiomininno.com"
           meta={[
             { label: d.caseMeta.role, value: d.caseMeta.roleAgri },
-            { label: d.caseMeta.year, value: "2025" },
+            { label: d.caseMeta.year, value: "2026" },
             { label: d.caseMeta.scope, value: d.caseMeta.scopeAgri },
           ]}
         />
