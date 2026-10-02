@@ -5,4 +5,4 @@
 - [x] Riscrivere e verificare tutti i testi italiani del sito.
 - [x] Correggere l'anno del progetto Agriturismo al 2026.
 - [x] Estendere il restyling editoriale ad apertura, servizi e contatti.
-- [ ] Verificare le pagine aggiornate su desktop e mobile.
+- [x] Verificare le pagine aggiornate su desktop e mobile.
