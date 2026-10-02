@@ -10,27 +10,27 @@ export function Services() {
   const glow = usePointerGlow<HTMLButtonElement>();
 
   return (
-    <section id="services" className="relative px-6 py-28">
-      <div className="relative mx-auto max-w-6xl">
+    <section id="services" className="relative px-6 py-28 sm:py-36">
+      <div className="relative mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl"
+          className="grid grid-cols-1 gap-8 border-t border-border pt-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-16"
         >
-          <div className="label-mono">{d.services.label}</div>
-          <h2 className="mt-4 font-display text-6xl leading-[0.92] tracking-tight sm:text-7xl lg:text-8xl">
-            <span className="text-gradient">{d.services.title1}</span>
-            <span className="text-gradient-brand italic">{d.services.title2}</span>
-          </h2>
-          <p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            {d.services.lead}
-          </p>
+          <div className="label-mono flex items-start gap-3"><span className="index-num">01</span>{d.services.label}</div>
+          <div>
+            <h2 className="font-display text-5xl leading-[0.96] sm:text-7xl lg:text-8xl">
+              <span className="text-gradient">{d.services.title1}</span>
+              <span className="text-gradient-brand italic">{d.services.title2}</span>
+            </h2>
+            <p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">{d.services.lead}</p>
+          </div>
         </motion.div>
 
         {/* Expandable list — only the active service shows its detail */}
-        <div className="mt-16 border-t border-border">
+        <div className="mt-20 border-t border-border lg:ml-[19rem]">
           {d.services.items.map((s, i) => {
             const isOpen = open === s.id;
             return (
@@ -46,7 +46,7 @@ export function Services() {
                   {...glow}
                   onClick={() => setOpen(isOpen ? "" : s.id)}
                   aria-expanded={isOpen}
-                  className="glow-follow group flex w-full items-baseline gap-4 rounded-2xl px-2 py-7 text-left sm:gap-8 sm:px-4"
+                  className="glow-follow group flex w-full items-baseline gap-4 px-0 py-8 text-left sm:gap-8"
                 >
                   <span className="index-num shrink-0 text-sm">
                     0{i + 1}
@@ -62,7 +62,7 @@ export function Services() {
                     <span className="label-mono mt-2 block">{s.tag}</span>
                   </span>
                   <span
-                    className="glass flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-transform duration-500"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center border border-border transition-transform duration-500"
                     style={{ transform: isOpen ? "rotate(45deg)" : "none" }}
                     aria-hidden
                   >
@@ -88,7 +88,7 @@ export function Services() {
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="grid grid-cols-1 gap-6 px-2 pb-9 sm:grid-cols-[1.1fr_1fr] sm:gap-12 sm:px-4 sm:pl-16">
+                      <div className="grid grid-cols-1 gap-6 pb-10 pl-10 sm:grid-cols-[1.1fr_1fr] sm:gap-12 sm:pl-16">
                         <p className="text-sm leading-relaxed text-foreground/85 sm:text-base">
                           {s.body}
                         </p>
@@ -109,13 +109,13 @@ export function Services() {
           })}
         </div>
 
-        <div className="mt-14 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col items-start gap-5 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between lg:ml-[19rem]">
           <p className="label-mono">
             {d.services.footNote}
           </p>
           <Link
             to="/contact"
-            className="liquid-sheen inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.03]"
+            className="btn-solid liquid-sheen px-7 py-3.5 text-sm"
           >
             {d.services.cta}
           </Link>
