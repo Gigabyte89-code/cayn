@@ -55,7 +55,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 .border-glow-card[data-glow-active="true"]::before {
-  opacity: clamp(0, calc((var(--edge-proximity) - 28) / 42), 1);
+  opacity: clamp(0, calc((var(--edge-proximity) - 28) * 0.0238), 1);
 }
 
 .border-glow-card[data-glow-active="true"] {
