@@ -24,7 +24,7 @@ export function CaseNotes({ problem, result }: Props) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
-          className="glass-liquid hover-lift rounded-2xl p-5"
+          className="border-glow-card glass-liquid hover-lift rounded-2xl p-5"
         >
           <div className="flex items-center gap-2">
             <r.icon size={14} style={{ color: "var(--accent)" }} />

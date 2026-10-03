@@ -60,7 +60,7 @@ export function ICDL() {
             <motion.div
               whileHover={{ rotateY: 5, rotateX: -3, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="glass-liquid relative overflow-hidden rounded-3xl p-8"
+              className="border-glow-card glass-liquid relative overflow-hidden rounded-3xl p-8"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* Animated sheen */}
