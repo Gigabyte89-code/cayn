@@ -43,7 +43,7 @@ export function MobilePrompt() {
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="fixed inset-x-3 bottom-3 z-[60] md:hidden"
         >
-          <div className="glass-liquid relative overflow-hidden rounded-2xl p-4 pr-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]">
+          <div className="border-glow-card glass-liquid relative overflow-hidden rounded-2xl p-4 pr-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]">
             <button
               onClick={dismiss}
               aria-label={d.mobilePrompt.dismiss}
