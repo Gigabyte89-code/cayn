@@ -266,16 +266,20 @@ html.lenis, html.lenis body { height: auto; }
 
 
 @utility text-gradient {
+  display: inline;
   background: linear-gradient(135deg, var(--foreground) 0%, oklch(0.78 0.04 300) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
 @utility text-gradient-brand {
+  display: inline;
   background: linear-gradient(120deg, oklch(0.95 0.03 300) 0%, oklch(0.8 0.14 300) 72%, oklch(0.7 0.18 298) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
