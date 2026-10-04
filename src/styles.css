@@ -22,6 +22,53 @@ html.lenis, html.lenis body { height: auto; }
   }
 }
 
+/* React Bits-inspired edge glow, recolored to the Cayn violet system. */
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  position: relative;
+  isolation: isolate;
+}
+
+.border-glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 3;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(transparent 0 100%) padding-box,
+    conic-gradient(
+      from var(--cursor-angle) at 50% 50%,
+      transparent 0 37%,
+      oklch(0.86 0.13 300) 44%,
+      oklch(0.7 0.22 298) 50%,
+      oklch(0.78 0.18 285) 56%,
+      transparent 63% 100%
+    ) border-box;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.border-glow-card[data-glow-active="true"]::before {
+  opacity: clamp(0, calc((var(--edge-proximity) - 28) * 0.0238), 1);
+}
+
+.border-glow-card[data-glow-active="true"] {
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 12%),
+    0 0 18px -7px oklch(0.72 0.2 298 / 55%),
+    0 24px 64px -32px oklch(0.62 0.22 298 / 45%);
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .border-glow-card::before { display: none; }
+}
+
 
 
 
