@@ -13,23 +13,23 @@ export function ProjectsPreview() {
   const d = useT();
   const PROJECTS = PROJECTS_DATA.map((p, i) => ({ ...p, ...d.projectsPreview.items[i] }));
   return (
-    <section id="projects-preview" className="relative px-6 py-32">
+    <section id="projects-preview" className="relative px-6 py-36">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mx-auto max-w-2xl text-center"
+          className="max-w-3xl"
         >
-          <div className="eyebrow mx-auto mb-5">{d.projectsPreview.eyebrow}</div>
+          <div className="eyebrow mb-5">{d.projectsPreview.eyebrow}</div>
           <h2 className="font-display text-4xl leading-[1.03] tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">{d.projectsPreview.title1}</span>
             <span className="text-gradient-brand italic">{d.projectsPreview.title2}</span>
           </h2>
         </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2">
+        <div className="mt-20 space-y-20 lg:space-y-28">
           {PROJECTS.map((p, i) => (
             <motion.article
               key={p.title}
@@ -37,17 +37,27 @@ export function ProjectsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="border-glow-card glass-liquid liquid-sheen hover-lift flex h-full flex-col overflow-hidden rounded-[32px] p-6"
+              className={`border-glow-card group grid overflow-hidden border-t border-border pt-6 lg:grid-cols-12 lg:gap-10 ${i === 1 ? "lg:ml-auto lg:w-10/12" : ""}`}
             >
-              <div className="eyebrow mb-4">{p.eyebrow}</div>
-              <h3 className="font-display text-2xl sm:text-3xl">
-                <span className="text-gradient">{p.title}</span>
-              </h3>
-              <p className="mt-3 min-h-[3.5rem] text-sm leading-relaxed text-muted-foreground">
-                {p.line}
-              </p>
+              <div className="pb-8 lg:col-span-4 lg:pb-0">
+                <div className="editorial-kicker mb-5">0{i + 1} · {p.eyebrow}</div>
+                <h3 className="font-display text-4xl leading-none sm:text-5xl">
+                  <span className="text-gradient">{p.title}</span>
+                </h3>
+                <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                  {p.line}
+                </p>
+                <Link
+                  to="/projects"
+                  hash={p.hash}
+                  className="editorial-link group mt-8"
+                >
+                  {d.projectsPreview.cta}
+                  <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
 
-              <div className="glass relative mt-6 aspect-[16/10] w-full overflow-hidden rounded-2xl">
+              <div className="media-frame relative aspect-[16/10] w-full lg:col-span-8">
                 {p.image ? (
                   <img
                     src={p.image}
@@ -62,20 +72,8 @@ export function ProjectsPreview() {
                     </div>
                   </div>
                 )}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-white/5" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-foreground/5" />
               </div>
-
-              <Link
-                to="/projects"
-                hash={p.hash}
-                className="group mt-6 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground"
-              >
-                {d.projectsPreview.cta}
-                <ArrowUpRight
-                  size={15}
-                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
             </motion.article>
           ))}
         </div>
