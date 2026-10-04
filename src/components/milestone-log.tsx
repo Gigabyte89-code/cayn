@@ -16,9 +16,9 @@ export function MilestoneLog() {
   const LOG = LOG_YEARS.map((year, i) => ({ ...d.log.items[i], year }));
   const STATS = STATS_DATA.map((s, i) => ({ ...s, ...d.log.stats[i] }));
   return (
-    <section id="log" className="relative px-6 py-28">
+    <section id="log" className="relative px-6 py-36">
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="grid grid-cols-1 gap-16 border-t border-border pt-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export function MilestoneLog() {
               {d.log.lead}
             </p>
 
-            <div className="mt-10 grid grid-cols-2 gap-6">
+            <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10">
               {STATS.map((s) => (
                 <div key={s.label}>
                   <CountUp
@@ -58,14 +58,14 @@ export function MilestoneLog() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: i * 0.06 }}
-                className="border-t border-border py-7 first:border-t-0 first:pt-0"
+                className="group border-t border-border py-8 first:border-t-0 first:pt-0"
               >
                 <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                   <span style={{ color: "var(--accent)" }}>{item.year}</span>
                   <span className="mx-2">·</span>
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <h3 className="mt-3 font-display text-2xl leading-tight sm:text-3xl">
+                <h3 className="mt-3 font-display text-3xl leading-tight transition-colors group-hover:text-accent sm:text-4xl">
                   {item.label}
                 </h3>
                 <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
