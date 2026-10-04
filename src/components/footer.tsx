@@ -66,24 +66,24 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
   }
 
   return (
-    <footer className="relative border-t border-border px-6 pb-10 pt-20">
+    <footer className="relative px-6 pb-10 pt-20">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative overflow-hidden py-8 sm:py-12"
+          className="border-glow-card glass-liquid relative overflow-hidden rounded-[32px] p-10 sm:p-14"
         >
           <div
-            className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[90%] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+            className="pointer-events-none absolute -bottom-32 left-1/2 h-80 w-[140%] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
             style={{ background: "radial-gradient(ellipse, oklch(0.5 0.25 300 / 50%), transparent 70%)" }}
           />
 
-          <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[1.6fr_0.7fr_0.9fr]">
+          <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
             <div>
-              <div className="font-display text-5xl leading-none text-foreground sm:text-7xl">
-                Cayn.
+              <div className="font-display text-2xl tracking-tight text-foreground">
+                Cayn
               </div>
               <p className="mt-3 max-w-sm text-sm text-muted-foreground">
 
@@ -137,7 +137,7 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
             </div>
           </div>
 
-          <div className="relative mt-12 flex justify-start border-t border-border pt-8">
+          <div className="relative mt-10 flex justify-center">
             <motion.a
               href="http://discordapp.com/users/1542577611677499506"
               target="_blank"
@@ -145,16 +145,17 @@ export function Footer({ variant = "full" }: { variant?: "full" | "minimal" }) {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.92, rotate: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 14 }}
-              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-sm px-5 py-3 text-sm font-medium text-foreground"
+              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-6 py-3 text-sm font-medium text-white shadow-[0_10px_40px_-10px_rgba(88,101,242,0.7)]"
               style={{
-                background: "color-mix(in oklab, var(--accent) 22%, var(--card))",
+                background: "linear-gradient(135deg, #5865F2 0%, #7983f5 100%)",
               }}
             >
               <motion.span
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
                 style={{
-                  background: "linear-gradient(110deg, transparent 30%, color-mix(in oklab, var(--foreground) 30%, transparent) 50%, transparent 70%)",
+                  background:
+                    "linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%)",
                   backgroundSize: "200% 100%",
                 }}
                 animate={{ backgroundPosition: ["200% 0%", "-200% 0%"] }}
