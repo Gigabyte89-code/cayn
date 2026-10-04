@@ -16,7 +16,6 @@ import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { Analytics } from "@vercel/analytics/react";
 import { I18nProvider } from "@/lib/i18n";
-import { BorderGlow } from "@/components/border-glow";
 
 function NotFoundComponent() {
   return (
@@ -177,7 +176,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
-        <BorderGlow />
         <GoogleAnalytics />
         <Analytics />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

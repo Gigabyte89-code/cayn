@@ -37,7 +37,7 @@ export function ProjectsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="border-glow-card glass-liquid liquid-sheen hover-lift flex h-full flex-col overflow-hidden rounded-[32px] p-6"
+              className="glass-liquid liquid-sheen hover-lift flex h-full flex-col overflow-hidden rounded-[32px] p-6"
             >
               <div className="eyebrow mb-4">{p.eyebrow}</div>
               <h3 className="font-display text-2xl sm:text-3xl">

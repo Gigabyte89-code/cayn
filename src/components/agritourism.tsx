@@ -73,7 +73,7 @@ export function Agritourism() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="border-glow-card glass-liquid liquid-sheen hover-lift rounded-3xl p-6"
+              className="glass-liquid liquid-sheen hover-lift rounded-3xl p-6"
             >
               <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                 <f.icon size={18} style={{ color: "var(--accent)" }} />
@@ -90,7 +90,7 @@ export function Agritourism() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="border-glow-card glass-liquid mt-8 rounded-[32px] p-8"
+          className="glass-liquid mt-8 rounded-[32px] p-8"
         >
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.2fr]">
             <div>
@@ -110,7 +110,7 @@ export function Agritourism() {
                 <motion.div
                   key={h.label}
                   whileHover={{ x: 4 }}
-                  className="border-glow-card glass-liquid liquid-sheen flex items-center gap-3 rounded-2xl p-3"
+                  className="glass-liquid liquid-sheen flex items-center gap-3 rounded-2xl p-3"
                 >
                   <div className="glass flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
                     <h.icon size={15} />

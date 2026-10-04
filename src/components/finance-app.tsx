@@ -63,7 +63,7 @@ export function PhoneMockup() {
 
           {/* Balance card */}
           <div
-            className="border-glow-card glass-liquid mt-4 rounded-2xl p-4"
+            className="glass-liquid mt-4 rounded-2xl p-4"
             style={{
               background: "linear-gradient(135deg, oklch(0.5 0.25 300 / 30%), oklch(0.5 0.25 285 / 20%))",
             }}
@@ -79,7 +79,7 @@ export function PhoneMockup() {
           </div>
 
           {/* Chart */}
-          <div className="border-glow-card glass mt-3 rounded-2xl p-3">
+          <div className="glass mt-3 rounded-2xl p-3">
             <div className="mb-2 flex items-center justify-between text-[10px] text-muted-foreground">
               <span>{d.finance.phone.spending}</span>
               <span>{d.finance.phone.month}</span>
@@ -111,7 +111,7 @@ export function PhoneMockup() {
           {/* Transactions */}
           <div className="mt-3 space-y-2">
             {d.finance.phone.tx.map((t, i) => (
-              <div key={t.name} className="border-glow-card glass flex items-center justify-between rounded-xl p-2.5">
+              <div key={t.name} className="glass flex items-center justify-between rounded-xl p-2.5">
                 <div className="flex items-center gap-2">
                   <div className="glass-liquid flex h-7 w-7 items-center justify-center rounded-lg">
                     {TX_META[i]!.up ? (
@@ -187,7 +187,7 @@ export function FinanceApp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="border-glow-card glass-liquid rounded-3xl p-6"
+                className="glass-liquid rounded-3xl p-6"
               >
                 <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                   <f.icon size={18} />
@@ -215,7 +215,7 @@ export function FinanceApp() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="border-glow-card glass-liquid rounded-3xl p-6"
+                className="glass-liquid rounded-3xl p-6"
               >
                 <div className="glass flex h-11 w-11 items-center justify-center rounded-2xl">
                   <f.icon size={18} />
@@ -233,7 +233,7 @@ export function FinanceApp() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9 }}
-          className="border-glow-card glass-liquid mt-20 overflow-hidden rounded-[32px] p-2"
+          className="glass-liquid mt-20 overflow-hidden rounded-[32px] p-2"
         >
           <div
             className="rounded-3xl p-8 sm:p-10"
@@ -244,7 +244,7 @@ export function FinanceApp() {
           >
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               {d.finance.dash.stats.map((label, i) => (
-                <div key={label} className="border-glow-card glass rounded-2xl p-4">
+                <div key={label} className="glass rounded-2xl p-4">
                   <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
                     {label}
                   </div>
@@ -257,7 +257,7 @@ export function FinanceApp() {
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
-              <div className="border-glow-card glass rounded-2xl p-5">
+              <div className="glass rounded-2xl p-5">
                 <div className="mb-3 flex items-center justify-between">
                   <div className="text-sm text-foreground">{d.finance.dash.cashflow}</div>
                   <div className="text-xs text-muted-foreground">{d.finance.dash.last30}</div>
@@ -285,7 +285,7 @@ export function FinanceApp() {
                   />
                 </svg>
               </div>
-              <div className="border-glow-card glass rounded-2xl p-5">
+              <div className="glass rounded-2xl p-5">
                 <div className="text-sm text-foreground">{d.finance.dash.topCategories}</div>
                 <div className="mt-3 space-y-2.5">
                   {d.finance.dash.categories.map((c, i) => (

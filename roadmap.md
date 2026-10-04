@@ -6,4 +6,3 @@
 - [x] Correggere l'anno del progetto Agriturismo al 2026.
 - [x] Estendere il restyling editoriale ad apertura, servizi e contatti.
 - [x] Verificare le pagine aggiornate su desktop e mobile.
-- [x] Applicare il glow viola reattivo a tutte le vere card del sito.

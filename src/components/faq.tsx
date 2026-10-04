@@ -76,7 +76,7 @@ export function FAQ() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="border-glow-card glass-liquid rounded-3xl p-8 sm:p-10"
+              className="glass-liquid rounded-3xl p-8 sm:p-10"
             >
               <div className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: "var(--accent)" }}>
                 {d.faq.answerLabel} {String(active + 1).padStart(2, "0")}

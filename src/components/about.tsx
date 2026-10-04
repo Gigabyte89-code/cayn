@@ -66,7 +66,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="border-glow-card glass-liquid relative overflow-hidden rounded-3xl p-8"
+            className="glass-liquid relative overflow-hidden rounded-3xl p-8"
           >
             <div
               className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-50 blur-3xl"
@@ -89,7 +89,7 @@ export function About() {
                 {highlights.map((h) => (
                   <div
                     key={h.label}
-                    className="border-glow-card glass hover-lift flex items-start gap-3 rounded-2xl p-4"
+                    className="glass hover-lift flex items-start gap-3 rounded-2xl p-4"
                   >
                     <div className="glass-liquid flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
                       <h.icon size={16} style={{ color: "var(--accent)" }} />
