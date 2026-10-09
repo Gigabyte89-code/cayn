@@ -565,5 +565,6 @@ html.lenis, html.lenis body { height: auto; }
   contain-intrinsic-size: auto 900px;
 }
 @media (hover: none), (pointer: coarse) {
-  .glass, .glass-strong, .glass-liquid { backdrop-filter: none; }
+  /* Cards go flat on touch for speed; the navbar keeps its blur so text never bleeds through */
+  .glass, .glass-strong { backdrop-filter: none; }
 }
