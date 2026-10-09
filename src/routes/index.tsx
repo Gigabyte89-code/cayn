@@ -33,6 +33,13 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: URL },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:alt", content: `${SITE_NAME} — Freelance Web Developer in Italy` },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "it_IT" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "author", content: "Cayn" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
@@ -45,6 +52,14 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": `${URL}#website`,
+              url: URL,
+              name: "Cayn Developer",
+              inLanguage: ["en", "it"],
+              publisher: { "@id": `${URL}#person` },
+            },
             {
               "@type": "Person",
               "@id": `${URL}#person`,

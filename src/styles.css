@@ -371,13 +371,19 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Slow logo marquee */
 @keyframes marquee-x {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
-@utility animate-marquee {
-  animation: marquee-x 32s linear infinite;
+.animate-marquee {
+  animation: marquee-x 32s linear infinite !important;
+  will-change: transform;
 }
-.animate-marquee:hover { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+  .animate-marquee:hover { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation-duration: 70s !important; }
+}
 
 /* Cursor-following refraction glow on liquid glass surfaces.
    Driven by --mx/--my set in JS; degrades to nothing without them. */
