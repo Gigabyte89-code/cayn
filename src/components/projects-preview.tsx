@@ -6,7 +6,7 @@ import { useT } from "@/lib/i18n";
 
 const PROJECTS_DATA = [
   { image: null as string | null, hash: "finance" },
-  { image: "/projects/occhio-hero.png", hash: "agritourism" },
+  { image: "/projects/occhio-hero.webp", hash: "agritourism" },
 ];
 
 export function ProjectsPreview() {
