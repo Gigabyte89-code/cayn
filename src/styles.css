@@ -1,3 +1,7 @@
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/instrument-serif";
+@import "@fontsource/instrument-serif/index-italic.css";
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
