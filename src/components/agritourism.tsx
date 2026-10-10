@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import { CaseHeader } from "@/components/case-header";
 import { useT } from "@/lib/i18n";
-const heroShot = { url: "/projects/occhio-hero.png" };
-const productShot = { url: "/projects/occhio-products.png" };
+const heroShot = { url: "/projects/occhio-hero.webp" };
+const productShot = { url: "/projects/occhio-products.webp" };
 
 const FEATURE_ICONS = [Search, ShoppingBasket, Mail, Gauge];
 const HIGHLIGHT_ICONS = [CalendarCheck, Images, MapPin, Leaf];
