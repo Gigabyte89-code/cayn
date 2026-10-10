@@ -112,8 +112,8 @@ html.lenis, html.lenis body { height: auto; }
   --color-accent-warm: var(--accent-warm);
 
   --font-display: "Instrument Serif", "Times New Roman", serif;
-  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Space Grotesk Variable", "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 :root {
